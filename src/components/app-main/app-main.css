@@ -1,9 +1,3 @@
-.Layout main {
-    width: 100%;
-    flex-grow: 1;
-    overflow: hidden;
-}
-
 .LessonsDiv {
     display: flex;
     flex-direction: column;

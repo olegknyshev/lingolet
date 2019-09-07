@@ -8,7 +8,7 @@
     border-top: 1px solid #ddd;
 }
 
-.Layout nav .AppNavTab {
+.Layout nav a {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -20,13 +20,14 @@
     font-size: .9rem;
     padding: 10px 0;
     transition: background .3s ease-out;
+    text-decoration: none;
 }
 
-.Layout nav .AppNavTab:hover {
+.Layout nav a:hover {
     background: #ddd;
 }
 
-.Layout nav .Active {
+.Layout nav a.Active {
     color: rgb(100, 104, 170);
 }
 

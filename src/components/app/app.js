@@ -34,10 +34,12 @@ export default class App extends Component {
             <div className='Layout'>
                 <div>
                     <AppHeader />
-                    <Router>                        
-                        { routes }
-                    </Router>                    
+                    <Router> 
+                    <main>                           
+                        { routes } 
+                    </main>  
                     <AppNav />
+                    </Router> 
                 </div>
             </div>
         );

@@ -18,11 +18,9 @@ export default class AppMain extends Component {
         })
     
         return (
-            <main>
-                <div className='LessonsDiv'>
-                { elements }
-                </div>
-            </main>
+            <div className='LessonsDiv'>
+            { elements }
+            </div>
         );
     }
 }
