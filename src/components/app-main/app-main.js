@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import {LessonsData} from '../../lessons-data';
 import './app-main.css';
 
 export default class AppMain extends Component {
 
     render() {
-        const { lessons } = this.props;
-
-        const elements = lessons.map ((item) => {
+        
+        const elements = LessonsData.map ((item) => {
             return (
                 <div key={ item.id } className='LessonsBox'>
                     <p className='LessonNumer'>Урок <span>{ item.id }.</span></p>
