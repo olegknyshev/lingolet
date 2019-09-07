@@ -1,0 +1,35 @@
+.Layout nav {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.Layout nav .AppNavTab {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    background: #fff;
+    font-weight: bold;
+    font-size: .9rem;
+    padding: 10px 0;
+    transition: background .3s ease-out;
+}
+
+.Layout nav .AppNavTab:hover {
+    background: #ddd;
+}
+
+.Layout nav .Active {
+    color: rgb(100, 104, 170);
+}
+
+.AppNavTab i {
+    margin-bottom: 5px;
+}

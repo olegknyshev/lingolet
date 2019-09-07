@@ -1,0 +1,73 @@
+.Layout main {
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.LessonsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+.LessonsBox {
+    position:relative;
+    background: #fff;
+    width:80%;
+    border-radius: .3rem ;
+    display: block;
+    margin: 0 20px 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
+    padding: 5px 20px 1px;
+    transition: all .3s ease-out;
+}
+
+.LessonsBoxProgress {
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:0%;
+    height:5px;
+    background: radial-gradient( #00b2d6, #0c8aa3);
+}
+
+.LessonsBox:hover {
+    box-shadow: 0 4px 14px 0 rgba(37,32,31,.25);
+
+}
+
+.LessonsBox .LessonNumer {
+    margin: 0;
+    font-size: .8rem;
+    color: #999;
+}
+
+.LessonsBox .LessonNumer span {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(100, 104, 170);
+}
+
+.LessonsBox .LessonProgress {
+    text-align: right;
+    margin-top: 5px;
+    font-size: .8rem;
+    color: #666;
+}
+
+.LessonsBox .LessonProgress span {
+    color: rgb(100, 104, 170);
+}
+
+.LessonsBox h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: rgb(100, 104, 170);
+}

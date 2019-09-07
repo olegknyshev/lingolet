@@ -1,0 +1,32 @@
+.Layout header {
+    margin: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Layout header h1 {
+    font-size: 1.2rem;
+}
+
+.Layout header h1 span {
+    color: #00b2d6;
+    font-weight: normal;
+}
+
+.Layout header .AppHeaderUser button {
+    background: rgb(100, 104, 170);
+    border: 0px;
+    border-radius: 20px;
+    padding: 9px 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.Layout header .AppHeaderUser button:hover {
+    background: rgb(76, 79, 139);
+    color: #fff;
+}
