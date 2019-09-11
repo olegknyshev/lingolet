@@ -1,0 +1,101 @@
+.welcomeBox {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:50;
+    background: rgba(0,0,0,.8);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+}
+
+.welcomeBox h1 {
+    margin-top:70px;
+    color: #56cf4b;
+    font-size: 1.8rem;
+}
+
+.welcomeBox p {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.welcomeBox button {
+    margin-top:20px;
+    background: #56cf4b;
+    border: 0px;
+    border-radius: 20px;
+    padding: 9px 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.welcomeBox button:hover {
+    background: #43ac39;
+    color: #fff;
+}
+
+.welcomeBox .arrowBox {
+    position: absolute;
+    top: 30px;
+    right:30px;
+    width:250px;
+    color:#fff;
+    font-size: 14px;
+}
+
+.welcomeBox .arrowBox .fa-lightbulb {
+    float: left;
+    color:#56cf4b;
+}
+
+.welcomeBox .arrowBox::before {
+    content: url('/images/arrow.png'); 
+    display: block;
+    width: 75px; 
+    height: 60px;   
+    position: relative;
+    left: 100px;
+    top: -10px;
+}
+
+@media screen and (orientation:landscape) {
+
+    .welcomeBox {
+        padding-left: 20%;
+    }
+
+    .welcomeBox h1 {
+        font-size: 2rem;
+        margin-top:100px;
+    }
+    
+    .welcomeBox p {
+        font-size: 1.4rem;
+    }
+    
+    .welcomeBox .arrowBox {
+        position: absolute;
+        top: 9vh;
+        right:17vw;
+        width:350px;
+        color:#bbb;
+        font-size: 16px;
+    }
+    
+    .welcomeBox .arrowBox::before {
+        content: url('/images/arrow.png'); 
+        display: block;
+        width: 75px; 
+        height: 60px;   
+        position: relative;
+        left: 150px;
+        top: -10px;
+    }
+}

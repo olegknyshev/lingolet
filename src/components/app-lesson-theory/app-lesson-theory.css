@@ -1,0 +1,32 @@
+.theory {
+  padding:20px;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.theory h1 {
+  font-size: 2rem;
+  color:#75787b;
+  margin: 20px 0 20px;
+}
+
+.theory h2 {
+  background: #75787b;
+  font-weight: normal;
+  color:#fff;
+  padding: 20px;
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.theory p {
+  color:#525252;
+}
+
+@media screen and (orientation:landscape) {
+  .theory {
+    padding:0px 50px 30px;
+    height: 95%;
+    overflow-y: scroll;
+  }
+}

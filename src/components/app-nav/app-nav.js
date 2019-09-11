@@ -4,16 +4,35 @@ import './app-nav.css';
 
 export default class AppNav extends Component {
 
+    state = {
+        pageStatus: 1
+      };
+
     render() {
         const AppNavList = () => {
             return (
                 <NavLink
                     to='/'
-                    exact='true'
+                    exact={true}
                     activeClassName='active'
                 >                    
                         <i className="far fa-list-alt fa-2x"></i>
-                        Уроки                   
+                        Уроки                                     
+                </NavLink>
+            );
+        }
+
+        const AppNavBack = () => {
+            return (
+                <NavLink
+                    to='/'
+                    exact={true}
+                    activeClassName='active'
+                >                    
+                        <i className="fas fa-chevron-circle-left fa-2x"></i>  
+                        К урокам
+
+                                         
                 </NavLink>
             );
         }
@@ -22,7 +41,7 @@ export default class AppNav extends Component {
             return (
                 <NavLink
                     to='/settings'
-                    exact='false'
+                    exact={false}
                     activeClassName='active'
                 >                    
                         <i className="fas fa-cogs fa-2x"></i>
@@ -35,7 +54,7 @@ export default class AppNav extends Component {
             return (
                 <NavLink
                     to='/statistics'
-                    exact='false'
+                    exact={false}
                     activeClassName='active'
                 >                   
                         <i className="fas fa-chart-line fa-2x"></i>
@@ -48,7 +67,7 @@ export default class AppNav extends Component {
             return (
                 <NavLink
                     to='/exam'
-                    exact='false'
+                    exact={false}
                     activeClassName='active'
                 >
                     <i className="far fa-file-alt fa-2x"></i>
@@ -57,7 +76,56 @@ export default class AppNav extends Component {
             );
         }
 
-        return (
+        const AppNavLessonTheory = () => {
+            return (
+                <NavLink
+                    to={`/lesson/theory/${ this.state.pageStatus }`}
+                    exact={false}
+                    activeClassName='active'
+                >
+                    <i className="fas fa-lightbulb fa-2x"></i>
+                    Теория                   
+                </NavLink>
+            );
+        }
+
+        const AppNavLessonDictionary = () => {
+            return (
+                <NavLink
+                    to={`/lesson/dictionary/${ this.state.pageStatus }`}
+                    exact={false}
+                    activeClassName='active'
+                >
+                    <i className="fas fa-book fa-2x"></i>
+                    Словарь                   
+                </NavLink>
+            );
+        }
+
+        const AppNavLessonPractice = () => {
+            return (
+                <NavLink
+                    to={`/lesson/practice/${ this.state.pageStatus }`}
+                    exact={false}
+                    activeClassName='active'
+                >
+                    <i className="fas fa-graduation-cap fa-2x"></i>
+                    Практика                   
+                </NavLink>
+            );
+        }
+
+        if (this.state.pageStatus > 0) 
+            return (
+                <nav>
+                    <AppNavBack />
+                    <AppNavLessonTheory />
+                    <AppNavLessonDictionary />
+                    <AppNavLessonPractice />
+                </nav>
+            )
+
+            else return (
             <nav>
                 <AppNavList />
                 <AppNavProgress />

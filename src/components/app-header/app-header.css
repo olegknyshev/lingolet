@@ -1,4 +1,5 @@
 .Layout header {
+    grid-area: header;
     margin: 5px 20px;
     display: flex;
     flex-direction: row;
@@ -6,17 +7,56 @@
     align-items: center;
 }
 
-.Layout header h1 {
-    font-size: 1.2rem;
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:10px;
 }
 
-.Layout header h1 span {
-    color: #00b2d6;
+.logo h1 {
+    margin:0;
+    padding:2px 10px;
+    border:2px solid #56cf4b;
+    font-size: 1rem;  
+    padding-right: 16px;
+    border-radius: 3px;
+}
+
+.logo h2 {
+    margin:0;
+    padding:2px 10px;
+    border:2px solid #999;
+    background: #999;
+    color:#fff;
+    font-size: 1rem;  
+    padding-left: 16px;
+    margin-left: -20px;
     font-weight: normal;
+    border-radius: 3px;
+}
+
+.logo > div {
+    font-weight: bold;
+    position: relative;
+    font-size: 18px;
+    left: -10px;
+    width:33px;
+    height:33px;
+    line-height: 33px;
+    text-align: center;
+    background: #56cf4b;
+    border:1px solid #fff;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 50%;
 }
 
 .Layout header .AppHeaderUser button {
-    background: rgb(100, 104, 170);
+    margin-top:5px;
+    position: relative;
+    z-index:60;
+    background: #56cf4b;
     border: 0px;
     border-radius: 20px;
     padding: 9px 20px;
@@ -27,6 +67,6 @@
 }
 
 .Layout header .AppHeaderUser button:hover {
-    background: rgb(76, 79, 139);
+    background: #43ac39;
     color: #fff;
 }

@@ -3,6 +3,7 @@ import AppNav from '../app-nav';
 import AppHeader from '../app-header';
 import AppMain from '../app-main';
 import AppExam from '../app-exam';
+import AppWelcome from '../app-welcome';
 import AppLessonDictionary from '../app-lesson-dictionary';
 import AppLessonTheory from '../app-lesson-theory';
 import AppLessonPractice from '../app-lesson-practice';
@@ -14,8 +15,13 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 
 export default class App extends Component {
 
-    render() {
+    state = {
+        isDark: false,
+        isLogin: false,
+        isFirstTime: false      
+      };
 
+    render() {
         let routes = (
             <Switch>
               <Route path="/auth" component={Auth} />
@@ -25,14 +31,16 @@ export default class App extends Component {
               <Route path="/lesson/practice/:id" component={AppLessonPractice} />
               <Route path="/settings" component={AppSettings} />
               <Route path="/statistics" component={AppStatistics} />
-              <Route path="/" exact component={AppMain} />
+              <Route exact path="/" component={AppMain} />
               <Redirect to="/" />
             </Switch>
-          )
-
+          );
+ 
         return (
-            <div className='Layout'>
+            <div className= {this.state.isDark ? 'Layout dark' : 'Layout'}>
                 <div>
+                    {this.state.isFirstTime ? <AppWelcome /> : null}
+                    
                     <AppHeader />
                     <Router> 
                     <main>                           

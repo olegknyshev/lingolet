@@ -1,4 +1,5 @@
 .Layout nav {
+    grid-area: nav;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -8,6 +9,10 @@
     border-top: 1px solid #ddd;
 }
 
+.dark nav {
+    background: #444;
+}
+
 .Layout nav a {
     display: flex;
     flex-grow: 1;
@@ -15,7 +20,6 @@
     align-items: center;
     justify-content: center;
     color: #666;
-    background: #fff;
     font-weight: bold;
     font-size: .9rem;
     padding: 10px 0;
@@ -23,14 +27,50 @@
     text-decoration: none;
 }
 
+.dark nav a {
+    color: #ddd;
+}
+
 .Layout nav a:hover {
     background: #ddd;
 }
 
-.Layout nav a.Active {
-    color: rgb(100, 104, 170);
+.dark nav a:hover {
+    background: #222;
 }
 
-.AppNavTab i {
+.Layout nav a.active {
+    color: #000;
+    background: #56cf4b;
+}
+
+.dark nav a.active {
+    background: #222;
+}
+
+.fa-2x {
     margin-bottom: 5px;
+}
+
+@media screen and (orientation:landscape) {
+    .Layout nav {
+        flex-direction: column;
+        border:0;
+    }
+
+    .Layout nav a {
+        padding: 0px 10px; 
+        border-bottom:1px solid #ccc;      
+    }
+
+    .Layout nav a:last-child {
+        border-bottom:0;}
+
+    .fa-chevron-circle-left {
+        transform: rotate(90deg);
+    }
+    .fa-2x {
+        margin-bottom: 10px;
+    }
+    
 }

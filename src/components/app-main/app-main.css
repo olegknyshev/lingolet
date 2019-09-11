@@ -1,11 +1,11 @@
 .LessonsDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
     padding-top: 10px;
     padding-bottom: 30px;
-    height: 100%;
+    height: 90%;
     overflow-y: scroll;
 }
 
@@ -14,12 +14,25 @@
     position:relative;
     background: #fff;
     width:80%;
+    min-width: 250px;
     border-radius: .3rem ;
     display: block;
     margin: 0 20px 15px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
-    padding: 5px 20px 1px;
+    padding: 10px 20px 15px;
     transition: all .3s ease-out;
+}
+
+.LessonsBox > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    }
+
+.dark .LessonsBox {
+    background: #333;
+    box-shadow: 0;
 }
 
 .LessonsBoxProgress {
@@ -28,7 +41,16 @@
     left:0px;
     width:0%;
     height:5px;
-    background: radial-gradient( #00b2d6, #0c8aa3);
+    background: radial-gradient( #56cf4b, #4daa44);
+}
+
+.LessonsBoxProgressB {
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:5px;
+    background: radial-gradient( #888, #aaa);
 }
 
 .LessonsBox:hover {
@@ -36,32 +58,67 @@
 
 }
 
-.LessonsBox .LessonNumer {
-    margin: 0;
-    font-size: .8rem;
-    color: #999;
+.dark .LessonsBox:hover {
+    box-shadow: 0;
+    background: #222;
+
 }
 
-.LessonsBox .LessonNumer span {
-    margin: 0;
-    font-size: 1.2rem;
+.LessonsBox .LessonNumer {
+    font-size: .8rem;
+    height:25px;
+    width:25px;
+    color: #fff;
     font-weight: bold;
-    color: rgb(100, 104, 170);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    background: #56cf4b;
+    border-radius: 50%;
+    margin-bottom: 2px;
+    float:left;
 }
 
 .LessonsBox .LessonProgress {
     text-align: right;
-    margin-top: 5px;
+    margin:0;
+    margin-bottom: 12px;
     font-size: .8rem;
     color: #666;
 }
 
 .LessonsBox .LessonProgress span {
-    color: rgb(100, 104, 170);
+    color: #56cf4b;
 }
 
 .LessonsBox h2 {
     margin: 0;
     font-size: 1rem;
-    color: rgb(100, 104, 170);
+    color: #000;
+}
+
+.dark .LessonsBox h2 {
+    color: #ddd;
+}
+
+@media screen and (orientation:landscape) {
+    .LessonsDiv {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        height:90%;
+    }
+
+    .LessonsBox {
+        width:25%;
+        min-height: 100px;
+    }
+
+    .LessonsBox h2 {
+        font-size: 1.3rem;
+    }
 }
