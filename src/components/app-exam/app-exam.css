@@ -7,7 +7,7 @@
 }
 
 .exam h1 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color:#75787b;
   margin: 20px 0 30px;
 }
@@ -20,14 +20,14 @@
   }
 
   .exam h1 {
-  font-size: 2rem;
+  font-size: 2em;
   }
 
 .exam h2 {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   }
 
 .exam p {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   }
 }

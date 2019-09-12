@@ -24,12 +24,12 @@
 
 .welcomeBox h1 {
     color: #56cf4b;
-    font-size: 1.8rem;
+    font-size: 1.8em;
 }
 
 .welcomeBox p {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.2em;
 }
 
 .welcomeBox button {
@@ -40,7 +40,7 @@
     padding: 9px 20px;
     cursor: pointer;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     font-weight: bold;
 }
 
@@ -86,11 +86,11 @@
     
 
     .welcomeBox h1 {
-        font-size: 2rem;
+        font-size: 2em;
     }
     
     .welcomeBox p {
-        font-size: 1.4rem;
+        font-size: 1.4em;
     }
     
     .welcomeBox .arrowBox {

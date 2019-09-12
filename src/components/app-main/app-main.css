@@ -15,7 +15,7 @@
     background: #fff;
     width:80%;
     min-width: 250px;
-    border-radius: .3rem ;
+    border-radius: .3em ;
     display: block;
     min-height: 20%;
     margin: 0 20px 15px;
@@ -66,7 +66,7 @@
 }
 
 .LessonsBox .LessonNumer {
-    font-size: .8rem;
+    font-size: .8em;
     height:25px;
     width:25px;
     color: #fff;
@@ -84,7 +84,7 @@
     text-align: right;
     margin:0;
     margin-bottom: 12px;
-    font-size: .8rem;
+    font-size: .8em;
     color: #666;
 }
 
@@ -94,7 +94,7 @@
 
 .LessonsBox h2 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1em;
     color: #000;
 }
 
@@ -106,7 +106,7 @@
     .LessonsDiv {
         flex-direction: row;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
         padding-top: 30px;
         padding-right: 30px;
@@ -120,6 +120,6 @@
     }
 
     .LessonsBox h2 {
-        font-size: 1.3rem;
+        font-size: 1.3em;
     }
 }

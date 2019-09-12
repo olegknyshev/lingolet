@@ -16,26 +16,40 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 export default class App extends Component {
 
     state = {
-        settings:{
-            isDark: false,
-            isLogin: false,
-            isFirstTime: true,
-            lessonId: 0,
-            fontSize: 0,
-            autoChek: true,
-            autoGo: true,
-            soundPractik: false,
-            soundTwice: false,
-            soundDict: false,
-            soundDictTwice: false
-        }
-      };
+        isDark: false,
+        isLogin: false,
+        isFirstTime: true,
+        lessonId: 0,
+        fontSize: 0,
+        autoChek: true,
+        autoGo: true,
+        soundPractik: false,
+        soundTwice: false,
+        soundDict: false,
+        soundDictTwice: false
+    };
+    
+    onToggleChange = (elem) => {
+        this.setState((state) => {         
+            return elem;
+        });
+    }; 
 
-      onNotFirst = () => {
-        this.setState({
-            settings:{isFirstTime: false}
-          });
-        };
+    onToggleFont = (elem) => {
+        console.log(elem);
+        this.setState((state) => { 
+            if (elem.fontSize === 0)
+            document.body.style.fontSize = '16px';
+            if (elem.fontSize === -1)
+            document.body.style.fontSize = '13px';
+            if (elem.fontSize === 1)
+            document.body.style.fontSize = '20px';
+
+            return elem;
+        });
+        
+    }; 
+    
 
     render() {
         let routes = (
@@ -45,7 +59,9 @@ export default class App extends Component {
               <Route path="/lesson/theory/:id" component={AppLessonTheory} />
               <Route path="/lesson/dictionary/:id" component={AppLessonDictionary} />
               <Route path="/lesson/practice/:id" component={AppLessonPractice} />
-              <Route path="/settings" component={AppSettings} />
+              <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />
+
+
               <Route path="/statistics" component={AppStatistics} />
               <Route exact path="/" component={AppMain} />
               <Redirect to="/" />
@@ -53,18 +69,18 @@ export default class App extends Component {
           );
  
         return (
-            <div className= {this.state.settings.isDark ? 'Layout dark' : 'Layout'}>
+            <div className= {this.state.isDark ? 'Layout dark' : 'Layout'}>
                 <div>
-                    {this.state.settings.isFirstTime 
-                        ? <AppWelcome onChange={ this.onNotFirst }/> 
+                    {this.state.isFirstTime 
+                        ? <AppWelcome onChange={ this.onToggleChange }/> 
                         : null}
                     
-                    <AppHeader pageStatus = {this.state.settings.lessonId} isLogin = {this.state.settings.isLogin}/>
+                    <AppHeader pageStatus = {this.state.lessonId} isLogin = {this.state.isLogin}/>
                     <Router> 
                     <main>                           
                         { routes } 
                     </main>  
-                    <AppNav pageStatus = {this.state.settings.lessonId}/>
+                    <AppNav pageStatus = {this.state.lessonId}/>
                     </Router> 
                 </div>
             </div>

@@ -7,7 +7,7 @@
 }
 
 .settings h1 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color:#75787b;
   margin: 20px 0 30px;
 }
@@ -18,7 +18,7 @@
   color:#75787b;
   padding: 25px 30px;
   margin: 0 0 30px;
-  font-size: 1.1rem;
+  font-size: 1.1em;
   border: 1px solid #56cf4b;
 }
 
@@ -44,7 +44,7 @@
 
 .settings p {
   color:#525252;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .settings-box {
@@ -111,7 +111,7 @@
 
 .settings-box-tab > div {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color:#525252;
   width:40%;
   margin-bottom: 30px;
@@ -225,14 +225,14 @@
     }
 
     .settings h1 {
-    font-size: 2rem;
+    font-size: 2em;
     }
 
   .settings h2 {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     }
 
   .settings p {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     }
 }

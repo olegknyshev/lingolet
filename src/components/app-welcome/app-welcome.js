@@ -11,7 +11,7 @@ const AppWelcome = ({onChange}) => {
                 <p>Ваш бесплатный тренажер <br /> 
                 для ежедневного закрепления <br />
                 основ английского языка.</p>
-                <button onClick={onChange}
+                <button onClick={() => onChange({isFirstTime:false})}
                 className='buttonWelcome'>
                     Начнем!
                 </button>
