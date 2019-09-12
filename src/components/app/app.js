@@ -51,7 +51,7 @@ export default class App extends Component {
                 <div>
                     {this.state.isFirstTime ? <AppWelcome /> : null}
                     
-                    <AppHeader />
+                    <AppHeader pageStatus = {this.state.pageStatus}/>
                     <Router> 
                     <main>                           
                         { routes } 

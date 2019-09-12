@@ -24,8 +24,7 @@ export default class AppHeader extends Component {
             return (
                 <div className='logo'>
                     <h1>Lingolet</h1>
-                    <div>En</div>  
-                    {/* <h2>beta</h2>                  */}
+                    <div>En</div>                
                 </div>
             );
             else return (
