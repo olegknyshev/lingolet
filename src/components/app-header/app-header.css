@@ -30,6 +30,10 @@
     font-weight: bold;
 }
 
+.dark .logo h2 {
+    color:#fff;
+}
+
 .logo > div {
     font-weight: bold;
     position: relative;
