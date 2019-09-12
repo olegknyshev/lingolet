@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './app-nav.css';
 
-const AppNav = ({pageStatus}) => {
+const AppNav = ({pageStatus, onChange}) => {
     
     const AppNavList = () => {
         return (
@@ -10,6 +10,7 @@ const AppNav = ({pageStatus}) => {
                 to='/'
                 exact={true}
                 activeClassName='active'
+                onClick={() => onChange({lessonId:0})}
             >                    
                     <i className="far fa-list-alt fa-2x"></i>
                     Уроки                                     
@@ -23,6 +24,7 @@ const AppNav = ({pageStatus}) => {
                 to='/'
                 exact={true}
                 activeClassName='active'
+                onClick={() => onChange({lessonId:0})}
             >                    
                     <i className="fas fa-chevron-circle-left fa-2x"></i>  
                     К урокам

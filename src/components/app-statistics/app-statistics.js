@@ -8,6 +8,7 @@ export default class AppStatistics extends Component {
         return (
             <div className='statistic'>
                 <h1>Статистика</h1>
+                <p>Здесь скоро все будет!</p>
             </div>
         );        
     }

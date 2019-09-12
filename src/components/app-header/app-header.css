@@ -24,16 +24,10 @@
 }
 
 .logo h2 {
-    margin:0;
-    padding:2px 10px;
-    border:2px solid #999;
-    background: #999;
-    color:#fff;
-    font-size: 1em;  
-    padding-left: 16px;
-    margin-left: -20px;
-    font-weight: normal;
-    border-radius: 3px;
+    color:#000;
+    margin:0 0 0 -5px;
+    font-size: 1.3em;  
+    font-weight: bold;
 }
 
 .logo > div {

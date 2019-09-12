@@ -3,7 +3,7 @@ import {LessonsData} from '../../lessons-data';
 import {NavLink} from 'react-router-dom';
 import './app-main.css';
 
-const AppMain = () => {
+const AppMain = ({onChange}) => {
 
     const elements = LessonsData.map ((item) => {
 
@@ -17,6 +17,7 @@ const AppMain = () => {
                 className='LessonsBox'
                 exact={false}
                 key={ item.id }
+                onClick={() => onChange({lessonId:item.id})}
             > 
                 <div>
                     <div>

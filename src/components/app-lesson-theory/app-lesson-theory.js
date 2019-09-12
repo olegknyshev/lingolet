@@ -1,19 +1,14 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import './app-lesson-theory.css';
 
 import AppLesson1 from './lesson-1';
-import AppLesson2 from './lesson-1';
+import AppLesson2 from './lesson-2';
 
-export default class AppLessonTheory extends Component {  
-    
-    state = {
-        lessonId:1     
-      };
+const AppLessonTheory = ({pageStatus}) => {
 
+  console.log(pageStatus);
 
-    render() {
-
-        switch (this.state.lessonId) {
+        switch (pageStatus) {
             case 1:  
               return <AppLesson1 />
              
@@ -22,7 +17,7 @@ export default class AppLessonTheory extends Component {
               return <AppLesson2 />
           
             default:
-              return null;
+              return <AppLesson2 />;
           }
     }
-}
+export default AppLessonTheory;

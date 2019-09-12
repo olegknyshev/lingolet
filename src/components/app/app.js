@@ -55,15 +55,15 @@ export default class App extends Component {
         let routes = (
             <Switch>
               <Route path="/auth" component={Auth} />
-              <Route path="/exam" component={AppExam} />
-              <Route path="/lesson/theory/:id" component={AppLessonTheory} />
+              <Route path="/exam" component={AppExam} />              
+              <Route path="/lesson/theory/:id" render={() => <AppLessonTheory  pageStatus = {this.state.lessonId}/>} />              
               <Route path="/lesson/dictionary/:id" component={AppLessonDictionary} />
               <Route path="/lesson/practice/:id" component={AppLessonPractice} />
               <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />
 
 
-              <Route path="/statistics" component={AppStatistics} />
-              <Route exact path="/" component={AppMain} />
+              <Route path="/statistics" component={AppStatistics} />              
+              <Route exact path="/" render={() => <AppMain onChange = {this.onToggleChange}/>} />
               <Redirect to="/" />
             </Switch>
           );
@@ -80,7 +80,7 @@ export default class App extends Component {
                     <main>                           
                         { routes } 
                     </main>  
-                    <AppNav pageStatus = {this.state.lessonId}/>
+                    <AppNav pageStatus = {this.state.lessonId} onChange={ this.onToggleChange }/>
                     </Router> 
                 </div>
             </div>

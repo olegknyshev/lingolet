@@ -8,6 +8,7 @@ export default class AppExam extends Component {
         return (
             <div className='exam'>
                 <h1>Экзамен</h1>
+                <p>Здесь скоро все будет!</p>
             </div>
         );        
     }
