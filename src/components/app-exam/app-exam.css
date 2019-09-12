@@ -1,0 +1,33 @@
+.exam {
+  padding:20px;
+  height: 90%;
+  background: inherit;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.exam h1 {
+  font-size: 1.5rem;
+  color:#75787b;
+  margin: 20px 0 30px;
+}
+
+@media screen and (orientation:landscape) {
+  .exam {
+    padding:0px 50px 30px;
+    height: 95%;
+    overflow-y: scroll;
+  }
+
+  .exam h1 {
+  font-size: 2rem;
+  }
+
+.exam h2 {
+  font-size: 1.2rem;
+  }
+
+.exam p {
+  font-size: 1.2rem;
+  }
+}

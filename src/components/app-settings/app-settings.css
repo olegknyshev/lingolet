@@ -1,0 +1,238 @@
+.settings {
+  padding:20px;
+  height: 90%;
+  background: inherit;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.settings h1 {
+  font-size: 1.5rem;
+  color:#75787b;
+  margin: 20px 0 30px;
+}
+
+.settings .tips {
+  position: relative;
+  font-weight: normal;
+  color:#75787b;
+  padding: 25px 30px;
+  margin: 0 0 30px;
+  font-size: 1.1rem;
+  border: 1px solid #56cf4b;
+}
+
+.dark .tips {
+  color:#fff;
+  border: 2px solid #56cf4b;
+}
+
+.settings .tips:before {
+  content: 'Совет!';
+  background: #f1f2f8;
+  padding:3px 5px;
+  color: #000;
+  position: absolute;
+  top:-15px;
+  left:20px;
+}
+
+.dark .tips:before {
+  background: #000;
+  color: #ddd;
+}
+
+.settings p {
+  color:#525252;
+  font-size: 1rem;
+}
+
+.settings-box {
+  position: relative;
+  width:100%;
+  padding:30px 0 0;
+  border: 1px dashed #CCC;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.settings-box-tab {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width:100%;
+}
+
+.settings-box:before {
+  content: '';
+  background: #f1f2f8;
+  padding:3px 5px;
+  color: inherit;
+  position: absolute;
+  top:-15px;
+  left:20px;
+}
+
+.theme:before {
+  content: 'Оформление';
+}
+
+.test:before {
+  content: 'Настройки тестов';
+}
+
+.prononsiation:before {
+  content: 'Произношение в уроках';
+}
+
+.prononsiation2:before {
+  content: 'Произношение в словаре';
+}
+
+.dark .theme:before {
+  content: 'Оформление';
+  background: #000;
+}
+
+.dark .test:before {
+  content: 'Настройки тестов';
+  background: #000;
+}
+
+.dark .prononsiation:before {
+  content: 'Произношение в уроках';
+  background: #000;
+}
+
+.dark .prononsiation2:before {
+  content: 'Произношение в словаре';
+  background: #000;
+}
+
+.settings-box-tab > div {
+  text-align: left;
+  font-size: 1.2rem;
+  color:#525252;
+  width:40%;
+  margin-bottom: 30px;
+}
+
+.dark .settings-box-tab > div {
+  color:#fff;
+}
+
+.right-settings > div {margin-bottom: 3px;}
+
+.checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
+}
+
+.checkbox + label {
+  position: relative;
+  top:5px;
+	padding: 0 0 0 60px;
+	cursor: pointer;
+}
+
+.checkbox + label:before {
+	content: '';
+	position: absolute;
+	top: -4px;
+	left: 0;
+	width: 50px;
+	height: 26px;
+	border-radius: 13px;
+	background: #CDD1DA;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	transition: .2s;
+}
+
+.checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	transition: .2s;
+}
+
+.checkbox:checked + label:before {
+	background: #9FD468;
+}
+
+.checkbox:checked + label:after {
+	left: 26px;
+}
+
+.checkbox:focus + label:before {
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 3px rgba(255,255,0,.2);
+}
+
+.radio {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 0px 0 0 7px;
+}
+.radio + label {
+  position: relative;
+	padding: 0 0 0 35px;
+  cursor: pointer;
+}
+.radio + label:before {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio + label:after {
+	content: '';
+	position: absolute;
+	top: 7px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #9FD468;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	opacity: 0;
+	transition: .2s;
+}
+.radio:checked + label:after {
+	opacity: 1;
+}
+.radio:focus + label:before {
+	box-shadow: 0 0 0 3px rgba(255,255,0,.2);
+}
+
+@media screen and (orientation:landscape) {
+    .settings {
+      padding:0px 50px 30px;
+      height: 95%;
+      overflow-y: scroll;
+    }
+
+    .settings h1 {
+    font-size: 2rem;
+    }
+
+  .settings h2 {
+    font-size: 1.2rem;
+    }
+
+  .settings p {
+    font-size: 1.2rem;
+    }
+}

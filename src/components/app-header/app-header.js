@@ -4,7 +4,7 @@ import './app-header.css';
 export default class AppHeader extends Component {
 
     state = {
-        pageStatus: 1,
+        pageStatus: 0,
         isLoggin: false
       };
 
@@ -24,7 +24,8 @@ export default class AppHeader extends Component {
             return (
                 <div className='logo'>
                     <h1>Lingolet</h1>
-                    <div>En</div>                   
+                    <div>En</div>  
+                    {/* <h2>beta</h2>                  */}
                 </div>
             );
             else return (

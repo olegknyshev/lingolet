@@ -6,7 +6,9 @@ export default class AppStatistics extends Component {
     render() {
         
         return (
-            <h1>Статистика</h1>
+            <div className='statistic'>
+                <h1>Статистика</h1>
+            </div>
         );        
     }
 }

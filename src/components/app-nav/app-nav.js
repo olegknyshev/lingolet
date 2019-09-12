@@ -5,7 +5,7 @@ import './app-nav.css';
 export default class AppNav extends Component {
 
     state = {
-        pageStatus: 1
+        lessonId: 0
       };
 
     render() {
@@ -79,7 +79,7 @@ export default class AppNav extends Component {
         const AppNavLessonTheory = () => {
             return (
                 <NavLink
-                    to={`/lesson/theory/${ this.state.pageStatus }`}
+                    to={`/lesson/theory/${ this.state.lessonId }`}
                     exact={false}
                     activeClassName='active'
                 >
@@ -92,7 +92,7 @@ export default class AppNav extends Component {
         const AppNavLessonDictionary = () => {
             return (
                 <NavLink
-                    to={`/lesson/dictionary/${ this.state.pageStatus }`}
+                    to={`/lesson/dictionary/${ this.state.lessonId }`}
                     exact={false}
                     activeClassName='active'
                 >
@@ -105,7 +105,7 @@ export default class AppNav extends Component {
         const AppNavLessonPractice = () => {
             return (
                 <NavLink
-                    to={`/lesson/practice/${ this.state.pageStatus }`}
+                    to={`/lesson/practice/${ this.state.lessonId }`}
                     exact={false}
                     activeClassName='active'
                 >
@@ -115,7 +115,7 @@ export default class AppNav extends Component {
             );
         }
 
-        if (this.state.pageStatus > 0) 
+        if (this.state.lessonId > 0) 
             return (
                 <nav>
                     <AppNavBack />

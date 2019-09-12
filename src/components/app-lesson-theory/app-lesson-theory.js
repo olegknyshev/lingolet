@@ -1,6 +1,8 @@
 import React, { Component }  from 'react';
-import Lesson1 from '../../html/1';
 import './app-lesson-theory.css';
+
+import AppLesson1 from './lesson-1';
+import AppLesson2 from './lesson-1';
 
 export default class AppLessonTheory extends Component {  
     
@@ -11,8 +13,16 @@ export default class AppLessonTheory extends Component {
 
     render() {
 
-        return (
-            <Lesson1 />
-        );  
+        switch (this.state.lessonId) {
+            case 1:  
+              return <AppLesson1 />
+             
+          
+            case 2: 
+              return <AppLesson2 />
+          
+            default:
+              return null;
+          }
     }
 }

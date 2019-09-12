@@ -6,7 +6,9 @@ export default class AppExam extends Component {
     render() {
         
         return (
-            <h1>экзамен</h1>
+            <div className='exam'>
+                <h1>Экзамен</h1>
+            </div>
         );        
     }
 }

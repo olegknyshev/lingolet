@@ -1,0 +1,33 @@
+.statistic {
+  padding:20px;
+  height: 90%;
+  background: inherit;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.statistic h1 {
+  font-size: 1.5rem;
+  color:#75787b;
+  margin: 20px 0 30px;
+}
+
+@media screen and (orientation:landscape) {
+  .statistic {
+    padding:0px 50px 30px;
+    height: 95%;
+    overflow-y: scroll;
+  }
+
+  .statistic h1 {
+  font-size: 2rem;
+  }
+
+.statistic h2 {
+  font-size: 1.2rem;
+  }
+
+.statistic p {
+  font-size: 1.2rem;
+  }
+}

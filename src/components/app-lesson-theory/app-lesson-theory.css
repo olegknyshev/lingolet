@@ -5,7 +5,7 @@
 }
 
 .theory h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color:#75787b;
   margin: 20px 0 20px;
 }
@@ -14,19 +14,84 @@
   background: #75787b;
   font-weight: normal;
   color:#fff;
-  padding: 20px;
-  margin: 0 0 10px;
+  padding: 10px 30px;
+  margin: 0 0 30px;
+  font-size: 1.1rem;
+}
+
+.theory h3 {
+  font-weight: bold;
+  color:#56cf4b;
+  margin: 30px 0 0px;
   font-size: 1.1rem;
 }
 
 .theory p {
   color:#525252;
+  font-size: 1rem;
 }
 
+.dark .theory p {
+  color:#bbb;
+  font-size: 1rem;
+}
+
+table {
+  width:100%;
+  background: #fff;
+  border:#666;
+}
+
+.dark table {
+  width:100%;
+  background: #333;
+  border:#fff;
+}
+
+th {
+  background: #56cf4b;
+  color:#fff;
+  padding: 8px;
+}
+
+td {
+  width:50%;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+tr:nth-child(odd) td { background-color:#ccc } /*odd*/
+tr:nth-child(even) td { background-color:#fff } /* even*/
+
+.dark tr:nth-child(odd) td { background-color:#333 } /*odd*/
+.dark tr:nth-child(even) td { background-color:#555 } /* even*/
+
 @media screen and (orientation:landscape) {
-  .theory {
-    padding:0px 50px 30px;
-    height: 95%;
-    overflow-y: scroll;
-  }
+    .theory {
+      padding:0px 50px 30px;
+      height: 95%;
+      overflow-y: scroll;
+    }
+
+    .theory h1 {
+    font-size: 2rem;
+    }
+
+  .theory h2 {
+    font-size: 1.2rem;
+    }
+
+  .theory h3 {
+    font-size: 1.3rem;
+    }
+
+  .theory p {
+    font-size: 1.2rem;
+    }
+
+  td {
+    font-size: 1rem;
+    }
 }

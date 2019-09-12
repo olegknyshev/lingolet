@@ -55,7 +55,7 @@
     color:#56cf4b;
 }
 
-.welcomeBox .arrowBox::before {
+.welcomeBox .arrowBox:before {
     content: url('/images/arrow.png'); 
     display: block;
     width: 75px; 

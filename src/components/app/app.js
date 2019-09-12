@@ -18,7 +18,17 @@ export default class App extends Component {
     state = {
         isDark: false,
         isLogin: false,
-        isFirstTime: false      
+        isFirstTime: false,
+        pageStatus: 0,
+        isLoggin: false,
+        lessonId: 0,
+        fontSize: 0,
+        autoChek: true,
+        autoGo: true,
+        soundPractik: false,
+        soundTwice: false,
+        soundDict: false,
+        soundDictTwice: false
       };
 
     render() {
