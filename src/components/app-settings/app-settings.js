@@ -23,7 +23,8 @@ export default class AppSettings extends Component {
         return (
             <div className='settings'>
                 <h1>Настройки</h1>
-                <div className='tips'>
+                <div className='tips'
+                    style={this.state.isLoggin ? {display: 'none'} : null }>
                     Авторизация в приложении, откроет Вам 
                     новый функционал:<br />
                     доступ ко всем урокам, 

@@ -16,20 +16,26 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 export default class App extends Component {
 
     state = {
-        isDark: false,
-        isLogin: false,
-        isFirstTime: false,
-        pageStatus: 0,
-        isLoggin: false,
-        lessonId: 0,
-        fontSize: 0,
-        autoChek: true,
-        autoGo: true,
-        soundPractik: false,
-        soundTwice: false,
-        soundDict: false,
-        soundDictTwice: false
+        settings:{
+            isDark: false,
+            isLogin: false,
+            isFirstTime: true,
+            lessonId: 0,
+            fontSize: 0,
+            autoChek: true,
+            autoGo: true,
+            soundPractik: false,
+            soundTwice: false,
+            soundDict: false,
+            soundDictTwice: false
+        }
       };
+
+      onNotFirst = () => {
+        this.setState({
+            settings:{isFirstTime: false}
+          });
+        };
 
     render() {
         let routes = (
@@ -47,16 +53,18 @@ export default class App extends Component {
           );
  
         return (
-            <div className= {this.state.isDark ? 'Layout dark' : 'Layout'}>
+            <div className= {this.state.settings.isDark ? 'Layout dark' : 'Layout'}>
                 <div>
-                    {this.state.isFirstTime ? <AppWelcome /> : null}
+                    {this.state.settings.isFirstTime 
+                        ? <AppWelcome onChange={ this.onNotFirst }/> 
+                        : null}
                     
-                    <AppHeader pageStatus = {this.state.pageStatus}/>
+                    <AppHeader pageStatus = {this.state.settings.lessonId} isLogin = {this.state.settings.isLogin}/>
                     <Router> 
                     <main>                           
                         { routes } 
                     </main>  
-                    <AppNav />
+                    <AppNav pageStatus = {this.state.settings.lessonId}/>
                     </Router> 
                 </div>
             </div>

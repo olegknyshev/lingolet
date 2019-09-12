@@ -1,27 +1,29 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import './app-welcome.css';
 
-export default class AppWelcome extends Component {
+const AppWelcome = ({onChange}) => {
 
-    render() {
-        
-        return (
-            <div className='welcomeBox'>
-                <div>
-                    <h1>Добро пожаловать<br />
-                    в Lingolet!</h1>
-                    <p>Ваш бесплатный тренажер <br /> 
-                    для ежедневного закрепления <br />
-                    основ английского языка.</p>
-                    <button className='buttonWelcome'>Начнем!</button>
+    return (
+        <div className='welcomeBox'>
+            <div>
+                <h1>Добро пожаловать<br />
+                в Lingolet!</h1>
+                <p>Ваш бесплатный тренажер <br /> 
+                для ежедневного закрепления <br />
+                основ английского языка.</p>
+                <button onClick={onChange}
+                className='buttonWelcome'>
+                    Начнем!
+                </button>
 
-                    <div className='arrowBox'>
-                        Авторизация, открывает для вас 
-                        новый функционал: полный доступ к урокам, 
-                        статистику Вашего прогресса, ночной режим.
-                    </div>
+                <div className='arrowBox'>
+                    Авторизация, открывает для вас 
+                    новый функционал: полный доступ к урокам, 
+                    статистику Вашего прогресса, ночной режим.
                 </div>
             </div>
+        </div>
         );        
-    }
 }
+
+export default AppWelcome;
