@@ -1,7 +1,7 @@
 export const LessonsData = [
     {   id: 1, 
         titel: 'Утверждение, вопрос и отрицание в простых предложениях', 
-        progress: 0,
+        progress: 10,
         dictionary: [
             {
                 id: 1,
