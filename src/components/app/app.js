@@ -25,9 +25,7 @@ export default class App extends Component {
         autoChek: true,
         autoGo: true,
         soundPractik: false,
-        soundTwice: false,
-        soundDict: false,
-        soundDictTwice: false
+        soundTwice: false
     };
     
     onToggleChange = (elem) => {
@@ -50,11 +48,10 @@ export default class App extends Component {
         });
         
     }; 
-
-    
+        
 
     render() {
-        console.log(this.state)
+        
         let routes = (
             <Switch>
               <Route path="/auth" component={Auth} />

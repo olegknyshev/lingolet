@@ -100,7 +100,7 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                                 name="radio1"
                                 checked={!settings.transcripR ? true : false} 
                                 onChange={() => onChangeFont({transcripR:false})}/>
-                            <label htmlFor="radio-11">[ 'ai ]</label>
+                            <label htmlFor="radio-11">[ v'ot tak ]</label>
                         </div>
                         <div>
                             <input 
@@ -110,7 +110,7 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                                 name="radio1"
                                 checked={settings.transcripR ? true : false} 
                                 onChange={() => onChangeFont({transcripR:true})} />
-    	                    <label htmlFor="radio-12">[ ай ]</label>
+    	                    <label htmlFor="radio-12">[ или так ]</label>
                         </div>                   
                     </div>
                 </div>
@@ -135,29 +135,6 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                     </div>
                 </div>
                 </div>
-                <div className='settings-box prononsiation2'>                    
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Озвучивать выбранное слово</div>
-                    <div className='right-settings'>
-                        <input className="checkbox" id="checkbox-6" type="checkbox"
-                        checked={settings.soundDict ? true : false}
-                        onChange={() => onChange({soundDict:!settings.soundDict})} />
-                        <label htmlFor="checkbox-6"></label>
-                    </div>
-                </div> 
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Повторять дважды</div>
-                    <div className='right-settings'>
-                        <input className="checkbox" id="checkbox-7" type="checkbox"
-                        checked={settings.soundDictTwice ? true : false}
-                        onChange={() => onChange({soundDictTwice:!settings.soundDictTwice})} />
-                        <label htmlFor="checkbox-7"></label>
-                    </div>
-                </div>                  
-                </div>
-            
-
-
         </div>
     );        
 }
