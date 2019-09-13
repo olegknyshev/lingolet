@@ -5,7 +5,7 @@ const FromLocalStorage = () => {
       data = JSON.parse(data);
       return data;
     } 
-    else return settings;
+    else return null;
 }
 
 export default FromLocalStorage;
