@@ -80,9 +80,8 @@ export default class App extends Component {
                     {this.state.isFirstTime 
                         ? <AppWelcome onChange={ this.onToggleChange }/> 
                         : null}
-                    
-                    <AppHeader pageStatus = {this.state.lessonId} isLogin = {this.state.isLogin}/>
                     <Router> 
+                    <AppHeader pageStatus = {this.state.lessonId} isLogin = {this.state.isLogin} onChange={ this.onToggleChange }/>     
                     <main>                           
                         { routes } 
                     </main>  

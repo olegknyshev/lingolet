@@ -7,6 +7,8 @@
     align-items: center;
 }
 
+.Layout header a {color:#000;}
+
 .logo {
     display: flex;
     justify-content: flex-start;
