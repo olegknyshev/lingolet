@@ -65,28 +65,53 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                 
             </div>
                 <div className='settings-box test'>                    
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Автопроверка</div>
-                    <div className='right-settings'>
-                        <input 
-                            className="checkbox" 
-                            id="checkbox-2" 
-                            type="checkbox"
-                            checked={settings.autoChek ? true : false}
-                            onChange={() => onChange({autoChek:!settings.autoChek})} />
-                        <label htmlFor="checkbox-2"></label>
+                    <div className='settings-box-tab'>                    
+                        <div className='left-settings'>Автопроверка</div>
+                        <div className='right-settings'>
+                            <input 
+                                className="checkbox" 
+                                id="checkbox-2" 
+                                type="checkbox"
+                                checked={settings.autoChek ? true : false}
+                                onChange={() => onChange({autoChek:!settings.autoChek})} />
+                            <label htmlFor="checkbox-2"></label>
+                        </div>
                     </div>
-                </div>
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Автопереход</div>
+                    <div className='settings-box-tab'>                    
+                        <div className='left-settings'>Автопереход</div>
+                        <div className='right-settings'>
+                            <input 
+                                className="checkbox" 
+                                id="checkbox-3" 
+                                type="checkbox"
+                                checked={settings.autoGo ? true : false}
+                                onChange={() => onChange({autoGo:!settings.autoGo})} />
+                            <label htmlFor="checkbox-3"></label>
+                        </div>
+                    </div>
+                    <div className='settings-box-tab'>                    
+                    <div className='left-settings'>Транскрипция</div>
                     <div className='right-settings'>
-                        <input 
-                            className="checkbox" 
-                            id="checkbox-3" 
-                            type="checkbox"
-                            checked={settings.autoGo ? true : false}
-                            onChange={() => onChange({autoGo:!settings.autoGo})} />
-                        <label htmlFor="checkbox-3"></label>
+                        <div>
+                            <input 
+                                className="radio" 
+                                id="radio-11" 
+                                type="radio" 
+                                name="radio1"
+                                checked={!settings.transcripR ? true : false} 
+                                onChange={() => onChangeFont({transcripR:false})}/>
+                            <label htmlFor="radio-11">[ 'ai ]</label>
+                        </div>
+                        <div>
+                            <input 
+                                className="radio" 
+                                id="radio-12" 
+                                type="radio" 
+                                name="radio1"
+                                checked={settings.transcripR ? true : false} 
+                                onChange={() => onChangeFont({transcripR:true})} />
+    	                    <label htmlFor="radio-12">[ ай ]</label>
+                        </div>                   
                     </div>
                 </div>
                 </div>

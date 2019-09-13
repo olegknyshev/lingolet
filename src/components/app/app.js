@@ -21,6 +21,7 @@ export default class App extends Component {
         isFirstTime: true,
         lessonId: 0,
         fontSize: 0,
+        transcripR: false,
         autoChek: true,
         autoGo: true,
         soundPractik: false,
@@ -49,9 +50,11 @@ export default class App extends Component {
         });
         
     }; 
+
     
 
     render() {
+        console.log(this.state)
         let routes = (
             <Switch>
               <Route path="/auth" component={Auth} />
