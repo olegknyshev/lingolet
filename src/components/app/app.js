@@ -3,6 +3,7 @@ import AppNav from '../app-nav';
 import AppHeader from '../app-header';
 import AppMain from '../app-main';
 import AppExam from '../app-exam';
+import FromLocalStorage from '../../service/from-local-storage';
 import AppWelcome from '../app-welcome';
 import AppLessonDictionary from '../app-lesson-dictionary';
 import AppLessonTheory from '../app-lesson-theory';
@@ -27,6 +28,16 @@ export default class App extends Component {
         soundPractik: false,
         soundTwice: false
     };
+
+    componentDidMount() {
+        this.setState((state) => {         
+            return FromLocalStorage();
+        });
+    }
+
+    componentDidUpdate() {
+        localStorage.setItem('settings', JSON.stringify(this.state));
+    }    
     
     onToggleChange = (elem) => {
         this.setState((state) => {         
@@ -35,7 +46,7 @@ export default class App extends Component {
     }; 
 
     onToggleFont = (elem) => {
-        console.log(elem);
+        
         this.setState((state) => { 
             if (elem.fontSize === 0)
             document.body.style.fontSize = '16px';
@@ -43,12 +54,10 @@ export default class App extends Component {
             document.body.style.fontSize = '13px';
             if (elem.fontSize === 1)
             document.body.style.fontSize = '20px';
-
             return elem;
         });
         
-    }; 
-        
+    };         
 
     render() {
         
@@ -59,10 +68,7 @@ export default class App extends Component {
               <Route path="/lesson/theory/:id" render={() => <AppLessonTheory  pageStatus = {this.state.lessonId}/>} />              
               <Route path="/lesson/dictionary/:id" component={AppLessonDictionary} />
               <Route path="/lesson/practice/:id" component={AppLessonPractice} />
-              <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />
-
-
-              <Route path="/statistics" component={AppStatistics} />              
+              <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />              <Route path="/statistics" component={AppStatistics} />              
               <Route exact path="/" render={() => <AppMain onChange = {this.onToggleChange}/>} />
               <Redirect to="/" />
             </Switch>
