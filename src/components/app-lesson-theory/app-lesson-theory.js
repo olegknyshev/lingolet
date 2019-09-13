@@ -10,8 +10,7 @@ const AppLessonTheory = ({pageStatus}) => {
 
         switch (pageStatus) {
             case 1:  
-              return <AppLesson1 />
-             
+              return <AppLesson1 />             
           
             case 2: 
               return <AppLesson2 />
