@@ -65,9 +65,13 @@ export default class App extends Component {
             <Switch>
               <Route path="/auth" component={Auth} />
               <Route path="/exam" component={AppExam} />              
-              <Route path="/lesson/theory/:id" render={() => <AppLessonTheory  pageStatus = {this.state.lessonId}/>} />              
-              <Route path="/lesson/dictionary/:id" component={AppLessonDictionary} />
-              <Route path="/lesson/practice/:id" component={AppLessonPractice} />
+              <Route path="/lesson/theory/:id" render={() => <AppLessonTheory  pageStatus = {this.state.lessonId}/>} /> 
+              <Route path="/lesson/dictionary/:id" render={() => 
+              <AppLessonDictionary  
+                pageStatus = {this.state.lessonId}/>} 
+                transcrip = {this.state.transcripR}/>}
+              /> 
+              <Route path="/lesson/practice/:id" render={() => <AppLessonPractice  pageStatus = {this.state.lessonId}/>} />              
               <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />              <Route path="/statistics" component={AppStatistics} />              
               <Route exact path="/" render={() => <AppMain onChange = {this.onToggleChange}/>} />
               <Redirect to="/" />

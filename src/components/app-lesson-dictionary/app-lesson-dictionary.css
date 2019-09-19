@@ -32,8 +32,8 @@
 
 .dictionary td {
   width:30%;
-  text-align: center;
-  padding: 8px;
+  text-align: left;
+  padding: 8px 8px 8px 15px;
   font-weight: bold;
   font-size: 1em;
 }
@@ -46,7 +46,7 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
 
 .dictionary button.begin {
   position: absolute;
-  bottom:30px;
+  bottom:50px;
   right:30px;
   background: #c4d600;
   border: 0px;
@@ -59,7 +59,8 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
   box-shadow: 1px 1px 2px #666;
 }
 
-td.sound {width:10%}
+td.transcription {width:10%; text-align: center}
+td.sound {width:10%; text-align: center}
 
 .dictionary button:hover, .dictionary button.yes:hover  {
   background: rgb(70, 160, 62);
@@ -83,7 +84,7 @@ td.sound {width:10%}
 }
 
 .buttonWrite {
-  width:50%;
+  width:90%;
   display:flex;  
   justify-content: center;
   flex-wrap: wrap;
@@ -91,14 +92,14 @@ td.sound {width:10%}
 }
 
 .buttonWrite button {
-  width:60px; height:60px;
-  margin:10px;
+  width:70px; height:70px;
+  margin:5px;
   background: #fff;
   border: 0px;
   padding: 10px;
   cursor: pointer;
   color: #000;
-  font-size: 1.2em;
+  font-size: 2em;
   font-weight: normal;
 }
 
@@ -117,25 +118,25 @@ td.sound {width:10%}
 
 .showProgressB {
   position: absolute;
-  left:20px;
+  left:30px;
   bottom:10px;
-  width: calc(100% - 40px); 
+  width: calc(100% - 60px); 
   background: #999;
   height:5px;
 }
 
 .showProgress {
   position: absolute;
-  left:20px;
+  left:30px;
   bottom:10px;
-  width: calc(30% - 40px); 
+  width: calc(30% - 60px); 
   background: #c4d600;
   height:5px;
 }
 
 .showProgressP {
   position: absolute;
-  left:calc(30% - 40px);
+  left:calc(30% - 60px);
   bottom:5px;
   background: #f1f2f8;
   color:#666;
@@ -206,8 +207,16 @@ td.sound {width:10%}
   }
 
   .dictionary button.begin {
-    bottom:30px;
+    bottom:50px;
     right:50px;    
+  }
+
+  .buttonWrite {
+    width:70%;
+    display:flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
 }
