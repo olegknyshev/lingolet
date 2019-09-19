@@ -84,7 +84,7 @@ export default class App extends Component {
                     <AppHeader pageStatus = {this.state.lessonId} isLogin = {this.state.isLogin} onChange={ this.onToggleChange }/>     
                     <main>                           
                         { routes } 
-                    </main>  
+                    </main>                     
                     <AppNav pageStatus = {this.state.lessonId} onChange={ this.onToggleChange }/>
                     </Router> 
                 </div>

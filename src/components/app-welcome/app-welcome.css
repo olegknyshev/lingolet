@@ -23,7 +23,7 @@
 
 
 .welcomeBox h1 {
-    color: #56cf4b;
+    color: #c4d600;
     font-size: 1.8em;
 }
 
@@ -34,7 +34,7 @@
 
 .welcomeBox button {
     margin-top:20px;
-    background: #56cf4b;
+    background: #c4d600;
     border: 0px;
     border-radius: 20px;
     padding: 9px 20px;
@@ -60,7 +60,7 @@
 
 .welcomeBox .arrowBox .fa-lightbulb {
     float: left;
-    color:#56cf4b;
+    color:#c4d600;
 }
 
 .welcomeBox .arrowBox:before {

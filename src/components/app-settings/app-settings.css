@@ -19,12 +19,12 @@
   padding: 25px 30px;
   margin: 0 0 30px;
   font-size: 1.1em;
-  border: 1px solid #56cf4b;
+  border: 1px solid #c4d600;
 }
 
 .dark .tips {
   color:#fff;
-  border: 2px solid #56cf4b;
+  border: 2px solid #c4d600;
 }
 
 .settings .tips:before {

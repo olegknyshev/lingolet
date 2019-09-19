@@ -6,7 +6,8 @@ export default class AppPractice extends Component {
     render() {
         
         return (
-            <h1>Практика</h1>
+           
+            <div>Практика</div>
         );        
     }
 }

@@ -42,7 +42,7 @@
     left:0px;
     width:0%;
     height:5px;
-    background: radial-gradient( #56cf4b, #4daa44);
+    background: radial-gradient( #c4d600, #4daa44);
 }
 
 .LessonsBoxProgressB {
@@ -74,7 +74,7 @@
     text-align: center;
     vertical-align: middle;
     line-height: 25px;
-    background: #56cf4b;
+    background: #c4d600;
     border-radius: 50%;
     margin-bottom: 2px;
     float:left;
@@ -89,7 +89,7 @@
 }
 
 .LessonsBox .LessonProgress span {
-    color: #56cf4b;
+    color: #c4d600;
 }
 
 .LessonsBox h2 {

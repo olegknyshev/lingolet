@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: #524c61;   
     font-size: 16px; 
 }
@@ -16,4 +17,5 @@ a {
 
 :focus {
     outline: none;
-    }
+}
+

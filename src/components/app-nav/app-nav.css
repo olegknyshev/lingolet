@@ -41,11 +41,11 @@
 
 .Layout nav a.active {
     color: #000;
-    background: #56cf4b;
+    background: #c4d600;
 }
 
 .dark nav a.active {
-    background: #56cf4b;
+    background: #c4d600;
 }
 
 .fa-2x {
