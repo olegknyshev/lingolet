@@ -21,7 +21,7 @@ export default class AppMain extends Component {
                 if (dataProgress[index].progress>0) progress = `Ваш прогресс: ${ dataProgress[index].progress }%`;
                 if (dataProgress[index].progress===100) progress = 'Ура, этот урок вы прошли!';
             };
-
+            
             return (
                 <NavLink
                     to={`/lesson/theory/${ item.id }`}

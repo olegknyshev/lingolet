@@ -2,7 +2,7 @@ import React from 'react';
 import './app-settings.css';
 
 const AppSettings = ({settings, onChange, onChangeFont}) => {  
- 
+    
     return (
         <div className='settings'>
             <h1>Настройки</h1>

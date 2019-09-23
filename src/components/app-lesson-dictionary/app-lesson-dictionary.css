@@ -47,7 +47,8 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
 .dictionary button.begin {
   position: absolute;
   bottom:50px;
-  right:30px;
+  left: calc(50% - 130px); 
+  width:260px;
   background: #c4d600;
   border: 0px;
   border-radius: 20px;
@@ -59,7 +60,7 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
   box-shadow: 1px 1px 2px #666;
 }
 
-td.transcription {width:10%; text-align: center}
+/* td.transcription {width:10%; text-align: center} */
 td.sound {width:10%; text-align: center}
 
 .dictionary button:hover, .dictionary button.yes:hover  {
@@ -208,7 +209,8 @@ td.sound {width:10%; text-align: center}
 
   .dictionary button.begin {
     bottom:50px;
-    right:50px;    
+    left: calc(50% - 130px); 
+    width:260px;
   }
 
   .buttonWrite {

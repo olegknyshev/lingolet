@@ -1,16 +1,15 @@
 import React from 'react';
-import {LessonsDic} from '../../../data/lessons-dict';
 
-const DictList = ({onChange, isTranscR}) => {  
+const DictList = ({dataDict, onChange, isTranscR}) => {  
 
   
 
-  const elements = LessonsDic.map ((item) => { 
- 
+  const elements = dataDict.map ((item) => { 
+    
     return (
-      <tr><td>{ item.word }</td>
+      <tr key={ item.id }><td>{ item.word }</td>
       <td className='transcription'>[{isTranscR ? item.transcription[1] : item.transcription[0] }]</td>
-      <td className='sound'><i class="fas fa-headphones"></i></td>
+      {/* <td className='sound'><i class="fas fa-headphones"></i></td> */}
       <td>{ item.translate }</td></tr>
     );
 });
@@ -23,7 +22,7 @@ const DictList = ({onChange, isTranscR}) => {
               <tr>
                 <th>Слово</th>
                 <th className='transcription'>Транскрипция</th>
-                <th className='sound'><i class="fas fa-headphones"></i></th>
+                {/* <th className='sound'><i class="fas fa-headphones"></i></th> */}
                 <th>Перевод</th>
               </tr>
           </thead>
