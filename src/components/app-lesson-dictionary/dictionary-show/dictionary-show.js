@@ -1,22 +1,42 @@
 import React from 'react';
 
-const DictShow = () => {  
- 
+export default class DictShow extends React.Component {  
+
+  state = {
+    isKnow: true,
+    isAnswer: false,
+    isTranscR: this.props.isTranscR,
+    buttonYes: 'знаю'
+  };
+
+  render() {
+
+    const { wordData } = this.props;
+
     return (
       <div className='dictShow'>
-        <div className='word'>show</div>
-        <div className='wordtranscription'>[show] <i className="fas fa-headphones"></i></div>
-        <div className='wordtranslate'>показывать</div>
+        <div className='word'>{wordData.word}</div>
+        <div className='wordtranscription'>[{this.state.isTranscR ? wordData.transcription[1] : wordData.transcription[0] }] <i className="fas fa-headphones"></i></div>
+        <div className='wordtranslateQ'>
+          {this.state.isAnswer 
+            ? wordData.translate 
+            : '_ _ _ _ _ _'
+          }
+        </div>        
         <div className='buttonknow'>
-          <button><i className="far fa-surprise fa-2x"></i><br />Вау, новое слово...</button>
-          <button className='yes'><i className="far fa-smile fa-2x"></i><br />Знакомо, можно дальше!</button>
+          <button
+            onClick={() => this.setState({isAnswer: true, buttonYes: 'дальше...', isKnow:'false'})}
+          >
+            <i className="far fa-surprise fa-2x"></i> не знаю 
+          </button>
+          <button className='yes'
+            onClick={() => {this.setState({isKnow: true, isAnswer: false, buttonYes: 'знаю'}); this.props.onAnswer(wordData.id, 'SHOW', this.state.isKnow)}}
+          >
+            <i className="far fa-smile fa-2x"></i> {this.state.buttonYes}
+          </button>
 
         </div>
-
-
-        
       </div>
-    );        
+    ); 
+  }       
 }
-
-export default DictShow;

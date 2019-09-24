@@ -1,16 +1,17 @@
 import React from 'react';
 
-const ShowProgress = () => {  
- 
+const ShowProgress = ({progress}) => {  
+    
     return (
       <div>
         <div className='showProgressB'> 
         </div>
-        <div className='showProgress' style={{width: 'calc(30% - 40px)'}}> 
+        <div className='showProgress' style={{width: `calc(${progress}% - 60px)`}}> 
+          <div className='showProgressP'> 
+          {progress}%
+          </div>
         </div>
-        <div className='showProgressP'> 
-        30%
-        </div>
+        
       </div>
     );        
 }

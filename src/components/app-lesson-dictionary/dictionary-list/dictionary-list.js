@@ -15,7 +15,7 @@ const DictList = ({dataDict, onChange, isTranscR}) => {
 });
  
     return (
-      <div>
+      <>
         <h1>Словарь</h1>
         <table>
           <thead>
@@ -33,7 +33,7 @@ const DictList = ({dataDict, onChange, isTranscR}) => {
         <button 
            onClick={() => onChange({isStart:false})}
           className='begin'>Начнем...</button>
-      </div>
+      </>
     );        
 }
 
