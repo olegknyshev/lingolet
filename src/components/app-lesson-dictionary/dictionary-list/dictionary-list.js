@@ -8,7 +8,7 @@ const DictList = ({dataDict, onChange, isTranscR}) => {
     
     return (
       <tr key={ item.id }><td>{ item.word }</td>
-      <td className='transcription'>[{isTranscR ? item.transcription[1] : item.transcription[0] }]</td>
+      <td className='transcription'>[&nbsp;{isTranscR ? item.transcription[1] : item.transcription[0]}&nbsp;]</td>
       {/* <td className='sound'><i class="fas fa-headphones"></i></td> */}
       <td>{ item.translate }</td></tr>
     );
@@ -31,7 +31,7 @@ const DictList = ({dataDict, onChange, isTranscR}) => {
           </tbody>
         </table>
         <button 
-           onClick={() => onChange({isStart:false})}
+           onClick={() => onChange('SHOWALL')}
           className='begin'>Начнем...</button>
       </>
     );        

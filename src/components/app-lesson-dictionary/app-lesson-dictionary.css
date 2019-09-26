@@ -1,10 +1,11 @@
 .dictionary {
   display:flex;  
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding:20px;
   height: 90%;
+  margin-top:10px;
+  padding:20px;
   background: inherit;
   overflow-y: scroll;
   position: relative;
@@ -66,7 +67,21 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
   box-shadow: 1px 1px 2px #666;
 }
 
-/* td.transcription {width:10%; text-align: center} */
+.dictionary button.next {
+  background: #c4d600;
+  border: 0px;
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin-top:40px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+  box-shadow: 1px 1px 2px #666;
+}
+
+td.transcription {color:#000}
+
 td.sound {width:10%; text-align: center}
 
 .dictionary button:hover, .dictionary button.yes:hover  {
@@ -118,8 +133,8 @@ td.sound {width:10%; text-align: center}
   min-width: 200px;
   margin:10px;
   background: #f1f2f8;
-  border:1px solid #c4d600;
-  box-shadow: 1px 1px 1px 0 rgba(37,32,31,.2);
+  border:0px solid #c4d600;
+  box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
   padding: 15px 20px;
   cursor: pointer;
   color: #000;
@@ -127,10 +142,34 @@ td.sound {width:10%; text-align: center}
   font-weight: normal;
 }
 
+.buttonQwest button.tipColor {
+  animation: tip  1s infinite ease-in-out;
+}
+
+@keyframes tip {
+  from {background: #fff;}
+  50% {background: #c4d600;}
+  to {background: #fff;}
+  }
+
 .buttonQwest button:hover {
   background: #c4d600;
   color: #000;
 }
+
+.congratulation {
+  text-align: center;
+  width:100%;
+  
+}
+
+.congratulation h3 {
+  font-size: 2em;
+  color:#c4d600;
+  font-weight: bold;
+  margin:0;
+}
+
 
 .showProgressB {
   position: absolute;
@@ -211,8 +250,7 @@ td.sound {width:10%; text-align: center}
 
 @media screen and (orientation:landscape) {
   .dictionary {
-    padding:0px 50px 30px;
-    height: 95%;
+    padding:30px 50px 30px;
     overflow-y: scroll;
   }
 
@@ -240,6 +278,21 @@ td.sound {width:10%; text-align: center}
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+  }
+
+  .congratulation h3 {
+    font-size: 2em;
+    color:#c4d600;
+    font-weight: bold;
+    margin:0;
+  }
+  
+  .congratulation p {
+    font-size: .8em;
+    color:#999;
+    font-weight: normal;
+    margin:0;
+    margin-bottom: 10px;
   }
 
 }

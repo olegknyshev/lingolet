@@ -4,9 +4,9 @@ import './app-lesson-theory.css';
 import AppLesson1 from '../../data/lesson-1';
 import AppLesson2 from '../../data/lesson-2';
 
-const AppLessonTheory = ({pageStatus}) => {
+const AppLessonTheory = (props) => {
   
-        switch (pageStatus) {
+        switch (+props.match.params.id) {
             case 1:  
               return <AppLesson1 />             
           

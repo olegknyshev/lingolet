@@ -41,7 +41,7 @@ export default class AppMain extends Component {
                     </div>
                 </NavLink>
             );
-        })
+        });
     
         return (
             <div className='LessonsDiv'>
