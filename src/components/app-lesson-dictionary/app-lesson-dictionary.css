@@ -243,6 +243,77 @@ td.sound {width:10%; text-align: center}
 
 .buttonknow button.yes {background: #4dd15f;}
 
+.dictionary .tips {
+  position: relative;
+  font-weight: normal;
+  color:#75787b;
+  padding: 25px 30px;
+  margin: 0 0 30px;
+  font-size: 1.1em;
+  border: 1px solid #c4d600;
+  background: #fff;
+}
+
+.dark .tips {
+  color:#fff;
+  border: 2px solid #c4d600;
+  background: #333;
+}
+
+.dictionary .tips:before {
+  content: 'Ваша задача:';
+  background: #f1f2f8;
+  padding:3px 5px;
+  color: #000;
+  position: absolute;
+  top:-15px;
+  left:20px;
+}
+
+.dark .tips:before {
+  background: #000;
+  color: #ddd;
+}
+
+.dictionary .finishTest {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 1px 0 rgba(37,32,31,.1);
+  padding: 30px 30px;
+}
+
+.finishTest div {margin-top:20px;}
+
+.finishTest h2 {
+  text-align: center;
+  color:#000;
+  font-size: 2em;
+}
+
+.finishTest i {
+  text-align: center;
+  color:#c4d600;
+}
+
+.finishTest a {
+  margin:10px;
+  background: #c4d600;
+  border: 0px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.2em;
+}
+
+.finishTest a:hover {
+  background: rgb(70, 160, 62);
+  color: #fff;
+}
+
 @media screen and (orientation:portrait) {
   .transcription {display: none;}
 }

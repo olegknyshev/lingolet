@@ -2,6 +2,16 @@ import React from 'react';
 
 export default class DictQwest extends React.Component { 
 
+  static defaultProps = { 
+    defaultState: {
+      isAnswer: false,
+      isTrue: true,
+      words:[],
+      idxAnswer:-1,
+      wrongAnswer: 0,
+      tipColor: false }    
+  };
+
   state={
     isAnswer: false,
     isTrue: true,
@@ -32,6 +42,7 @@ export default class DictQwest extends React.Component {
 
   this.setState({words: arr, idxAnswer: idx});
   }
+  
 
   clickAnswer(index) {
     if (index === this.state.idxAnswer) {
@@ -54,12 +65,13 @@ export default class DictQwest extends React.Component {
       <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
     <button 
       className='next'
-      onClick={() => {this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
+      onClick={() => {this.setState(this.props.state); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
       >Дальше</button>
     </div>)
   }
   
   render() {
+    console.log(this.props.defaultState);
     const { wordData, route, isTranscR} = this.props;    
     let bodyWord = '';
 

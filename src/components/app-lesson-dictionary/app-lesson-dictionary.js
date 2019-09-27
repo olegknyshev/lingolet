@@ -3,13 +3,16 @@ import DictList from './dictionary-list/';
 import DictShow from './dictionary-show/';
 import DictQwest from './dictionary-qwest/';
 import DictWrite from './dictionary-write/';
+import DictFinish from './dictionary-finish/';
 import ShowProgress from './show-progress/';
 import './app-lesson-dictionary.css';
 
 import {LessonsDic} from '../../data/lessons-dict';
 
 
-export default class AppLessonDictionary extends Component {
+export default class AppLessonDictionary extends Component { 
+
+    static defaultProps = { maxLoops: 3 };
 
     state = {
         lessonId: +this.props.match.params.id, 
@@ -19,20 +22,23 @@ export default class AppLessonDictionary extends Component {
         progress: []
     };
 
+
    onlyThisLesson() {
        return LessonsDic.filter((item) => { return item.lesson === this.state.lessonId}); 
    }
 
    findItemFromId(idx) { 
-       const arr = this.onlyThisLesson();    
-       const id = arr.findIndex((item) => item.id === idx.id);
+       const arr = this.onlyThisLesson();   
+       if (!idx) console.log('rerrrrrrrrrrrrrr')
+       const id = arr.findIndex((item) => item.id === idx.id);       
        return arr[id];
    }
 
-   progressIs() {
-       let total = this.state.progress.length;
-       let right = this.state.progress.filter((item) => { return item.right === 5}).length;
-       let totalProgress= right*100/total;
+   progressIs() {       
+       const  arr =this.state.progress;
+       let total = arr.length*this.props.maxLoops;
+       const sum = arr.reduce((partial_sum, a) => partial_sum + a.right,0); 
+       let totalProgress= sum*100/total;
        return totalProgress.toFixed();   
    }
 
@@ -55,7 +61,6 @@ export default class AppLessonDictionary extends Component {
     componentDidMount() {
         
         let stateData = this.fromLocalStorage();
-        stateData.nextTest = 'SHOWALL';
         this.setState((state) => {         
             return stateData;
         });
@@ -71,9 +76,9 @@ export default class AppLessonDictionary extends Component {
     }
 
     isOldWord() {
-        const Arr = this.state.progress;
-        const ArrShowedWord = Arr.filter((item) => item.show === true);
-        const idx = Math.floor(Math.random()*ArrShowedWord.length);        
+        const Arr = this.state.progress;        
+        const ArrShowedWord = Arr.filter((item) => item.show === true && item.right < this.props.maxLoops);
+        const idx = Math.floor(Math.random()*ArrShowedWord.length);  
         const data = this.findItemFromId(ArrShowedWord[idx]);
         return data;               
     }
@@ -128,13 +133,18 @@ export default class AppLessonDictionary extends Component {
                 countWord, progress
               }));
         } 
-        this.setState((state) => ({
+        else this.setState((state) => ({
             isFirst: false
           })); 
     }
 
+    isFinish() {
+        const isAllLearned = this.state.progress.findIndex((item) => item.right < this.props.maxLoops);
+        if (isAllLearned === -1) return true; else return false;
+    }
+
     chooseNextTest() {
-        let nextTest = '';
+        let nextTest;
         if (this.state.isFirst) nextTest = 'SHOWALL'; 
         else {
             if (this.state.countWord < 6) nextTest = 'SHOWWORD';
@@ -149,15 +159,15 @@ export default class AppLessonDictionary extends Component {
                 }
             }
         }      
-
+        if (this.isFinish()) nextTest = 'FINISH';       
         return nextTest;
     }
 
     chooseNextWord(nextTest) {
         let word;
-        if (nextTest === 'SHOWALL') return null;
+        if (nextTest === 'SHOWALL' || nextTest === 'FINISH') return null;
         else {
-            const haveNew = this.state.progress.findIndex((item) => item.show === false);
+            const haveNew = this.state.progress.findIndex((item) => item.show === false && item.right < this.props.maxLoops);
             if (nextTest === 'SHOWWORD') {
                 if (haveNew === -1) word = this.isOldWord(); else word = this.isNewWord();
             }
@@ -169,7 +179,7 @@ export default class AppLessonDictionary extends Component {
     }
 
     render() {
-        let nextTest = this.chooseNextTest();         
+        let nextTest = this.chooseNextTest();       
         let word = this.chooseNextWord(nextTest);
         let wrongData = [];
         if (nextTest === 'QWESTWORDA' || nextTest === 'QWESTWORDR') wrongData = this.wrongData();        
@@ -181,6 +191,7 @@ export default class AppLessonDictionary extends Component {
             case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
             case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
             case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR }/>); break;
+            case 'FINISH': body = (<DictFinish />); break;
             default: body = 'что-то пошло не так...';
         }
 

@@ -5,7 +5,7 @@ const DictWrite = () => {
     return (
       <div className='dictShow'>
         <div className='word'>показать</div>
-        <div className='wordtranscription'>[show] <i class="fas fa-headphones"></i></div>
+        <div className='wordtranscription'>[show] <i className="fas fa-headphones"></i></div>
         <div className='wordtranslate'>show</div>
         <div className='buttonWrite'>
           <button>c</button>

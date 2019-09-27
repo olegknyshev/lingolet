@@ -58,11 +58,6 @@
     font-size: 14px;
 }
 
-.welcomeBox .arrowBox .fa-lightbulb {
-    float: left;
-    color:#c4d600;
-}
-
 .welcomeBox .arrowBox:before {
     content: url('/images/arrow.png'); 
     display: block;
@@ -108,7 +103,43 @@
         width: 75px; 
         height: 60px;   
         position: relative;
+        left: 50px;
+        top: -10px;
+    }
+}
+
+@media (orientation:landscape) and (min-width: 1500px) and (max-width: 2000px) {
+    .welcomeBox .arrowBox::before {
+        content: url('/images/arrow.png'); 
+        display: block;
+        width: 75px; 
+        height: 60px;   
+        position: relative;
+        left: 20px;
+        top: -10px;
+    }
+}
+
+@media (orientation:landscape) and (min-width: 800px) and (max-width: 1500px) {
+    .welcomeBox .arrowBox::before {
+        content: url('/images/arrow.png'); 
+        display: block;
+        width: 75px; 
+        height: 60px;   
+        position: relative;
         left: 150px;
+        top: -10px;
+    }
+}
+
+@media (orientation:landscape) and (min-width: 300px) and (max-width: 800px) {
+    .welcomeBox .arrowBox::before {
+        content: url('/images/arrow.png'); 
+        display: block;
+        width: 75px; 
+        height: 60px;   
+        position: relative;
+        left: 50px;
         top: -10px;
     }
 }
