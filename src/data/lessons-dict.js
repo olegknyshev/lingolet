@@ -13,12 +13,29 @@ export const LessonsDic =  [
       word: 'show',
       transcription: ['ʃəu','шоу'],      
       translate: 'показать',
-      type: 'verb',
-      form2: ['showed', 'ʃəʊd', 'шовед', 'показал (2 форма)'],
-      form3: ['shown', 'ʃəʊn', 'шовен', 'показал (3 форма)']
+      type: '1. infinitive',
+      also: [3,4]
   },
   {
-      id: 3, 
+    id: 3, 
+    lesson: 1,
+    word: 'showed',
+    transcription: ['ʃəʊd','шовед'],      
+    translate: 'показал',
+    type: '2. past',
+    from: 2
+  },
+  {
+    id: 4, 
+    lesson: 1,
+    word: 'shown',
+    transcription: ['ʃəʊn','шовен'],      
+    translate: 'показал',
+    type: '3. perfect',
+    from: 2
+  },
+  {
+      id: 5, 
       lesson: 1,
       word: 'recive',
       transcription: ['rɪˈsiːv','рисив'],      
@@ -26,37 +43,88 @@ export const LessonsDic =  [
       type: 'verb',
   },
   {
-      id: 4, 
+      id: 6, 
       lesson: 1,
       word: 'know',
       transcription: ['nəʊ','ноу'],      
       translate: 'знать, узнавать',
-      type: 'verb',
-      form2: ['knew', 'njuː', 'нью', 'узнал (2 форма)'],
-      form3: ['known', 'nəʊn', 'ноун', 'узнал (3 форма)']
+      type: '1. infinitive',
+      also: [7,8]
   },
   {
-      id: 5, 
+    id: 7, 
+    lesson: 1,
+    word: 'knew',
+    transcription: ['njuː','нью'],      
+    translate: 'узнал',
+    type: '2. past',
+    from: 6
+  },
+  {
+    id: 8, 
+    lesson: 1,
+    word: 'known',
+    transcription: ['nəʊn','ноун'],      
+    translate: 'узнал',
+    type: '3. perfect',
+    from: 6
+  },
+  {
+      id: 9, 
       lesson: 1,
       word: 'go',
       transcription: ['ɡəʊ','гоу'],      
       translate: 'идти, ехать, ходить',
-      type: 'verb',
-      form2: ['went', 'went', 'вент', 'пошел, поехал, ходил (2 форма)'],
-      form3: ['gone', 'ɡɒn', 'гоун', 'пошел, поехал, ходил (3 форма)']
+      type: '1. infinitive',
+      also: [10,11]
   },
   {
-      id: 6, 
+    id: 10, 
+    lesson: 1,
+    word: 'went',
+    transcription: ['went','вент'],      
+    translate: 'пошел, поехал, ходил',
+    type: '2. past',
+    from: 9
+  },
+  {
+    id: 11, 
+    lesson: 1,
+    word: 'gone',
+    transcription: ['ɡɒn','гоун'],      
+    translate: 'пошел, поехал, ходил',
+    type: '3. perfect',
+    from: 9
+  },
+  {
+      id: 12, 
       lesson: 1,
       word: 'bring',
       transcription: ['brɪŋ','бринг'],      
       translate: 'приносить, приводить',
-      type: 'verb',
-      form2: ['brought', 'brɔːt', 'брот', 'принес, привел (2 форма)'],
-      form3: ['brought', 'brɔːt', 'брот', 'принес, привел (3 форма)']
+      type: '1. infinitive',
+      also: [13,14]
   },
   {
-    id: 7, 
+    id: 13, 
+    lesson: 1,
+    word: 'brought',
+    transcription: ['brɔːt','брот'],      
+    translate: 'принес, привел',
+    type: '2. past',
+    from: 12
+  },
+  {
+    id: 14, 
+    lesson: 1,
+    word: 'brought',
+    transcription: ['brɔːt','брот'],      
+    translate: 'принес, привел',
+    type: '3. perfect',
+    from: 12
+  },
+  {
+    id: 15, 
     lesson: 1,
     word: 'I',
     transcription: ['aɪ','ай'],      
@@ -64,23 +132,57 @@ export const LessonsDic =  [
     type: 'pronoun'
   },
   {
-    id: 8, 
+    id: 16, 
     lesson: 1,
     word: 'set',
     transcription: ['set','сэт'],      
     translate: 'установить',
-    type: 'verb',
-    form2: ['set', 'set','сэт', 'установил (2 форма)'],
-    form3: ['set', 'set','сэт', 'установил (3 форма)']
+    type: '1. infinitive',
+    also: [17,18]
   },
   {
-    id: 9, 
+    id: 17, 
+    lesson: 1,
+    word: 'set',
+    transcription: ['set','сэт'],      
+    translate: 'установил',
+    type: '2. past',
+    from: 16
+  },
+  {
+    id: 18, 
+    lesson: 1,
+    word: 'set',
+    transcription: ['set','сэт'],      
+    translate: 'установил',
+    type: '3. perfect',
+    from: 16
+  },
+  {
+    id: 19, 
     lesson: 1,
     word: 'begin',
     transcription: ['bɪˈɡɪn','бигин'],      
     translate: 'начинать',
-    type: 'verb',
-    form2: ['began', 'bɪˈɡæn','бигэн', 'начал (2 форма)'],
-    form3: ['begun', 'bɪˈɡʌn','биган', 'начал (3 форма)']
+    type: '1. infinitive',
+    also: [20,21]
+  },
+  {
+    id: 20, 
+    lesson: 1,
+    word: 'began',
+    transcription: ['bɪˈɡæn','бигэн'],      
+    translate: 'начал',
+    type: '2. past',
+    from: 19
+  },
+  {
+    id: 21, 
+    lesson: 1,
+    word: 'begun',
+    transcription: ['bɪˈɡʌn','биган'],      
+    translate: 'начал',
+    type: '3. perfect',
+    from: 19
   },
 ];

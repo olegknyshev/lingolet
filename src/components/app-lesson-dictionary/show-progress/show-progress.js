@@ -3,7 +3,7 @@ import React from 'react';
 const ShowProgress = ({progress}) => {  
     
     return (
-      <div>
+      <div className='sProgress'>
         <div className='showProgressB'> 
         </div>
         <div className='showProgress' style={{width: `calc(${progress}% - 60px)`}}> 

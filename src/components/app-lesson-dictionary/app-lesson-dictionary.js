@@ -47,7 +47,7 @@ export default class AppLessonDictionary extends Component {
         else {
             const dict = this.onlyThisLesson(); 
             const stateDict = dict.map (item => {
-                let elem = {id: item.id, show: false, right: 0, wrong: 0, know: false, count: 0};      
+                let elem = {id: item.id, show: false, right: 0, wrong: 0, know: false, count: 0, type: item.id};      
                 return elem;
             }); 
             let data = {progress: stateDict}; 
@@ -66,15 +66,29 @@ export default class AppLessonDictionary extends Component {
     componentDidUpdate() {
         localStorage.setItem(`lessonDic${+this.props.match.params.id}`, JSON.stringify(this.state));
     }
-    
-    isNewWord() { 
-        const idx = this.state.progress.findIndex((item) => item.show === false); 
-        return this.onlyThisLesson()[idx]; 
-    }
 
     isOldWord() {
         const Arr = this.state.progress;             
         const ArrShowedWord = Arr.filter((item) => item.show === true && item.right < this.props.maxLoops);        
+        const idx = Math.floor(Math.random()*ArrShowedWord.length);  
+        const data = this.findItemFromId(ArrShowedWord[idx]);        
+        return data;               
+    }
+
+    isNewWordForShow() { 
+        const idx = this.state.progress.findIndex((item) => item.show === false 
+                                                            && item.right < this.props.maxLoops
+                                                            && item.type !== '2. past' 
+                                                            && item.type !== '3. perfect'); 
+        return this.onlyThisLesson()[idx]; 
+    }
+
+    isOldWordForShow() {
+        const Arr = this.state.progress;             
+        const ArrShowedWord = Arr.filter((item) => item.show === true 
+                                                    && item.right < this.props.maxLoops
+                                                    && item.type !== '2. past' 
+                                                    && item.type !== '3. perfect');        
         const idx = Math.floor(Math.random()*ArrShowedWord.length);  
         const data = this.findItemFromId(ArrShowedWord[idx]);        
         return data;               
@@ -115,7 +129,7 @@ export default class AppLessonDictionary extends Component {
             else { 
                 let isRight = this.state.progress[idx].right;
                 let isWrong = this.state.progress[idx].wrong;
-                if (answer) isRight++; else isWrong++;
+                if (answer) isRight++; else {isRight=0; isWrong++;}
                 item = { ...this.state.progress[idx], 
                      'right': isRight, 
                      'wrong': isWrong, 
@@ -164,10 +178,11 @@ export default class AppLessonDictionary extends Component {
             }
         } 
         if (!this.state.countWord%10) nextTest = 'SHOWWORD';
-        const ArrShowedWord = this.state.progress.filter((item) => item.show === true && item.right < this.props.maxLoops); ;    
+        const ArrShowedWord = this.state.progress.filter((item) => item.show === true && item.right < this.props.maxLoops);    
         if (ArrShowedWord.length === 0) nextTest = 'SHOWWORD';
         if (this.isFinish()) nextTest = 'FINISH';
-        if (this.state.isFirst) nextTest = 'SHOWALL';              
+        if (this.state.isFirst) nextTest = 'SHOWALL'; 
+        console.log(nextTest);             
         return nextTest;
     }
 
@@ -175,12 +190,17 @@ export default class AppLessonDictionary extends Component {
         let word;
         if (nextTest === 'SHOWALL' || nextTest === 'FINISH') return null;
         else {
-            const haveNew = this.state.progress.findIndex((item) => item.show === false && item.right < this.props.maxLoops);
+            const haveNew = this.state.progress.findIndex((item) => 
+                                                        item.show === false 
+                                                        && item.right < this.props.maxLoops
+                                                        && item.type !== '2. past' 
+                                                        && item.type !== '3. perfect');
             if (nextTest === 'SHOWWORD') {
-                if (haveNew === -1) word = this.isOldWord(); else word = this.isNewWord();
+                if (haveNew === -1) word = this.isOldWordForShow(); else word = this.isNewWordForShow();
             }
             else {
-                word = this.isOldWord();
+                if (nextTest === 'SHOWAGAIN') word = this.isOldWordForShow();
+                else word = this.isOldWord();
             }
         }
         return word;
@@ -204,10 +224,12 @@ export default class AppLessonDictionary extends Component {
         }
 
         return (
+            <>
             <div className='dictionary'>   
-              {body}
-              <ShowProgress progress={this.progressIs()}/>
+              {body}              
             </div>
+            <ShowProgress progress={this.progressIs()}/>
+            </>
         );        
     }
 }

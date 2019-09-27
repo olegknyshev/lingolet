@@ -59,7 +59,7 @@ export default class DictQwest extends React.Component {
       <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
     <button 
       className='next'
-      onClick={() => {this.setState({isAnswer: false, isTrue: true, tipColor: false}); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
+      onClick={() => {this.setState({isAnswer: false, isTrue: true, tipColor: false, wrongAnswer: 0,}); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
       >Дальше</button>
     </div>)
   }
@@ -71,6 +71,7 @@ export default class DictQwest extends React.Component {
     if (route === 'ENGRUS') 
       bodyWord = (
         <>
+        <div className='wordType'>{wordData.type}</div>
         <div className='word'>{wordData.word}</div>
         <div className='wordtranscription'>[&nbsp;&nbsp;
         {this.state.isAnswer 
@@ -88,6 +89,7 @@ export default class DictQwest extends React.Component {
     );    
     else bodyWord = (
       <>
+      <div className='wordType'>{wordData.type}</div>
       <div className='word'>{wordData.translate}</div>
       
       <div className='wordtranscription'>[&nbsp;&nbsp;

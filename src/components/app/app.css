@@ -29,6 +29,7 @@
 }
 
 .Layout main {
+    position: relative;
     grid-area: main;
     width: 100%;
     overflow: hidden;
