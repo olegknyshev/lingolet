@@ -12,24 +12,21 @@ import {LessonsDic} from '../../data/lessons-dict';
 
 export default class AppLessonDictionary extends Component { 
 
-    static defaultProps = { maxLoops: 3 };
+    static defaultProps = { maxLoops: 3,  isTranscR: false, isFirst: true};
 
-    state = {
-        lessonId: +this.props.match.params.id, 
-        isFirst: true,       
-        isTranscR: false,
+    state = {        
+        isFirst: this.props.isFirst,       
         countWord: 0,
         progress: []
     };
 
 
    onlyThisLesson() {
-       return LessonsDic.filter((item) => { return item.lesson === this.state.lessonId}); 
+       return LessonsDic.filter((item) => { return item.lesson ===  +this.props.match.params.id}); 
    }
 
    findItemFromId(idx) { 
-       const arr = this.onlyThisLesson();   
-       if (!idx) console.log('rerrrrrrrrrrrrrr')
+       const arr = this.onlyThisLesson(); 
        const id = arr.findIndex((item) => item.id === idx.id);       
        return arr[id];
    }
@@ -43,8 +40,8 @@ export default class AppLessonDictionary extends Component {
    }
 
    fromLocalStorage() {
-    if (localStorage.getItem(`lessonDic${this.state.lessonId}`)) {
-        let data = localStorage.getItem(`lessonDic${this.state.lessonId}`);
+    if (localStorage.getItem(`lessonDic${+this.props.match.params.id}`)) {
+        let data = localStorage.getItem(`lessonDic${+this.props.match.params.id}`);
         data = JSON.parse(data);
         return data; }
         else {
@@ -58,16 +55,16 @@ export default class AppLessonDictionary extends Component {
         }
    }
 
-    componentDidMount() {
-        
+    componentDidMount() {        
         let stateData = this.fromLocalStorage();
+        stateData.isFirst = true;
         this.setState((state) => {         
             return stateData;
         });
     }
 
     componentDidUpdate() {
-        localStorage.setItem(`lessonDic${this.state.lessonId}`, JSON.stringify(this.state));
+        localStorage.setItem(`lessonDic${+this.props.match.params.id}`, JSON.stringify(this.state));
     }
     
     isNewWord() { 
@@ -76,10 +73,10 @@ export default class AppLessonDictionary extends Component {
     }
 
     isOldWord() {
-        const Arr = this.state.progress;        
-        const ArrShowedWord = Arr.filter((item) => item.show === true && item.right < this.props.maxLoops);
+        const Arr = this.state.progress;             
+        const ArrShowedWord = Arr.filter((item) => item.show === true && item.right < this.props.maxLoops);        
         const idx = Math.floor(Math.random()*ArrShowedWord.length);  
-        const data = this.findItemFromId(ArrShowedWord[idx]);
+        const data = this.findItemFromId(ArrShowedWord[idx]);        
         return data;               
     }
 
@@ -89,6 +86,7 @@ export default class AppLessonDictionary extends Component {
         const ArrShowedWord = this.state.progress.filter((item) => item.show === true);
         while (wrongDataE.length < 6) {            
             const idx = Math.floor(Math.random()*ArrShowedWord.length);
+
             const data = this.findItemFromId(ArrShowedWord[idx]);
 
             if (!wrongDataE.includes(data.word)) { 
@@ -148,18 +146,28 @@ export default class AppLessonDictionary extends Component {
         if (this.state.isFirst) nextTest = 'SHOWALL'; 
         else {
             if (this.state.countWord < 6) nextTest = 'SHOWWORD';
-            else {                      
-                switch (Math.floor(Math.random()*5)) {
-                    case 0: nextTest = 'QWESTWORDA'; break;
-                    case 1: nextTest = 'QWESTWORDR'; break;
-                    case 2: nextTest = 'SHOWAGAIN'; break;                
-                    case 3: nextTest = 'WRITEWORD'; break;
-                    case 4: nextTest = 'SHOWWORD'; break;
-                    default: nextTest = 'QWESTWORDA'; //показывается чаще других.
+            else {            
+                switch (Math.floor(Math.random()*10)) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3: nextTest = 'QWESTWORDA'; break;
+                    case 4:
+                    case 5:
+                    case 6: nextTest = 'QWESTWORDR'; break;
+                    case 7: nextTest = 'SHOWAGAIN'; break; 
+                    case 8: 
+                    case 9:              
+                    case 10: nextTest = 'WRITEWORD'; break;
+                    default: nextTest = 'QWESTWORDA';
                 }
             }
-        }      
-        if (this.isFinish()) nextTest = 'FINISH';       
+        } 
+        if (!this.state.countWord%10) nextTest = 'SHOWWORD';
+        const ArrShowedWord = this.state.progress.filter((item) => item.show === true && item.right < this.props.maxLoops); ;    
+        if (ArrShowedWord.length === 0) nextTest = 'SHOWWORD';
+        if (this.isFinish()) nextTest = 'FINISH';
+        if (this.state.isFirst) nextTest = 'SHOWALL';              
         return nextTest;
     }
 
@@ -185,13 +193,13 @@ export default class AppLessonDictionary extends Component {
         if (nextTest === 'QWESTWORDA' || nextTest === 'QWESTWORDR') wrongData = this.wrongData();        
         let body;
         switch (nextTest) {
-            case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.state.isTranscR }/>); break;
-            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR }/>); break;
-            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR }/>); break;
-            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
-            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
-            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.state.isTranscR }/>); break;
-            case 'FINISH': body = (<DictFinish />); break;
+            case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.props.isTranscR }/>); break;
+            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
+            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
+            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
+            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
+            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
+            case 'FINISH': body = (<DictFinish lessonId = {+this.props.match.params.id}/>); break;
             default: body = 'что-то пошло не так...';
         }
 

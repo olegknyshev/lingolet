@@ -1,29 +1,17 @@
 import React from 'react';
 
-export default class DictQwest extends React.Component { 
-
-  static defaultProps = { 
-    defaultState: {
-      isAnswer: false,
-      isTrue: true,
-      words:[],
-      idxAnswer:-1,
-      wrongAnswer: 0,
-      tipColor: false }    
-  };
+export default class DictQwest extends React.Component {  
 
   state={
     isAnswer: false,
     isTrue: true,
-    words:[],
-    idxAnswer:-1,
+    tipColor: false,
     wrongAnswer: 0,
-    tipColor: false
   };
 
-  componentDidMount() {
-    
+  onNewTest () {
     const { wordData, route, wrongData} = this.props;
+    
     let word = '';
     let arr=[];
     if (route === 'RUSENG') {
@@ -40,12 +28,17 @@ export default class DictQwest extends React.Component {
    if (arr.includes(word)) idx = arr.indexOf(word);              
     else arr[idx] = word;
 
-  this.setState({words: arr, idxAnswer: idx});
+    const wordState = {
+      words: arr,
+      idxAnswer: idx
+    };
+
+    return wordState;
   }
   
 
-  clickAnswer(index) {
-    if (index === this.state.idxAnswer) {
+  clickAnswer(index, idxAnswer) {
+    if (index === idxAnswer) {
       this.setState({isAnswer: true});
     }
     else {
@@ -57,6 +50,7 @@ export default class DictQwest extends React.Component {
   }
 
   onRightAnswer() {
+    
     const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
     let idx = Math.floor(Math.random()*congratulation.length);
         
@@ -65,16 +59,15 @@ export default class DictQwest extends React.Component {
       <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
     <button 
       className='next'
-      onClick={() => {this.setState(this.props.state); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
+      onClick={() => {this.setState({isAnswer: false, isTrue: true, tipColor: false}); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
       >Дальше</button>
     </div>)
   }
   
-  render() {
-    console.log(this.props.defaultState);
-    const { wordData, route, isTranscR} = this.props;    
+  render() {    
+    const wordState = this.onNewTest();
+    const { wordData, route, isTranscR } = this.props;    
     let bodyWord = '';
-
     if (route === 'ENGRUS') 
       bodyWord = (
         <>
@@ -112,10 +105,10 @@ export default class DictQwest extends React.Component {
       </>
     );
     
-    const elements = this.state.words.map ((item, index) => 
-      <button className={this.state.tipColor && index === this.state.idxAnswer ? 'tipColor' : null}
+    const elements = wordState.words.map ((item, index) => 
+      <button className={this.state.tipColor && index === wordState.idxAnswer ? 'tipColor' : null}
       key={index}
-      onClick={() => this.clickAnswer(index)}
+      onClick={() => this.clickAnswer(index, wordState.idxAnswer)}
       >
       {item}
       </button>); 

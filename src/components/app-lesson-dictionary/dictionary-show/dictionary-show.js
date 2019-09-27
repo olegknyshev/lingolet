@@ -5,7 +5,6 @@ export default class DictShow extends React.Component {
   state = {
     isKnow: true,
     isAnswer: false,
-    isTranscR: this.props.isTranscR,
     buttonYes: 'знаю'
   };
 
@@ -17,7 +16,7 @@ export default class DictShow extends React.Component {
     return (
       <div className='dictShow'>
         <div className='word'>{wordData.word}</div>
-        <div className='wordtranscription'>[&nbsp;{this.state.isTranscR ? wordData.transcription[1] : wordData.transcription[0] }&nbsp;] <i className="fas fa-headphones"></i></div>
+        <div className='wordtranscription'>[&nbsp;{this.props.isTranscR ? wordData.transcription[1] : wordData.transcription[0] }&nbsp;] <i className="fas fa-headphones"></i></div>
         <div className='wordtranslateQ'>
           {this.state.isAnswer 
             ? wordData.translate 

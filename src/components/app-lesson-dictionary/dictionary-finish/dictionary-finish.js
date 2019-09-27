@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-const DictFinish = () => {
+const DictFinish = ({lessonId}) => {
   return (
     <div className='finishTest'>
       <i className="fas fa-medal fa-7x"></i>
@@ -16,7 +16,7 @@ const DictFinish = () => {
                   К списку уроков
         </NavLink>
         <NavLink
-                  to='/'
+                  to={`/lesson/practice/${ lessonId }`}
                   exact={true}
                   // onClick={() => onChange({lessonId:0})}
               >  

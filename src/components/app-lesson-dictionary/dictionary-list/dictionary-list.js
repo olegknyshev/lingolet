@@ -1,18 +1,18 @@
 import React from 'react';
 
-const DictList = ({dataDict, onChange, isTranscR}) => {  
+const DictList = ({dataDict, onChange, isTranscR}) => {    
 
-  
-
-  const elements = dataDict.map ((item) => { 
-    
+  const elements = dataDict.map ((item) => {     
     return (
       <tr key={ item.id }><td>{ item.word }</td>
-      <td className='transcription'>[&nbsp;{isTranscR ? item.transcription[1] : item.transcription[0]}&nbsp;]</td>
-      {/* <td className='sound'><i class="fas fa-headphones"></i></td> */}
+      <td className='transcription'>[&nbsp;
+      {isTranscR 
+        ? item.transcription[1] 
+        : item.transcription[0]}
+        &nbsp;]</td>
       <td>{ item.translate }</td></tr>
     );
-});
+},isTranscR);
  
     return (
       <>
