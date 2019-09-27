@@ -14,7 +14,7 @@ export default class AppLessonDictionary extends Component {
     state = {
         lessonId: +this.props.match.params.id,        
         nextTest: 'SHOWALL',
-        isTranscR: true,
+        isTranscR: false,
         countWord: 0,
         progress: [],
         actualWord: {}
@@ -54,6 +54,7 @@ export default class AppLessonDictionary extends Component {
    }
 
     componentDidMount() {
+        console.log('componentDidMount');
         let stateData = this.fromLocalStorage();
         stateData.nextTest = 'SHOWALL';
         this.setState((state) => {         
@@ -62,12 +63,12 @@ export default class AppLessonDictionary extends Component {
     }
 
     componentDidUpdate() {
+        console.log('componentDidUpdate');
         localStorage.setItem(`lessonDic${this.state.lessonId}`, JSON.stringify(this.state));
     }
     
-    isNewWord() {            
-        const idx = this.state.progress.findIndex((item) => item.show === false);        
-
+    isNewWord() { 
+        const idx = this.state.progress.findIndex((item) => item.show === false); 
         return this.onlyThisLesson()[idx]; 
     }
 
@@ -96,66 +97,76 @@ export default class AppLessonDictionary extends Component {
     }
     
     handleNext = (type, id, answer) => {
-        let nextTest = 'SHOWALL';    
-              
+        
+        let nextTest = 'SHOWALL';        
+        let word = {};
+        
         if (this.state.countWord < 6) nextTest = 'SHOWWORD';
-        else {            
-            switch (Math.floor(Math.random()*6)) {
-                case 1: nextTest = 'SHOWWORD'; break;
-                case 2: nextTest = 'SHOWAGAIN'; break;
-                case 3: nextTest = 'QWESTWORDA'; break;
-                case 4: nextTest = 'QWESTWORDR'; break;
-                case 5: nextTest = 'WRITEWORD'; break;
-                default: nextTest = 'QWESTWORDA';
+        else {
+                      
+            switch (Math.floor(Math.random()*5)) {
+                case 0: nextTest = 'QWESTWORDA'; break;
+                case 1: nextTest = 'QWESTWORDR'; break;
+                case 2: nextTest = 'SHOWAGAIN'; break;                
+                case 3: nextTest = 'WRITEWORD'; break;
+                case 4: nextTest = 'SHOWWORD'; break;
+                default: nextTest = 'QWESTWORDA'; //показывается чаще других.
             }
         };
+        
         const haveNew = this.state.progress.findIndex((item) => item.show === false);
-        if (haveNew === -1) nextTest = 'QWESTWORDA';
-
+        if (haveNew === -1 && nextTest === 'SHOWWORD') {nextTest = 'QWESTWORDA'; word = this.isOldWord();};
+        if (nextTest !== 'SHOWWORD') {word = this.isOldWord();} 
+        if (haveNew !== -1 && nextTest === 'SHOWWORD') {word = this.isNewWord();};
+        
         if (type !== 'SHOWALL') {
+            
             let countWord = this.state.countWord+1; 
-            const idx = this.state.progress.findIndex((item) => item.id === id);        
-            let item = {};
-            if (type === 'SHOWWORD' || type === 'SHOWAGAIN') 
-                item = { ...this.state.progress[idx], 
+            const idx = this.state.progress.findIndex((item) => item.id === id);  
+           const count = this.state.progress[idx].count+1;      
+            let item = {};            
+            if (type === 'SHOWWORD') 
+                {item = { ...this.state.progress[idx], 
                     'show': true, 
                     'know': answer, 
-                    'count': this.state.progress[idx].count+1
-                    };  
-            else {
-                let isRight;
-                let isWrong;
-                if (answer) {isRight = this.state.progress[idx].right+1; isWrong = this.state.progress[idx].wrong;}
-                else {isRight = this.state.progress[idx].right; isWrong = this.state.progress[idx].wrong+1;}
-                item = { ...this.state.progress[idx], 
-                    'right': isRight, 
-                    'wrong': isWrong, 
-                    'count': this.state.progress[idx].count+1
+                    'count': count
                     };
-            }         
-            
+                }
+            else { 
+                let isRight = this.state.progress[idx].right;
+                let isWrong = this.state.progress[idx].wrong;
+                if (answer) isRight++; else isWrong++;
+                item = { ...this.state.progress[idx], 
+                     'right': isRight, 
+                     'wrong': isWrong, 
+                    'count': count
+                    }; 
+            };
                const progress = [
                   ...this.state.progress.slice(0, idx),
                   item,
                   ...this.state.progress.slice(idx + 1)
-                ];        
-                 
-               this.setState({countWord, progress, nextTest});
+                ];                
+               this.setState((state) => ({
+                countWord, progress, nextTest, actualWord: word
+              }));
         }
-
-        else this.setState({nextTest});        
+        
+        else this.setState((state) => ({
+                nextTest, actualWord: word
+              }));       
     }
 
     render() {
-        
+        console.log('render');
         let body = '';
         switch (this.state.nextTest) {
             case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.state.isTranscR }/>); break;
-            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={this.isNewWord()} isOld={false} isTranscR={ this.state.isTranscR }/>); break;
-            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={this.isOldWord()} isOld={true} isTranscR={ this.state.isTranscR }/>); break;
-            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={this.isOldWord()} isTranscR={ this.state.isTranscR } route={'ENGRUS'} wrongData={this.wrongData()}/>); break;
-            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={this.isOldWord()} isTranscR={ this.state.isTranscR } route={'RUSENG'} wrongData={this.wrongData()}/>); break;
-            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={this.isOldWord()} isTranscR={ this.state.isTranscR }/>); break;
+            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={this.state.actualWord} isOld={false} isTranscR={ this.state.isTranscR }/>); break;
+            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={this.state.actualWord} isTranscR={ this.state.isTranscR }/>); break;
+            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={this.state.actualWord} isTranscR={ this.state.isTranscR } route={'ENGRUS'} wrongData={this.wrongData()}/>); break;
+            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={this.state.actualWord} isTranscR={ this.state.isTranscR } route={'RUSENG'} wrongData={this.wrongData()}/>); break;
+            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={this.state.actualWord} isTranscR={ this.state.isTranscR }/>); break;
             default: body = 'что-то пошло не так...';
         }
 
