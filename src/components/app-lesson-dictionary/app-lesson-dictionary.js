@@ -31,6 +31,12 @@ export default class AppLessonDictionary extends Component {
        return arr[id];
    }
 
+   findIdxFromId(idx) { 
+    const arr = this.onlyThisLesson(); 
+    const id = arr.findIndex((item) => item.id === idx);       
+    return id;
+}
+
    progressIs() {       
        const  arr =this.state.progress;
        let total = arr.length*this.props.maxLoops;
@@ -47,7 +53,7 @@ export default class AppLessonDictionary extends Component {
         else {
             const dict = this.onlyThisLesson(); 
             const stateDict = dict.map (item => {
-                let elem = {id: item.id, show: false, right: 0, wrong: 0, know: false, count: 0, type: item.id};      
+                let elem = {id: item.id, show: false, right: 0, wrong: 0, know: false, count: 0, type: item.type};      
                 return elem;
             }); 
             let data = {progress: stateDict}; 
@@ -79,7 +85,7 @@ export default class AppLessonDictionary extends Component {
         const idx = this.state.progress.findIndex((item) => item.show === false 
                                                             && item.right < this.props.maxLoops
                                                             && item.type !== '2. past' 
-                                                            && item.type !== '3. perfect'); 
+                                                            && item.type !== '3. perfect');
         return this.onlyThisLesson()[idx]; 
     }
 
@@ -88,7 +94,7 @@ export default class AppLessonDictionary extends Component {
         const ArrShowedWord = Arr.filter((item) => item.show === true 
                                                     && item.right < this.props.maxLoops
                                                     && item.type !== '2. past' 
-                                                    && item.type !== '3. perfect');        
+                                                    && item.type !== '3. perfect');      
         const idx = Math.floor(Math.random()*ArrShowedWord.length);  
         const data = this.findItemFromId(ArrShowedWord[idx]);        
         return data;               
@@ -117,7 +123,7 @@ export default class AppLessonDictionary extends Component {
             
             let countWord = this.state.countWord+1; 
             const idx = this.state.progress.findIndex((item) => item.id === id);  
-           const count = this.state.progress[idx].count+1;      
+            const count = this.state.progress[idx].count+1;      
             let item = {};            
             if (type === 'SHOWWORD') 
                 {item = { ...this.state.progress[idx], 
@@ -136,11 +142,37 @@ export default class AppLessonDictionary extends Component {
                     'count': count
                     }; 
             };
-               const progress = [
-                  ...this.state.progress.slice(0, idx),
-                  item,
-                  ...this.state.progress.slice(idx + 1)
-                ];                
+               
+                let progress =[];
+                if (this.onlyThisLesson()[idx].also) {
+                    const [a,b] = this.onlyThisLesson()[idx].also;
+                    let item2 = {};  
+                    let item3 = {};                     
+                    item2 = { ...this.state.progress[this.findIdxFromId(a)], 
+                        'show': true, 
+                        'know': answer, 
+                        'count': count
+                        };
+                    item3 = { ...this.state.progress[this.findIdxFromId(b)], 
+                        'show': true, 
+                        'know': answer, 
+                        'count': count
+                        };
+                        
+                    progress = [
+                        ...this.state.progress.slice(0, idx),
+                        item, item2, item3,
+                        ...this.state.progress.slice(this.findIdxFromId(b) + 1)
+                      ];                       
+                }
+                else 
+                progress = [
+                    ...this.state.progress.slice(0, idx),
+                    item,
+                    ...this.state.progress.slice(idx + 1)
+                  ]; 
+
+
                this.setState((state) => ({
                 countWord, progress
               }));
@@ -206,16 +238,28 @@ export default class AppLessonDictionary extends Component {
         return word;
     }
 
+    addTwoFormsVerb(word) {
+        const arrW = word.also;
+        const arr = this.onlyThisLesson(); 
+        const id = arr.findIndex((item) => item.id === arrW[0]);       
+        const v1 = arr[id];
+        const id2 = arr.findIndex((item) => item.id === arrW[1]); 
+        const v2 = arr[id2];        
+        return [v1, v2];
+    }
+
     render() {
         let nextTest = this.chooseNextTest();       
-        let word = this.chooseNextWord(nextTest);
+        let word = this.chooseNextWord(nextTest);        
+        let twoForms = {};
+        if (word !== null && word.type === '1. infinitive') twoForms = this.addTwoFormsVerb(word);        
         let wrongData = [];
         if (nextTest === 'QWESTWORDA' || nextTest === 'QWESTWORDR') wrongData = this.wrongData();        
         let body;
         switch (nextTest) {
             case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.props.isTranscR }/>); break;
-            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
-            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
+            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } twoForms={twoForms}/>); break;
+            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } twoForms={twoForms}/>); break;
             case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
             case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
             case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
