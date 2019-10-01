@@ -47,7 +47,7 @@ export default class DictShow extends React.Component {
       <div className='dictShow'>
         <div className='wordType'>{wordThis.type}</div>
         <div className='word'>{wordThis.word}</div>
-        <div className='wordtranscription'>[&nbsp;{this.props.isTranscR ? wordThis.transcription[1] : wordThis.transcription[0] }&nbsp;] <i className="fas fa-headphones"></i></div>
+        <div className='wordtranscription'>[&nbsp;{this.props.isTranscR ? wordThis.transcription[1] : wordThis.transcription[0] }&nbsp;] </div>
         <div className='wordtranslateQ'>
           {this.state.isAnswer 
             ? wordThis.translate 

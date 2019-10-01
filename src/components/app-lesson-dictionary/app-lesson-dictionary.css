@@ -107,7 +107,7 @@ td.sound {width:10%; text-align: center}
 }
 
 .buttonWrite {
-  width:90%;
+  width:100%;
   display:flex;  
   justify-content: center;
   flex-wrap: wrap;
@@ -115,15 +115,27 @@ td.sound {width:10%; text-align: center}
 }
 
 .buttonWrite button {
-  width:70px; height:70px;
+  width:70px; 
+  height:70px;
   margin:5px;
-  background: #fff;
+  background: #f1f2f8;
+  border:0px solid #c4d600;
+  box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
   border: 0px;
   padding: 10px;
   cursor: pointer;
   color: #000;
   font-size: 2em;
-  font-weight: normal;
+  font-weight: bold;
+}
+
+.buttonWrite button:hover {
+  background: #c4d600;
+  color: #000;
+}
+
+.buttonWrite button.tipColor {
+  animation: tip  3s linear;
 }
 
 .buttonQwest button {
@@ -141,13 +153,15 @@ td.sound {width:10%; text-align: center}
 }
 
 .buttonQwest button.tipColor {
-  animation: tip  1s infinite ease-in-out;
+  animation: tip  3s linear;
 }
 
 @keyframes tip {
-  from {background: #fff;}
-  50% {background: #c4d600;}
-  to {background: #fff;}
+  from {background: #f1f2f8;}
+  25% {background: #c4d600;}
+  50% {background: #f1f2f8;}
+  75% {background: #c4d600;}
+  to {background: #f1f2f8;}
   }
 
 .buttonQwest button:hover {
@@ -210,9 +224,17 @@ td.sound {width:10%; text-align: center}
   margin-bottom: 10px;
 }
 
+.wordTypeWrite {
+  font-size: 1em;
+  font-weight: normal;
+  color: #999;
+  margin-bottom: 30px;
+}
+
 .word {
   font-size: 3em;
   font-weight: bold;
+  text-align: center;
   color: #000;
   margin-bottom: 20px;
 }
@@ -227,6 +249,7 @@ td.sound {width:10%; text-align: center}
 .wordtranslateQ {
   padding: 10px 30px;
   font-size: 2em;
+  height:2em;
   width:50%;
   text-align: center;
   background: #aaa;
@@ -234,6 +257,19 @@ td.sound {width:10%; text-align: center}
   font-weight: normal;
   color: #fff;
   margin-bottom: 50px;
+}
+
+.wordtranslateQwrite {
+  padding: 10px 30px;
+  font-size: 2em;
+  height:2em;
+  width:50%;
+  text-align: center;
+  background: #aaa;
+  border-radius: 10px;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 .buttonknow {width:100%; display: flex; justify-content: center; }
@@ -360,11 +396,16 @@ button[disabled]:hover {background: #ddd; color:#fff}
   }
 
   .buttonWrite {
-    width:70%;
-    display:flex;  
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    width:50%;
+    min-width: 400px;
+    margin-top: 40px;
+  }
+
+  .buttonWrite button {
+    width:80px; 
+    height:80px;
+    margin:10px;
+    
   }
 
   .congratulation h3 {

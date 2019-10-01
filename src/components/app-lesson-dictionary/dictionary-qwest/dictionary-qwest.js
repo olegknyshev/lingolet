@@ -44,7 +44,7 @@ export default class DictQwest extends React.Component {
     else {
       let tip = false;
       const value = this.state.wrongAnswer+1;
-      if (value === 3) tip = true;
+      if (value >= 3) tip = true;
       this.setState({wrongAnswer: value, tipColor: tip, isTrue: false});
     }
   }

@@ -21,7 +21,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'showed',
     transcription: ['ʃəʊd','шовед'],      
-    translate: 'показал (2 форма)',
+    translate: 'показал',
     type: '2. past',
     from: 2
   },
@@ -30,7 +30,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'shown',
     transcription: ['ʃəʊn','шовен'],      
-    translate: 'показал (3 форма)',
+    translate: 'показал',
     type: '3. perfect',
     from: 2
   },
@@ -56,7 +56,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'knew',
     transcription: ['njuː','нью'],      
-    translate: 'узнал (2 форма)',
+    translate: 'узнал',
     type: '2. past',
     from: 6
   },
@@ -65,7 +65,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'known',
     transcription: ['nəʊn','ноун'],      
-    translate: 'узнал (3 форма)',
+    translate: 'узнал',
     type: '3. perfect',
     from: 6
   },
@@ -83,7 +83,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'went',
     transcription: ['went','вент'],      
-    translate: 'пошел, поехал, ходил (2 форма)',
+    translate: 'пошел, поехал, ходил',
     type: '2. past',
     from: 9
   },
@@ -92,7 +92,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'gone',
     transcription: ['ɡɒn','гоун'],      
-    translate: 'пошел, поехал, ходил (3 форма)',
+    translate: 'пошел, поехал, ходил',
     type: '3. perfect',
     from: 9
   },
@@ -110,7 +110,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'brought',
     transcription: ['brɔːt','брот'],      
-    translate: 'принес, привел (2 форма)',
+    translate: 'принес, привел',
     type: '2. past',
     from: 12
   },
@@ -119,7 +119,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'brought',
     transcription: ['brɔːt','брот'],      
-    translate: 'принес, привел (3 форма)',
+    translate: 'принес, привел',
     type: '3. perfect',
     from: 12
   },
@@ -145,7 +145,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'set',
     transcription: ['set','сэт'],      
-    translate: 'установил (2 форма)',
+    translate: 'установил',
     type: '2. past',
     from: 16
   },
@@ -154,7 +154,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'set',
     transcription: ['set','сэт'],      
-    translate: 'установил (3 форма)',
+    translate: 'установил',
     type: '3. perfect',
     from: 16
   },
@@ -172,7 +172,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'began',
     transcription: ['bɪˈɡæn','бигэн'],      
-    translate: 'начал (2 форма)',
+    translate: 'начал',
     type: '2. past',
     from: 19
   },
@@ -181,7 +181,7 @@ export const LessonsDic =  [
     lesson: 1,
     word: 'begun',
     transcription: ['bɪˈɡʌn','биган'],      
-    translate: 'начал (3 форма)',
+    translate: 'начал',
     type: '3. perfect',
     from: 19
   },

@@ -109,8 +109,14 @@ export default class AppLessonDictionary extends Component {
 
             const data = this.findItemFromId(ArrShowedWord[idx]);
 
-            if (!wrongDataE.includes(data.word)) { 
-                wrongDataE.push(data.word); wrongDataR.push(data.translate);                
+            const eng = data.word;
+            // const p = /\s\(\d форма\)/;
+            const rus = data.translate;
+            // const rus = data.translate.replace(p,'');
+            // console.log(data.translate,' - ',rus)
+
+            if (!wrongDataE.includes(eng) && !wrongDataR.includes(rus)) { 
+                wrongDataE.push(eng); wrongDataR.push(rus);                
             }            
         }
         let wrongData = [wrongDataE, wrongDataR];        
@@ -158,7 +164,7 @@ export default class AppLessonDictionary extends Component {
                         'know': answer, 
                         'count': count
                         };
-                        
+
                     progress = [
                         ...this.state.progress.slice(0, idx),
                         item, item2, item3,
@@ -194,18 +200,18 @@ export default class AppLessonDictionary extends Component {
             if (this.state.countWord < 6) nextTest = 'SHOWWORD';
             else {            
                 switch (Math.floor(Math.random()*10)) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3: nextTest = 'QWESTWORDA'; break;
-                    case 4:
-                    case 5:
-                    case 6: nextTest = 'QWESTWORDR'; break;
-                    case 7: nextTest = 'SHOWAGAIN'; break; 
-                    case 8: 
-                    case 9:              
-                    case 10: nextTest = 'WRITEWORD'; break;
-                    default: nextTest = 'QWESTWORDA';
+                    // case 0:
+                    // case 1:
+                    // case 2:
+                    // case 3: nextTest = 'QWESTWORDA'; break;
+                    // case 4:
+                    // case 5:
+                    // case 6: nextTest = 'QWESTWORDR'; break;
+                    // case 7: nextTest = 'SHOWAGAIN'; break; 
+                    // case 8: 
+                    // case 9:              
+                    // case 10: nextTest = 'WRITEWORD'; break;
+                    default: nextTest = 'WRITEWORD';
                 }
             }
         } 
@@ -248,13 +254,40 @@ export default class AppLessonDictionary extends Component {
         return [v1, v2];
     }
 
+    makeLettersArr(word) {
+        let arr = [...new Set([...word])];
+        const characters = 'abcdefghijklmnopqrstuvwxyz';
+        
+        while (arr.length < 10) {            
+        const letter = characters.charAt(Math.floor(Math.random() * characters.length));
+
+            if (!arr.includes(letter)) { 
+                arr.push(letter);              
+            }            
+        }
+        // const shuffledArr = arr.sort(function(){
+        //     return Math.random() - 0.5;
+        //   });
+
+        let j, temp;
+	    for(let i = arr.length - 1; i > 0; i--){
+		j = Math.floor(Math.random()*(i + 1));
+		temp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = temp;
+        }
+	    return arr;
+    }
+
     render() {
         let nextTest = this.chooseNextTest();       
         let word = this.chooseNextWord(nextTest);        
         let twoForms = {};
         if (word !== null && word.type === '1. infinitive') twoForms = this.addTwoFormsVerb(word);        
         let wrongData = [];
-        if (nextTest === 'QWESTWORDA' || nextTest === 'QWESTWORDR') wrongData = this.wrongData();        
+        let letters = [];
+        if (nextTest === 'QWESTWORDA' || nextTest === 'QWESTWORDR') wrongData = this.wrongData(); 
+        if (nextTest === 'WRITEWORD') letters = this.makeLettersArr(word.word);       
         let body;
         switch (nextTest) {
             case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.props.isTranscR }/>); break;
@@ -262,7 +295,7 @@ export default class AppLessonDictionary extends Component {
             case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } twoForms={twoForms}/>); break;
             case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
             case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
-            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR }/>); break;
+            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } letters={letters}/>); break;
             case 'FINISH': body = (<DictFinish lessonId = {+this.props.match.params.id}/>); break;
             default: body = 'что-то пошло не так...';
         }

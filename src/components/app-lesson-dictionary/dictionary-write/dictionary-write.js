@@ -1,29 +1,87 @@
 import React from 'react';
 
-const DictWrite = () => {  
- 
-    return (
-      <div className='dictShow'>
-        <div className='word'>показать</div>
-        <div className='wordtranscription'>[show] <i className="fas fa-headphones"></i></div>
-        <div className='wordtranslate'>show</div>
-        <div className='buttonWrite'>
-          <button>c</button>
-          <button>d</button>
-          <button>h</button>
-          <button>k</button>
-          <button>o</button>
-          <button>s</button> 
-          <button>u</button>
-          <button>w</button>
-          <button>x</button>
-          <button>y</button>
-        </div>
+export default class DictWrite extends React.Component {  
+  
+  state={
+    isAnswer: false,
+    isTrue: true,
+    wordInput: '',
+    tipColor: false,
+    indexLetter:0,
+    nextLetter:'',
+    wrongAnswer: 0,
+  };
+  
+  clickAnswer(item) {
+     
+    const word = this.props.wordData.word;     
+    if (item === word[this.state.indexLetter]) {
+      let indexLetter = this.state.indexLetter+1;
+      const wordInput = this.state.wordInput + item;
+      let isAnswer = false;
+      const nextLetter = word[indexLetter];
+      if (word === wordInput) isAnswer = true;
+      this.setState({indexLetter, isAnswer, nextLetter, wordInput, wrongAnswer:0, tipColor:false});      
+    }
+    else {
+      const wrongAnswer = this.state.wrongAnswer+1;
+      let tipColor = false;
+      if (wrongAnswer >= 3) tipColor = true;
+      this.setState({isTrue: false, wrongAnswer, tipColor});
+    }; 
+       
+  }
 
-
+  onRightAnswer() {
+    
+    const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
+    let idx = Math.floor(Math.random()*congratulation.length);
         
-      </div>
-    );        
-}
+    return (
+    <div className='congratulation'>
+      <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
+    <button 
+      className='next'
+      onClick={() => {this.setState({isAnswer: false, isTrue: true, wordInput: '', tipColor: false, indexLetter:0, nextLetter:'', wrongAnswer: 0}); this.props.onAnswer('WRITEWORD', this.props.wordData.id, this.state.isTrue)}}
+      >Дальше</button>
+    </div>)
+  }
 
-export default DictWrite;
+  render() {
+
+    const { wordData, isTranscR, letters } = this.props; 
+    const tr = isTranscR ? wordData.transcription[1] : wordData.transcription[0];
+
+    const elements = letters.map ((item, index) => 
+      <button className={this.state.tipColor && item === this.state.nextLetter ? 'tipColor' : null}
+      key={item}
+      onClick={() => this.clickAnswer(item)}
+      >
+      {item}
+      </button>);
+
+      if (this.state.isAnswer) {
+        return (
+          <div className='dictShow'>        
+            <div className='word'>{wordData.translate}</div>      
+            <div className='wordtranslateQwrite'>
+              {this.state.wordInput}
+            </div>
+            <div className='wordtranscription'>[&nbsp;&nbsp; {tr} &nbsp;&nbsp;]</div>
+            <div className='wordTypeWrite'>{wordData.type}</div>
+            {this.onRightAnswer()}  
+          </div>
+        ); 
+      }
+      else 
+      return (
+        <div className='dictShow'>        
+          <div className='word'>{wordData.translate}</div>      
+          <div className='wordtranslateQwrite'>
+            {this.state.wordInput}
+          </div>
+          <div className='buttonWrite'>{elements}</div>   
+        </div>
+      ); 
+  }     
+}
