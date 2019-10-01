@@ -1,5 +1,5 @@
 .theory {
-  padding:20px;
+  padding:1em;
   height: 90%;
   overflow-y: scroll;
 }
@@ -7,22 +7,22 @@
 .theory h1 {
   font-size: 1.5em;
   color:#75787b;
-  margin: 20px 0 20px;
+  margin: 0 0 1em;
 }
 
 .theory h2 {
   background: #75787b;
   font-weight: normal;
   color:#fff;
-  padding: 10px 30px;
-  margin: 0 0 30px;
+  padding: .7em 1em;
+  margin: 0 0 1em;
   font-size: 1.1em;
 }
 
 .theory h3 {
   font-weight: bold;
   color:#c4d600;
-  margin: 30px 0 0px;
+  margin: 2em 0 0;
   font-size: 1.1em;
 }
 
@@ -76,19 +76,19 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
     }
 
     .theory h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     }
 
   .theory h2 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     }
 
   .theory h3 {
-    font-size: 1.3em;
+    font-size: 1.1em;
     }
 
   .theory p {
-    font-size: 1.2em;
+    font-size: 1em;
     }
 
   td {

@@ -36,6 +36,24 @@
     flex-grow: 1;
 }
 
+.divMain {
+  padding:1em;
+  height: 90%;
+  background: inherit;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.divMain h1 {
+    font-size: 1.5em;
+    color:#75787b;
+    margin: 0 0 .3em;
+}
+
+.divMain p {
+    margin: 0 0 .1em;
+}
+
 .dark>div {
     background: #000;
     color: #fff;

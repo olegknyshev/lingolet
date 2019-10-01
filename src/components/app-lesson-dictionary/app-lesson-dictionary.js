@@ -200,18 +200,18 @@ export default class AppLessonDictionary extends Component {
             if (this.state.countWord < 6) nextTest = 'SHOWWORD';
             else {            
                 switch (Math.floor(Math.random()*10)) {
-                    // case 0:
-                    // case 1:
-                    // case 2:
-                    // case 3: nextTest = 'QWESTWORDA'; break;
-                    // case 4:
-                    // case 5:
-                    // case 6: nextTest = 'QWESTWORDR'; break;
-                    // case 7: nextTest = 'SHOWAGAIN'; break; 
-                    // case 8: 
-                    // case 9:              
-                    // case 10: nextTest = 'WRITEWORD'; break;
-                    default: nextTest = 'WRITEWORD';
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3: nextTest = 'QWESTWORDA'; break;
+                    case 4:
+                    case 5:
+                    case 6: nextTest = 'QWESTWORDR'; break;
+                    case 7: nextTest = 'SHOWAGAIN'; break; 
+                    case 8: 
+                    case 9:              
+                    case 10: nextTest = 'WRITEWORD'; break;
+                    default: nextTest = 'QWESTWORDA';
                 }
             }
         } 
@@ -301,12 +301,12 @@ export default class AppLessonDictionary extends Component {
         }
 
         return (
-            <>
+            <div className='divDict'>
             <div className='dictionary'>   
               {body}              
             </div>
             <ShowProgress progress={this.progressIs()}/>
-            </>
+            </div>
         );        
     }
 }

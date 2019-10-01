@@ -1,23 +1,22 @@
 .LessonsDiv {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
     padding-top: 10px;
     padding-bottom: 30px;
     height: 90%;
-    overflow-y: scroll;
+    overflow-y: scroll;    
 }
 
 
 .LessonsBox {
     position:relative;
-    background: #fff;
-    width:80%;
-    min-width: 250px;
+    background: #fff;    
+    min-width: 150px;
     border-radius: .3em ;
     display: block;
-    min-height: 20%;
     margin: 0 20px 15px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
     padding: 10px 20px 15px;
@@ -101,25 +100,36 @@
 .dark .LessonsBox h2 {
     color: #ddd;
 }
-
-@media screen and (orientation:landscape) {
-    .LessonsDiv {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        padding-top: 30px;
-        padding-right: 30px;
-        padding-bottom: 30px;
-        height:90%;
-    }
-
+@media (min-width: 1201px)  { 
     .LessonsBox {
-        width:25%;
-        min-height: 30%;
+        width:22%;       
     }
+ }
 
-    .LessonsBox h2 {
-        font-size: 1.3em;
+
+ @media (min-width: 993px) and (max-width: 1200px) { 
+    .LessonsBox {
+        width:22%;     
     }
-}
+ }
+
+ @media (min-width: 769px) and (max-width: 992px) { 
+    .LessonsBox {
+        width:35%;        
+    }
+ }
+
+
+@media (min-width: 300px) and (max-width: 768px) { 
+    .LessonsBox {
+        width:100%;
+    }
+ }
+
+
+
+
+
+
+
+

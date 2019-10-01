@@ -1,18 +1,26 @@
+.divDict {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
 .dictionary {
-  height: 85%;
-  margin-top:10px;
-  padding:20px;
+  padding:1em;
   background: inherit;
   overflow-y: scroll;
   position: relative;
+  flex-grow:1;
+  margin-bottom: 1em;
 }
 
-.dictionary > div {width:90%;}
+
 
 .dictionary h1 {
   font-size: 1.5em;
   color:#75787b;
-  margin: 20px 0 30px;
+  margin: 0 0 1em;
 }
 
 .dictionary table {
@@ -51,9 +59,9 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
 
 .dictionary button.begin {
   position: fixed;
-  bottom:15%;
-  left: calc(50% - 130px); 
-  width:260px;
+  bottom:20%;
+  left: calc(50% - 80px); 
+  width:160px;
   background: #c4d600;
   border: 0px;
   border-radius: 20px;
@@ -69,11 +77,11 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
   background: #c4d600;
   border: 0px;
   border-radius: 20px;
-  padding: 15px 30px;
-  margin-top:40px;
+  padding: .5em 1em;
+  margin-top:1em;
   cursor: pointer;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   box-shadow: 1px 1px 2px #666;
 }
@@ -88,10 +96,9 @@ td.sound {width:10%; text-align: center}
 }
 
 .dictShow {
-
   background: #fff;
   box-shadow: 0 1px 1px 0 rgba(37,32,31,.1);
-  padding: 30px 30px;
+  padding:10px 5px;
   display:flex;  
   flex-direction: column;
   justify-content: center;
@@ -101,9 +108,9 @@ td.sound {width:10%; text-align: center}
 .buttonQwest {
   width:100%;
   display:flex;  
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .buttonWrite {
@@ -111,21 +118,21 @@ td.sound {width:10%; text-align: center}
   display:flex;  
   justify-content: center;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .buttonWrite button {
-  width:70px; 
-  height:70px;
+  width:15vw; 
+  height:15vw;
   margin:5px;
   background: #f1f2f8;
   border:0px solid #c4d600;
   box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
   border: 0px;
-  padding: 10px;
+  padding: .2em;
   cursor: pointer;
   color: #000;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
@@ -140,15 +147,15 @@ td.sound {width:10%; text-align: center}
 
 .buttonQwest button {
   width:30%;
-  min-width: 200px;
-  margin:10px;
+  margin:0px;
+  margin-bottom: .8em;
   background: #f1f2f8;
   border:0px solid #c4d600;
   box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
-  padding: 15px 20px;
+  padding: .5em;
   cursor: pointer;
   color: #000;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: normal;
 }
 
@@ -176,16 +183,14 @@ td.sound {width:10%; text-align: center}
 }
 
 .congratulation h3 {
-  font-size: 2em;
+  font-size: 1.4em;
   color:#c4d600;
   font-weight: bold;
   margin:0;
 }
 
 .sProgress {
-  position: absolute;
-  left:30px;
-  bottom:20px;
+  margin:0px 30px 10px;
   width:100%;
 }
 
@@ -218,58 +223,58 @@ td.sound {width:10%; text-align: center}
 }
 
 .wordType {
-  font-size: 1em;
+  font-size: .8em;
   font-weight: normal;
   color: #999;
-  margin-bottom: 10px;
+  margin-bottom: .2em;
 }
 
 .wordTypeWrite {
-  font-size: 1em;
+  font-size: .8em;
   font-weight: normal;
   color: #999;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .word {
-  font-size: 3em;
+  font-size: 1.4em;
   font-weight: bold;
   text-align: center;
   color: #000;
-  margin-bottom: 20px;
+  margin-bottom: .5em;
 }
 
 .wordtranscription {
-  font-size: 2em;
+  font-size: 1em;
   font-weight: normal;
   color: rgb(129, 148, 199);
-  margin-bottom: 20px;
+  margin-bottom: .5em;
 }
 
 .wordtranslateQ {
-  padding: 10px 30px;
-  font-size: 2em;
-  height:2em;
-  width:50%;
+  padding: .5em .5em;
+  font-size: 1.2em;
+  height:1.2em;
+  width:70%;
   text-align: center;
   background: #aaa;
   border-radius: 10px;
   font-weight: normal;
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: .5em;
 }
 
 .wordtranslateQwrite {
-  padding: 10px 30px;
-  font-size: 2em;
-  height:2em;
-  width:50%;
+  padding: .5em .5em;
+  font-size: 1.2em;
+  height:1.2em;
+  width:70%;
   text-align: center;
   background: #aaa;
   border-radius: 10px;
   font-weight: normal;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: .5em;
 }
 
 .buttonknow {width:100%; display: flex; justify-content: center; }
@@ -280,7 +285,7 @@ td.sound {width:10%; text-align: center}
   border: 0px;
   width:25%;
   border-radius: 20px;
-  padding: 7px 5px 0px;
+  padding: 10px 10px;
   cursor: pointer;
   color: #fff;
   font-size: 1.2em;
@@ -333,7 +338,7 @@ button[disabled]:hover {background: #ddd; color:#fff}
   justify-content: center;
   align-items: center;
   box-shadow: 0 1px 1px 0 rgba(37,32,31,.1);
-  padding: 30px 30px;
+  padding: 2em .5em;
 }
 
 .finishTest div {margin-top:20px;}
@@ -341,7 +346,7 @@ button[disabled]:hover {background: #ddd; color:#fff}
 .finishTest h2 {
   text-align: center;
   color:#000;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .finishTest i {
@@ -350,14 +355,14 @@ button[disabled]:hover {background: #ddd; color:#fff}
 }
 
 .finishTest a {
-  margin:10px;
+  margin:5px;
   background: #c4d600;
   border: 0px;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: .5em;
   cursor: pointer;
   color: #000;
-  font-size: 1.2em;
+  font-size: .8em;
 }
 
 .finishTest a:hover {
@@ -365,29 +370,8 @@ button[disabled]:hover {background: #ddd; color:#fff}
   color: #fff;
 }
 
-@media screen and (orientation:portrait) {
-  .transcription {display: none;}
-}
-
-
 @media screen and (orientation:landscape) {
-  .dictionary {
-    padding:30px 50px 30px;
-    height:82%;
-  }
-
-  .dictionary h1 {
-  font-size: 2em;
-  }
-
-.dictionary h2 {
-  font-size: 1.2em;
-  }
-
-.dictionary p {
-  font-size: 1.2em;
-  }
-
+  
   .dictionary button.begin {
     position: fixed;
     bottom:15%;
@@ -395,16 +379,10 @@ button[disabled]:hover {background: #ddd; color:#fff}
     width:260px;
   }
 
-  .buttonWrite {
-    width:50%;
-    min-width: 400px;
-    margin-top: 40px;
-  }
-
-  .buttonWrite button {
-    width:80px; 
-    height:80px;
-    margin:10px;
+   .buttonWrite button {
+    width:8vw; 
+    height:8vw;
+    padding: 2px;
     
   }
 
@@ -423,4 +401,37 @@ button[disabled]:hover {background: #ddd; color:#fff}
     margin-bottom: 10px;
   }
 
+}
+
+@media (min-width: 1201px)  { 
+  .LessonsBox {
+      width:22%;
+      min-height:20%;
+  }
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) { 
+  
+  .LessonsBox {
+      width:22%;
+      min-height:40%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) { 
+  .transcription {display: none;}
+  .LessonsBox {
+      width:35%;
+      min-height:40%;
+  }
+  .transcription {display: none;}
+}
+
+
+@media (min-width: 300px) and (max-width: 768px) { 
+  .LessonsBox {
+      width:100%;
+  }
+  .transcription {display: none;}
 }

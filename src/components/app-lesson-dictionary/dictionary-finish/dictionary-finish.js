@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 const DictFinish = ({lessonId}) => {
   return (
     <div className='finishTest'>
-      <i className="fas fa-medal fa-7x"></i>
+      <i className="fas fa-medal fa-5x"></i>
       <h2>Поздравляю!<br />
       Вы выучили словарь данного урока!</h2>
       <div>

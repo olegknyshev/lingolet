@@ -4,14 +4,12 @@ import './app-settings.css';
 const AppSettings = ({settings, onChange, onChangeFont}) => {  
     
     return (
-        <div className='settings'>
+        <div className='divMain'>
             <h1>Настройки</h1>
             <div className='tips'
                 style={settings.isLogin ? {display: 'none'} : null }>
                 Авторизация в приложении, откроет Вам 
-                новый функционал:<br />
-                доступ ко всем урокам, 
-                статистику Вашего прогресса, ночную тему оформления.
+                новый функционал: доступ ко всем урокам, статистику Вашего прогресса, ночную тему оформления.
             </div>
             <div className='settings-box theme'>
                 <div className='settings-box-tab'>                    

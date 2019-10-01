@@ -6,7 +6,7 @@ export default class AppExam extends Component {
     render() {
         
         return (
-            <div className='exam'>
+            <div className='divMain'>
                 <h1>Экзамен</h1>
                 <p>Здесь скоро все будет!</p>
             </div>
