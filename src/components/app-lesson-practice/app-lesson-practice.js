@@ -1,5 +1,17 @@
 import React, { Component }  from 'react';
+import PropTypes from 'prop-types';
 import './app-lesson-practice.css';
+
+const propTypes = {
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string,
+  };
+  
+  const defaultProps = {
+    text: 'Hello World',
+  };
+
 
 export default class AppPractice extends Component {
 
@@ -13,3 +25,6 @@ export default class AppPractice extends Component {
         );        
     }
 }
+
+AppPractice.propTypes = propTypes;
+AppPractice.defaultProps = defaultProps;

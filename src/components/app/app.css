@@ -33,7 +33,7 @@
     grid-area: main;
     width: 100%;
     overflow: hidden;
-    flex-grow: 1;
+    
 }
 
 .divMain {
@@ -42,6 +42,7 @@
   background: inherit;
   overflow-y: scroll;
   position: relative;
+  flex-grow: 1;
 }
 
 .divMain h1 {
@@ -72,3 +73,35 @@
         max-width: 1200px;
     }
 }
+
+
+@media (min-width: 576px) { 
+    .Layout>div {
+        width: 100vw;
+        height: 100vh;
+    }
+ }
+
+
+@media (min-width: 768px) { 
+    .Layout>div {
+        width: 95vw;
+        height: 95vh;
+    }
+ }
+
+
+@media (min-width: 992px) { 
+    .Layout>div {
+        width: 90vw;
+        height: 90vh;
+    }
+ }
+
+
+@media (min-width: 1200px) { 
+    .Layout>div {
+        width: 85vw;
+        height: 85vh;
+    }
+ }

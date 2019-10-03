@@ -6,7 +6,7 @@ const ShowProgress = ({progress}) => {
       <div className='sProgress'>
         <div className='showProgressB'> 
         </div>
-        <div className='showProgress' style={{width: `calc(${progress}% - 60px)`}}> 
+        <div className='showProgress' style={{width: `${progress}%`}}> 
           <div className='showProgressP'> 
           {progress}%
           </div>

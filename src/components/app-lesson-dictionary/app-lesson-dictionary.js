@@ -215,7 +215,7 @@ export default class AppLessonDictionary extends Component {
                 }
             }
         } 
-        if (!this.state.countWord%10) nextTest = 'SHOWWORD';
+        if (!this.state.countWord%5) nextTest = 'SHOWWORD';
         const ArrShowedWord = this.state.progress.filter((item) => item.show === true && item.right < this.props.maxLoops);    
         if (ArrShowedWord.length === 0) nextTest = 'SHOWWORD';
         if (this.isFinish()) nextTest = 'FINISH';

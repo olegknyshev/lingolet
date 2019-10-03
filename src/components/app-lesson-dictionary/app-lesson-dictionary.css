@@ -98,7 +98,7 @@ td.sound {width:10%; text-align: center}
 .dictShow {
   background: #fff;
   box-shadow: 0 1px 1px 0 rgba(37,32,31,.1);
-  padding:10px 5px;
+  padding:5vh 2vw;
   display:flex;  
   flex-direction: column;
   justify-content: center;
@@ -123,8 +123,10 @@ td.sound {width:10%; text-align: center}
 
 .buttonWrite button {
   width:15vw; 
+  max-width: 100px;
+  max-height: 100px;
   height:15vw;
-  margin:5px;
+  margin:1vw;
   background: #f1f2f8;
   border:0px solid #c4d600;
   box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
@@ -148,11 +150,11 @@ td.sound {width:10%; text-align: center}
 .buttonQwest button {
   width:30%;
   margin:0px;
-  margin-bottom: .8em;
+  margin-bottom: 2vh;
   background: #f1f2f8;
   border:0px solid #c4d600;
   box-shadow: 1px 1px 1px 0 rgba(37,32,31,.1);
-  padding: .5em;
+  padding: 2vh;
   cursor: pointer;
   color: #000;
   font-size: 1em;
@@ -190,8 +192,7 @@ td.sound {width:10%; text-align: center}
 }
 
 .sProgress {
-  margin:0px 30px 10px;
-  width:100%;
+  margin:0px 3vw 1vh;
 }
 
 
@@ -199,7 +200,7 @@ td.sound {width:10%; text-align: center}
   position: relative;
   left:0px;
   bottom:0px;
-  width: calc(100% - 60px); 
+  width: 100%; 
   background: #999;
   height:5px;
 }
@@ -208,25 +209,26 @@ td.sound {width:10%; text-align: center}
   position: relative;
   left:0px;
   bottom:5px;
-  width: calc(30% - 60px); 
+  width: 30%; 
   background: #c4d600;
   height:6px;
   text-align: right;
 }
 
 .showProgressP {
+  font-size: 2vh;
   display: inline-block;
   transform: translateY(-15px);
   background: #f1f2f8;
   color:#666;
-  padding:0 8px 0 10px;
+  padding:0 .5vh 1vh .5vh;
 }
 
 .wordType {
   font-size: .8em;
   font-weight: normal;
   color: #999;
-  margin-bottom: .2em;
+  margin-bottom: 2vh;
 }
 
 .wordTypeWrite {
@@ -237,37 +239,37 @@ td.sound {width:10%; text-align: center}
 }
 
 .word {
-  font-size: 1.4em;
+  font-size: 4vh;
   font-weight: bold;
   text-align: center;
   color: #000;
-  margin-bottom: .5em;
+  margin-bottom: 2vh;
 }
 
 .wordtranscription {
   font-size: 1em;
   font-weight: normal;
   color: rgb(129, 148, 199);
-  margin-bottom: .5em;
+  margin-bottom: 2vh;
 }
 
 .wordtranslateQ {
-  padding: .5em .5em;
-  font-size: 1.2em;
-  height:1.2em;
+  padding: 2vh;
+  font-size: 4vh;
+  height:5vh;
   width:70%;
   text-align: center;
   background: #aaa;
   border-radius: 10px;
   font-weight: normal;
   color: #fff;
-  margin-bottom: .5em;
+  margin-bottom: 5vh;
 }
 
 .wordtranslateQwrite {
-  padding: .5em .5em;
-  font-size: 1.2em;
-  height:1.2em;
+  padding: 2vh;
+  font-size: 4vh;
+  height:5vh;
   width:70%;
   text-align: center;
   background: #aaa;
@@ -283,14 +285,13 @@ td.sound {width:10%; text-align: center}
   margin:10px;
   background: #c4d600;
   border: 0px;
-  width:25%;
+  width:40%;
   border-radius: 20px;
   padding: 10px 10px;
   cursor: pointer;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1em;
   text-transform: uppercase;
-  font-weight: bold;
 }
 
 button:disabled,
@@ -404,34 +405,21 @@ button[disabled]:hover {background: #ddd; color:#fff}
 }
 
 @media (min-width: 1201px)  { 
-  .LessonsBox {
-      width:22%;
-      min-height:20%;
-  }
+  
 }
 
 
 @media (min-width: 993px) and (max-width: 1200px) { 
-  
-  .LessonsBox {
-      width:22%;
-      min-height:40%;
-  }
+ 
 }
 
 @media (min-width: 769px) and (max-width: 992px) { 
   .transcription {display: none;}
-  .LessonsBox {
-      width:35%;
-      min-height:40%;
-  }
-  .transcription {display: none;}
+  
 }
 
 
 @media (min-width: 300px) and (max-width: 768px) { 
-  .LessonsBox {
-      width:100%;
-  }
+  
   .transcription {display: none;}
 }
