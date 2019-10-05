@@ -1,6 +1,8 @@
 .theory {
-  padding:1em;
-  height: 90%;
+  height: 100%;
+  background: #fff;
+  margin:0vh 1vw;
+  padding: 1vh 1vw;
   overflow-y: scroll;
 }
 
@@ -9,6 +11,12 @@
   color:#75787b;
   margin: 0 0 1em;
 }
+
+.theory span {
+  color:red;
+  font-weight: bold;
+}
+
 
 .theory h2 {
   background: #75787b;
@@ -36,25 +44,23 @@
   font-size: 1em;
 }
 
-table {
+table.main {
   width:100%;
-  background: #fff;
-  border:#666;
 }
 
-.dark table {
+.dark table.main {
   width:100%;
   background: #333;
   border:#fff;
 }
 
-th {
+table.main th {
   background: #c4d600;
   color:#fff;
   padding: 8px;
 }
 
-td {
+table.main td {
   width:50%;
   text-align: center;
   padding: 8px;
@@ -62,36 +68,26 @@ td {
   font-size: 1em;
 }
 
-tr:nth-child(odd) td { background-color:#ccc } /*odd*/
-tr:nth-child(even) td { background-color:#fff } /* even*/
+table.main > tbody > tr:nth-child(odd) td { background-color:#ccc } /*odd*/
+table.main > tbody > tr:nth-child(even) td { background-color:#fff } /* even*/
 
-.dark tr:nth-child(odd) td { background-color:#333 } /*odd*/
-.dark tr:nth-child(even) td { background-color:#555 } /* even*/
+.dark table.main > tbody > tr:nth-child(odd) td { background-color:#333 } /*odd*/
+.dark table.main > tbody > tr:nth-child(even) td { background-color:#555 } /* even*/
+
+
+table.sub td {
+  width:33%;
+}
+
+table.sub3 td {
+  width:25%;
+}
+
+table.sub td { background-color:#ccc!important; } 
+
+.dark table.sub td { background-color:#333!important; } 
+
 
 @media screen and (orientation:landscape) {
-    .theory {
-      padding:0px 50px 30px;
-      height: 95%;
-      overflow-y: scroll;
-    }
-
-    .theory h1 {
-    font-size: 1.5em;
-    }
-
-  .theory h2 {
-    font-size: 1.1em;
-    }
-
-  .theory h3 {
-    font-size: 1.1em;
-    }
-
-  .theory p {
-    font-size: 1em;
-    }
-
-  td {
-    font-size: 1em;
-    }
+ 
 }

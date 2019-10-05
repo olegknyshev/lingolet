@@ -49,10 +49,11 @@ export default class DictQwest extends React.Component {
     }
   }
 
-  onRightAnswer() {
+  onRightAnswer(item) {
     
     const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
     let idx = Math.floor(Math.random()*congratulation.length);
+    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
         
     return (
     <div className='congratulation'>
@@ -118,7 +119,7 @@ export default class DictQwest extends React.Component {
       if (this.state.isAnswer) return   (
         <div className='dictShow'>
           {bodyWord}
-          {this.onRightAnswer()}          
+          {this.onRightAnswer(wordData.word)}          
         </div>
       );  
       else return (

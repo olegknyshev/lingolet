@@ -32,10 +32,11 @@ export default class DictWrite extends React.Component {
        
   }
 
-  onRightAnswer() {
+  onRightAnswer(item) {
     
     const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
     let idx = Math.floor(Math.random()*congratulation.length);
+    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
         
     return (
     <div className='congratulation'>
@@ -69,7 +70,7 @@ export default class DictWrite extends React.Component {
             </div>
             <div className='wordtranscription'>[&nbsp;&nbsp; {tr} &nbsp;&nbsp;]</div>
             <div className='wordTypeWrite'>{wordData.type}</div>
-            {this.onRightAnswer()}  
+            {this.onRightAnswer(this.state.wordInput)}  
           </div>
         ); 
       }

@@ -38,7 +38,7 @@
 
 .divMain {
   padding:1em;
-  height: 90%;
+  height: 100%;
   background: inherit;
   overflow-y: scroll;
   position: relative;
@@ -105,3 +105,16 @@
         height: 85vh;
     }
  }
+
+ @media screen and (orientation:portrait) {
+    .Layout nav {
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    }
+
+    .Layout main {
+        padding-bottom: 80px;        
+    }
+}

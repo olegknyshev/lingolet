@@ -89,7 +89,7 @@ const AppNav = ({pageStatus, onChange}) => {
     const AppNavLessonDictionary = () => {
         return (
             <NavLink
-                to={`/lesson/dictionary/${ pageStatus }`}
+                to={`/lesson/dictionary/${pageStatus}`}
                 exact={false}
                 activeClassName='active'
             >
@@ -99,10 +99,10 @@ const AppNav = ({pageStatus, onChange}) => {
         );
     }
 
-    const AppNavLessonPractice = ({pageStatus}) => {
+    const AppNavLessonPractice = () => {
         return (
             <NavLink
-                to={`/lesson/practice/${ pageStatus }`}
+                to={`/lesson/practice/${pageStatus}`}
                 exact={false}
                 activeClassName='active'
             >

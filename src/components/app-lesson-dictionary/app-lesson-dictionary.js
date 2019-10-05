@@ -106,15 +106,12 @@ export default class AppLessonDictionary extends Component {
         const ArrShowedWord = this.state.progress.filter((item) => item.show === true);
         while (wrongDataE.length < 6) {            
             const idx = Math.floor(Math.random()*ArrShowedWord.length);
-
             const data = this.findItemFromId(ArrShowedWord[idx]);
-
             const eng = data.word;
-            // const p = /\s\(\d форма\)/;
             const rus = data.translate;
+            // const p = /\s\(\d форма\)/;
             // const rus = data.translate.replace(p,'');
-            // console.log(data.translate,' - ',rus)
-
+            
             if (!wrongDataE.includes(eng) && !wrongDataR.includes(rus)) { 
                 wrongDataE.push(eng); wrongDataR.push(rus);                
             }            

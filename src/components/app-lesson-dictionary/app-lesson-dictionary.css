@@ -158,7 +158,7 @@ td.sound {width:10%; text-align: center}
   cursor: pointer;
   color: #000;
   font-size: 1em;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .buttonQwest button.tipColor {
@@ -192,7 +192,7 @@ td.sound {width:10%; text-align: center}
 }
 
 .sProgress {
-  margin:0px 3vw 1vh;
+  margin:0px 3vw 0;
 }
 
 
@@ -400,6 +400,18 @@ button[disabled]:hover {background: #ddd; color:#fff}
     font-weight: normal;
     margin:0;
     margin-bottom: 10px;
+  }
+
+  .sProgress {
+    margin:0px 1vw 1vh;
+  }
+
+  .theory {
+    height:95%!important;
+  }
+
+  .LessonsDiv {
+    height:95%!important;
   }
 
 }

@@ -9,8 +9,9 @@ export default class DictShow extends React.Component {
     isFinish: false
   };
 
-  onClickShow() {
+  onClickShow(item) {
     const { wordData } = this.props;
+    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
     
     if (wordData.type !== '1. infinitive')
     this.setState((state) => ({
@@ -56,7 +57,7 @@ export default class DictShow extends React.Component {
         </div>        
         <div className='buttonknow'>
           <button disabled={this.state.isFinish}
-            onClick={() => this.onClickShow()}
+            onClick={() => this.onClickShow(wordThis.word)}
           >{buttonName}</button>
           <button className='yes'
             onClick={() => {this.setState({isKnow: true, isAnswer: false, ifIsVerb: 0, isFinish: false}); this.props.onAnswer('SHOWWORD', wordData.id, this.state.isKnow)}}

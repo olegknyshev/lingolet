@@ -185,4 +185,373 @@ export const LessonsDic =  [
     type: '3. perfect',
     from: 19
   },
+  {
+    id: 22, 
+    lesson: 1,
+    word: 'give',
+    transcription: ['giv','гив'],      
+    translate: 'давать',
+    type: '1. infinitive',
+    also: [23,24]
+  },
+  {
+    id: 23, 
+    lesson: 1,
+    word: 'gave',
+    transcription: ['geiv','гейв'],      
+    translate: 'дал',
+    type: '2. past',
+    from: 22
+  },
+  {
+    id: 24, 
+    lesson: 1,
+    word: 'given',
+    transcription: ['givən','гивэн'],      
+    translate: 'дал',
+    type: '3. perfect',
+    from: 22
+  },
+  {
+    id: 25, 
+    lesson: 1,
+    word: 'use',
+    transcription: ['ju:s','юс'],      
+    translate: 'пользоваться',
+    type: 'verb'   
+  },
+  {
+    id: 26, 
+    lesson: 1,
+    word: 'he',
+    transcription: ['ˈhi','хи'],      
+    translate: 'он',
+    type: 'pronoun'
+  },
+  {
+    id: 27, 
+    lesson: 1,
+    word: 'think',
+    transcription: ['θɪŋk','синк'],      
+    translate: 'думать',
+    type: '1. infinitive',
+    also: [28,29]
+  },
+  {
+    id: 28, 
+    lesson: 1,
+    word: 'thought',
+    transcription: ['θɔːt','соот'],      
+    translate: 'подумал',
+    type: '2. past',
+    from: 27
+  },
+  {
+    id: 29, 
+    lesson: 1,
+    word: 'thought',
+    transcription: ['θɔːt','соот'],      
+    translate: 'подумал',
+    type: '3. perfect',
+    from: 27
+  },
+  {
+    id: 30, 
+    lesson: 1,
+    word: 'take',
+    transcription: ['teik','тейк'],      
+    translate: 'брать',
+    type: '1. infinitive',
+    also: [31,32]
+  },
+  {
+    id: 31, 
+    lesson: 1,
+    word: 'took',
+    transcription: ['tʊk','тук'],      
+    translate: 'взял',
+    type: '2. past',
+    from: 30
+  },
+  {
+    id: 32, 
+    lesson: 1,
+    word: 'taken',
+    transcription: ['ˈteɪ.kən','тейкен'],      
+    translate: 'взял',
+    type: '3. perfect',
+    from: 30
+  },
+  {
+    id: 33, 
+    lesson: 1,
+    word: 'you',
+    transcription: ['ju','ю'],      
+    translate: 'ты',
+    type: 'pronoun',
+  },
+  {
+    id: 34, 
+    lesson: 1,
+    word: 'they',
+    transcription: ['ðeɪ','вей'],      
+    translate: 'они',
+    type: 'pronoun',
+  },
+  {
+    id: 35, 
+    lesson: 1,
+    word: 'she',
+    transcription: ['ʃi','ши'],      
+    translate: 'она',
+    type: 'pronoun',
+  },
+  {
+    id: 36, 
+    lesson: 1,
+    word: 'make',
+    transcription: ['meɪk','мейк'],      
+    translate: 'сделать, заставлять',
+    type: '1. infinitive',
+    also: [37,38]
+  },
+  {
+    id: 37, 
+    lesson: 1,
+    word: 'made',
+    transcription: ['meid','мейд'],      
+    translate: 'сделал, заставил',
+    type: '2. past',
+    from: 36
+  },
+  {
+    id: 38, 
+    lesson: 1,
+    word: 'made',
+    transcription: ['meid','мейд'],      
+    translate: 'сделал, заставил',
+    type: '3. perfect',
+    from: 36
+  },
+  {
+    id: 39, 
+    lesson: 1,
+    word: 'get',
+    transcription: ['ɡet','гэт'],      
+    translate: 'получать, добираться',
+    type: '1. infinitive',
+    also: [40,41]
+  },
+  {
+    id: 40, 
+    lesson: 1,
+    word: 'got',
+    transcription: ['ɡɒt','гот'],      
+    translate: 'получил, добрался',
+    type: '2. past',
+    from: 39
+  },
+  {
+    id: 41, 
+    lesson: 1,
+    word: 'got',
+    transcription: ['ɡɒt','гот'],      
+    translate: 'получил, добрался',
+    type: '3. perfect',
+    from: 39
+  },
+  {
+    id: 42, 
+    lesson: 1,
+    word: 'feel',
+    transcription: ['fiːl','фил'],      
+    translate: 'чувствовать',
+    type: '1. infinitive',
+    also: [43,44]
+  },
+  {
+    id: 43, 
+    lesson: 1,
+    word: 'felt',
+    transcription: ['felt','фэлт'],      
+    translate: 'чувствовал',
+    type: '2. past',
+    from: 42
+  },
+  {
+    id: 44, 
+    lesson: 1,
+    word: 'felt',
+    transcription: ['felt','фэлт'],      
+    translate: 'чувствовал',
+    type: '3. perfect',
+    from: 42
+  },
+  {
+    id: 45, 
+    lesson: 1,
+    word: 'need',
+    transcription: ['ni:d','нид'],      
+    translate: 'нуждаться',
+    type: 'verb',
+  },
+  {
+    id: 46, 
+    lesson: 1,
+    word: 'come',
+    transcription: ['kʌm','кам'],      
+    translate: 'приходить',
+    type: '1. infinitive',
+    also: [47,48]
+  },
+  {
+    id: 47, 
+    lesson: 1,
+    word: 'came',
+    transcription: ['keim','кейм'],      
+    translate: 'пришел',
+    type: '2. past',
+    from: 46
+  },
+  {
+    id: 48, 
+    lesson: 1,
+    word: 'come',
+    transcription: ['kʌm','кам'],      
+    translate: 'пришел',
+    type: '3. perfect',
+    from: 46
+  },
+  {
+    id: 49, 
+    lesson: 1,
+    word: 'sit',
+    transcription: ['sɪt','сит'],      
+    translate: 'сидеть',
+    type: '1. infinitive',
+    also: [50,51]
+  },
+  {
+    id: 50, 
+    lesson: 1,
+    word: 'sat',
+    transcription: ['sæt','сат'],      
+    translate: 'сидел',
+    type: '2. past',
+    from: 49
+  },
+  {
+    id: 51, 
+    lesson: 1,
+    word: 'sat',
+    transcription: ['sæt','сат'],      
+    translate: 'сидел',
+    type: '3. perfect',
+    from: 49
+  },
+  {
+    id: 52, 
+    lesson: 1,
+    word: 'play',
+    transcription: ['pleɪ','плей'],      
+    translate: 'играть',
+    type: 'verb'
+  },
+  {
+    id: 53, 
+    lesson: 1,
+    word: 'tell',
+    transcription: ['tel','тэл'],      
+    translate: 'рассказывать',
+    type: '1. infinitive',
+    also: [54,55]
+  },
+  {
+    id: 54, 
+    lesson: 1,
+    word: 'told',
+    transcription: ['təʊld','толд'],      
+    translate: 'рассказал',
+    type: '2. past',
+    from: 53
+  },
+  {
+    id: 55, 
+    lesson: 1,
+    word: 'told',
+    transcription: ['təʊld','толд'],      
+    translate: 'рассказал',
+    type: '3. perfect',
+    from: 53
+  },
+  {
+    id: 56, 
+    lesson: 1,
+    word: 'try',
+    transcription: ['traɪ','трай'],      
+    translate: 'пытаться, стараться',
+    type: 'verb',
+  },
+  {
+    id: 57, 
+    lesson: 1,
+    word: 'explain',
+    transcription: ['ɪkˈspleɪn','эксплейн'],      
+    translate: 'объяснять',
+    type: 'verb',
+  },
+  {
+    id: 58, 
+    lesson: 1,
+    word: 'eat',
+    transcription: ['iːt','ит'],      
+    translate: 'есть, кушать',
+    type: '1. infinitive',
+    also: [59,60]
+  },
+  {
+    id: 59, 
+    lesson: 1,
+    word: 'ate',
+    transcription: ['et','эт'],      
+    translate: 'поел, покушал',
+    type: '2. past',
+    from: 58
+  },
+  {
+    id: 60, 
+    lesson: 1,
+    word: 'eaten',
+    transcription: ['ˈiːt(ə)n','итэн'],      
+    translate: 'поел, покушал',
+    type: '3. perfect',
+    from: 58
+  },
+  {
+    id: 61, 
+    lesson: 1,
+    word: 'find',
+    transcription: ['faɪnd','фаинд'],      
+    translate: 'найти',
+    type: '1. infinitive',
+    also: [62,63]
+},
+{
+  id: 62, 
+  lesson: 1,
+  word: 'found',
+  transcription: ['faʊnd','фоунд'],      
+  translate: 'нашел',
+  type: '2. past',
+  from: 61
+},
+{
+  id: 63, 
+  lesson: 1,
+  word: 'found',
+  transcription: ['faʊnd','фоунд'],      
+  translate: 'нашел',
+  type: '3. perfect',
+  from: 61
+},
 ];
