@@ -37,8 +37,8 @@ export default class AppMain extends Component {
                 if (tProgress > 0) progress = `Ваш прогресс: ${ tProgress }%`;
                 if (tProgress === 100) progress = 'Урок пройден.';
             }
-            
-            return (
+
+            if (this.props.isLogin === true || item.id === 1) return (
                 <NavLink
                     to={`/lesson/theory/${ item.id }`}
                     className='LessonsBox'
@@ -56,6 +56,20 @@ export default class AppMain extends Component {
                         <div className='LessonsBoxProgress' style={{width: tProgress+'%'}}></div>
                     </div>
                 </NavLink>
+            );
+            else return (
+                <div key={ item.id } className='LessonsBox notlogin'> 
+                    <div>
+                        <div>
+                            <div className='LessonNumer'>{ item.id }</div>
+                            <p className='LessonProgress'>{ progress }</p>
+                        </div>
+                        <h2>{ item.titel }</h2>                        
+                        <div className='LessonsBoxProgressB'></div>                  
+                        <div className='LessonsBoxProgress' style={{width: tProgress+'%'}}></div>
+                    </div>
+                </div>
+
             );
         });
     

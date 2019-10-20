@@ -3,6 +3,7 @@ import PracticeTest from './practice-test/';
 import ShowProgress from '../app-lesson-dictionary/show-progress/';
 import PracticeFinish from './practice-finish';
 import './app-lesson-practice.css';
+import {Redirect} from 'react-router-dom';
 
 import {LessonsPractice} from '../../data/lessons-practice';
 
@@ -128,7 +129,9 @@ export default class AppPractice extends Component {
 
     render() {  
         if (this.props.settings.lessonId !== +this.props.match.params.id) this.props.onChange({lessonId:+this.props.match.params.id});
-         let body;
+        if (this.props.settings.isLogin === false && +this.props.match.params.id !== 1) return <Redirect to="/" />;
+        
+        let body;
         if (this.isFinish()) body = (<PracticeFinish lessonId = {+this.props.match.params.id}/>); 
         else body = (<PracticeTest phrase={this.chooseNextTest()} 
                                    onAnswer={this.handleNext} 

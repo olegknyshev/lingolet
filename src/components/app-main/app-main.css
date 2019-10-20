@@ -24,6 +24,10 @@
     transition: all .3s ease-out;
 }
 
+.LessonsBox.notlogin {
+    opacity: .5;
+}
+
 .LessonsBox > div {
     display: flex;
     flex-direction: column;

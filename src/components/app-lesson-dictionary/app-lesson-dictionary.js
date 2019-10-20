@@ -6,6 +6,7 @@ import DictWrite from './dictionary-write/';
 import DictFinish from './dictionary-finish/';
 import ShowProgress from './show-progress/';
 import './app-lesson-dictionary.css';
+import {Redirect} from 'react-router-dom';
 
 import {LessonsDic} from '../../data/lessons-dict';
 
@@ -281,7 +282,11 @@ export default class AppLessonDictionary extends Component {
 
     render() {
         if (this.props.settings.lessonId !== +this.props.match.params.id) this.props.onChange({lessonId:+this.props.match.params.id});
-       
+        if (this.props.settings.isLogin === false && +this.props.match.params.id !== 1) {
+            this.props.onChange({lessonId:0});
+            return <Redirect to="/" />;
+        }
+        
         let nextTest = this.chooseNextTest();       
         let word = this.chooseNextWord(nextTest);        
         let twoForms = {};
