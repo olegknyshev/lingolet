@@ -92,11 +92,11 @@ const AppLesson1 = () => {
 
 <h4>Например:</h4>
 
-<p><strong>I think.</strong> <br />Я думаю.</p>
-<p><strong>You think.</strong> <br />Ты думаешь.</p>
-<p><strong>He think<span>s</span>.</strong> <br />Он думает.</p>
-<p><strong>You go.</strong> <br />Ты идешь.</p>
-<p><strong>He go<span>es</span>.</strong> <br />Он идет.</p>
+<p className='primer'><strong>I think.</strong> <br />Я думаю.</p>
+<p className='primer'><strong>You think.</strong> <br />Ты думаешь.</p>
+<p className='primer'><strong>He think<span>s</span>.</strong> <br />Он думает.</p>
+<p className='primer'><strong>You go.</strong> <br />Ты идешь.</p>
+<p className='primer'><strong>He go<span>es</span>.</strong> <br />Он идет.</p>
 
 
 
@@ -122,9 +122,8 @@ const AppLesson1 = () => {
   </thead>
   <tbody>
     <tr>
-      <td rowSpan='3'>
-        do<br />
-        does
+      <td rowSpan='2'>
+        do        
       </td>
       <td>
           I<br />
@@ -152,6 +151,9 @@ const AppLesson1 = () => {
     </tr>
     <tr>
       <td>
+      does
+      </td>
+      <td>
           he<br />
           she<br />
           it
@@ -168,14 +170,90 @@ const AppLesson1 = () => {
 
 <h4>Например:</h4>
 
-<p><strong><span>Do</span> I think?</strong><br />Я думаю?</p>
-<p><strong><span>Do</span> you go?</strong><br />Ты идешь?</p>
-<p><strong><span>Does</span> he think?</strong><br />Он думает?</p>
+<p className='primer'><strong><span>Do</span> I think?</strong><br />Я думаю?</p>
+<p className='primer'><strong><span>Do</span> you go?</strong><br />Ты идешь?</p>
+<p className='primer'><strong><span>Does</span> he think?</strong><br />Он думает?</p>
 
+<p><strong>Отрицательные предложения</strong> образуются при помощи того же вспомогательного глагола <span>do</span> (<span>does</span>) с отрицательной частицей <span>not</span>. Вспомогательный глагол вставляется после подлежащего.</p>
 
+<p>В третьем лице единственного числа, с местоимениями <strong>he</strong> (он), <strong>she</strong> (она) или <strong>it</strong> (оно/это), окончание <span>‑s</span> добавляется к вспомогательному глаголу <strong>do</strong>, который принимает форму <span>does</span>.</p>
 
+<p>В разговорной практике часто используется краткая форма отрицания: когда <strong>do not</strong> заменяется на <strong>don’t</strong> и <strong>does not</strong> заменяется на <strong>doesn’t</strong>. В письменной форме и при составлении документов предпочтительнее употреблять форму <strong>do not</strong> и <strong>does not</strong>. Также, полные формы <strong>do not</strong> и <strong>does not</strong> используются, если вы хотите подчеркнуть, что чего-то делать нельзя.</p>
+<table className='main sub sub3'>
+  <thead>
+    <tr>
+    <th colSpan='2'>
+      ПОД­ЛЕ­ЖА­ЩЕЕ
+    </th>
+    <th>
+      ВСПО­МО­ГА­ТЕЛЬ­НЫЙ ГЛАГОЛ
+    </th>
+    <th>
+      СКАЗУЕМОЕ
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+      <td>
+          I<br />
+          you
+      </td>
+      <td>
+          я<br />
+          ты<br />
+          вы<br />
+      </td>
+      <td rowSpan='2'>
+        do not<br />
+        (don't)
+      </td>
+      <td rowSpan='3'>
+        think
+      </td>      
+  </tr>
+  <tr>
+    <td>
+      we<br />
+      they
+  </td>
+  <td>
+      мы<br />
+      они
+  </td>
+  </tr>
+  <tr>
+    <td>
+      he<br />
+      she<br />
+      it
+  </td>
+  <td>
+      он<br />
+      она<br />
+      оно<br />
+      это
+  </td>
+  <td>
+    does not<br />
+    (doesn't)
+  </td>
+  </tr>
+  </tbody>
+</table>
+<h4>Например:</h4>
+<p>В письменной форме при составлении официального письма или документа:</p>
+<p className='primer'><strong>I<span> do not</span> think so.</strong><br />Я так не думаю.</p>
 
-      </div>
+<p>В разговорной речи:</p>
+<p className='primer'><strong>I<span> don’t</span> think so.</strong><br />Я так не думаю.</p>
+
+<p>Усиленное отрицание:</p>
+<p className='primer'><strong><span>Do not</span> open the door.</strong><br />Не открывай дверь.</p>
+
+И так далее.... устал форматировать - однотипная работа, сделаю позже...
+
+</div>
   )
 }
 

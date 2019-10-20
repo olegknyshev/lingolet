@@ -12,7 +12,9 @@ import {LessonsDic} from '../../data/lessons-dict';
 
 export default class AppLessonDictionary extends Component { 
 
-    static defaultProps = { maxLoops: 3,  isTranscR: false, isFirst: true};
+    
+
+    static defaultProps = { maxLoops: 3, isFirst: true};
 
     state = {        
         isFirst: this.props.isFirst,       
@@ -212,12 +214,12 @@ export default class AppLessonDictionary extends Component {
                 }
             }
         } 
-        if (!this.state.countWord%5) nextTest = 'SHOWWORD';
+        if (this.state.countWord%5 < 1) nextTest = 'SHOWWORD';
         const ArrShowedWord = this.state.progress.filter((item) => item.show === true && item.right < this.props.maxLoops);    
         if (ArrShowedWord.length === 0) nextTest = 'SHOWWORD';
         if (this.isFinish()) nextTest = 'FINISH';
         if (this.state.isFirst) nextTest = 'SHOWALL'; 
-        console.log(nextTest);             
+        console.log('следующий тест', nextTest);           
         return nextTest;
     }
 
@@ -238,6 +240,7 @@ export default class AppLessonDictionary extends Component {
                 else word = this.isOldWord();
             }
         }
+        console.log('следующее слово и его id:', word.id,' - ',word.word);  
         return word;
     }
 
@@ -277,6 +280,8 @@ export default class AppLessonDictionary extends Component {
     }
 
     render() {
+        if (this.props.settings.lessonId !== +this.props.match.params.id) this.props.onChange({lessonId:+this.props.match.params.id});
+       
         let nextTest = this.chooseNextTest();       
         let word = this.chooseNextWord(nextTest);        
         let twoForms = {};
@@ -287,12 +292,12 @@ export default class AppLessonDictionary extends Component {
         if (nextTest === 'WRITEWORD') letters = this.makeLettersArr(word.word);       
         let body;
         switch (nextTest) {
-            case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.props.isTranscR }/>); break;
-            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } twoForms={twoForms}/>); break;
-            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } twoForms={twoForms}/>); break;
-            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'ENGRUS'} wrongData={wrongData}/>); break;
-            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } route={'RUSENG'} wrongData={wrongData}/>); break;
-            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.isTranscR } letters={letters}/>); break;
+            case 'SHOWALL': body = (<DictList dataDict={this.onlyThisLesson()} onChange={ this.handleNext } isTranscR={ this.props.settings.transcripR }/>); break;
+            case 'SHOWWORD': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.settings.transcripR } twoForms={twoForms} autoGo={ this.props.settings.autoGo } soundPractik={ this.props.settings.soundPractik }/>); break;
+            case 'SHOWAGAIN': body = (<DictShow onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.settings.transcripR } twoForms={twoForms} autoGo={ this.props.settings.autoGo } soundPractik={ this.props.settings.soundPractik }/>); break;
+            case 'QWESTWORDA': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.settings.transcripR } route={'ENGRUS'} wrongData={wrongData} autoGo={ this.props.settings.autoGo } soundPractik={ this.props.settings.soundPractik }/>); break;
+            case 'QWESTWORDR': body = (<DictQwest onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.settings.transcripR } route={'RUSENG'} wrongData={wrongData} autoGo={ this.props.settings.autoGo } soundPractik={ this.props.settings.soundPractik }/>); break;
+            case 'WRITEWORD': body = (<DictWrite onAnswer={this.handleNext} wordData={word} isTranscR={ this.props.settings.transcripR } letters={letters} autoGo={ this.props.settings.autoGo } soundPractik={ this.props.settings.soundPractik }/>); break;
             case 'FINISH': body = (<DictFinish lessonId = {+this.props.match.params.id}/>); break;
             default: body = 'что-то пошло не так...';
         }

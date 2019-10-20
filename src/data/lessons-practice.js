@@ -6,6 +6,7 @@ export const LessonsPractice =  [
     transcription: ['ʃi went','ши вент'],      
     translate: 'Она пошла.',
     type: 'past simple / affirmative',
+    words: ['he', 'I', 'come', 'give', 'you', 'go', 'will', 'will not', 'do', 'does' ]
   },
   {
     id: 2, 
@@ -13,7 +14,8 @@ export const LessonsPractice =  [
     phrase: 'She_does not_come.',
     transcription: ['ʃi dʌz nɒt kʌm','ши даз нот кам'],      
     translate: 'Она не приходит.',
-    type: 'present simple / negative'
+    type: 'present simple / negative',
+    words: ['he', 'they', 'went', 'give', 'you', 'go', 'will', 'will not', 'do', 'does' ]
   },
   {
     id: 3, 
@@ -21,7 +23,8 @@ export const LessonsPractice =  [
     phrase: 'They_explained.',
     transcription: ['ðeɪ ɪkˈspleɪnd','вей эксплейнд'],      
     translate: 'Они объяснили.',
-    type: 'past simple / affirmative'
+    type: 'past simple / affirmative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 4, 
@@ -29,7 +32,8 @@ export const LessonsPractice =  [
     phrase: 'Did_he_take?',
     transcription: ['did hi teik','дид хи тейк'],      
     translate: 'Он взял?',
-    type: 'past simple / interrogative'
+    type: 'past simple / interrogative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 5, 
@@ -37,7 +41,8 @@ export const LessonsPractice =  [
     phrase: 'You_will not_tell.',
     transcription: ['ju wɪl nɒt tel','ю вил нот тел'],      
     translate: 'Ты не расскажешь.',
-    type: 'future simple / negative'
+    type: 'future simple / negative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 6, 
@@ -45,7 +50,8 @@ export const LessonsPractice =  [
     phrase: 'Will_he_get?',
     transcription: ['wɪl hi ɡet','вил хи гэт'],      
     translate: 'Он получит?',
-    type: 'future simple / interrogative'
+    type: 'future simple / interrogative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 7, 
@@ -54,6 +60,7 @@ export const LessonsPractice =  [
     transcription: ['do wi brɪŋ','ду ви бринг'],      
     translate: 'Мы приносим?',
     type: 'present simple / interrogative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 8, 
@@ -62,6 +69,7 @@ export const LessonsPractice =  [
     transcription: ['aɪ bɪˈɡɪn','ай бигин'],      
     translate: 'Я начинаю.',
     type: 'present simple / affirmative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 9, 
@@ -70,6 +78,7 @@ export const LessonsPractice =  [
     transcription: ['ðeɪ dɪd nɒt ɪkˈspleɪn','вей дид нот эксплейн'],      
     translate: 'Они не объяснили.',
     type: 'past simple / negative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
   {
     id: 10, 
@@ -78,5 +87,6 @@ export const LessonsPractice =  [
     transcription: ['wɪl wi ʃəʊ','вил ви шоу'],      
     translate: 'Мы покажем?',
     type: 'future simple / interrogative',
+    words: ['he', 'she', 'went', 'gived', 'you', 'go', 'will', 'did not', 'do', 'does' ]
   },
 ];

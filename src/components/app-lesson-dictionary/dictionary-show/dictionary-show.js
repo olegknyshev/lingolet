@@ -10,8 +10,7 @@ export default class DictShow extends React.Component {
   };
 
   onClickShow(item) {
-    const { wordData } = this.props;
-    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
+    const { wordData } = this.props;    
     
     if (wordData.type !== '1. infinitive')
     this.setState((state) => ({
@@ -29,7 +28,7 @@ export default class DictShow extends React.Component {
 
   render() {    
     
-    let { wordData,  twoForms = []} = this.props;
+    let { wordData,  twoForms = [], soundPractik} = this.props;
 
     let wordThis = wordData;
 
@@ -43,7 +42,9 @@ export default class DictShow extends React.Component {
       case 3: buttonName ='теперь знаю'; break;
       default: buttonName ='Чудненько';
     }
-        
+    if (soundPractik && this.state.isAnswer) {
+      setTimeout(window.responsiveVoice.speak(wordThis.word, "UK English Female"),100);
+    }
     return (
       <div className='dictShow'>
         <div className='wordType'>{wordThis.type}</div>

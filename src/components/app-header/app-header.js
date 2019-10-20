@@ -1,8 +1,12 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
 import './app-header.css';
 
-const AppHeader = ({pageStatus, isLogin, onChange}) => {
+const AppHeader = (props) => {
+
+    console.log(props);
+
+    const {pageStatus, isLogin, onChange} = props;
 
     const AppHeaderUser =()=> {
         return (
@@ -50,4 +54,4 @@ const AppHeader = ({pageStatus, isLogin, onChange}) => {
     ); 
 }
 
-export default AppHeader;
+export default withRouter(AppHeader);

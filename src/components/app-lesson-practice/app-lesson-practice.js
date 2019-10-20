@@ -9,11 +9,11 @@ import {LessonsPractice} from '../../data/lessons-practice';
 
 export default class AppPractice extends Component {
 
-    static defaultProps = { maxLoops: 3,  isTranscR: false};
+    static defaultProps = { maxLoops: 3};
 
     state = {           
         countTest: 0,
-        progress: [{id: 1, right: 0, wrong: 0, count: 0}]
+        progress: [{id: 1, right: 5, wrong: 0, count: 0}]
     };
 
     onlyThisLesson() {
@@ -56,7 +56,7 @@ export default class AppPractice extends Component {
         }
     }
 
-    componentDidMount() { 
+    componentDidMount() {         
         let stateData = this.fromLocalStorage();        
         this.setState((state) => {         
             return stateData;
@@ -69,17 +69,10 @@ export default class AppPractice extends Component {
 
     isFinish() {
         const isAllLearned = this.state.progress.findIndex((item) => item.right < this.props.maxLoops);
-        if (isAllLearned === -1) return true; else return false;
+        return (isAllLearned === -1) ? true : false;
     }
 
-    reciveWrondDataButtons(idx) {
-        // const ArrShowedWord = this.state.progress.filter((item) => item.show === true);        
-        return ['wew', 'wewe',  'qweq', 'wwe', 'qwe', 'ffgf', 'fgfg', 'trhj', 'dsfdf', 'dfsdf', 'sdfdf', 'sdfdf', 'dfdf', 'dfdf', 'dfdf']
-    }
-
-    chooseButtons(rightWord) {
-        const arrButton = this.reciveWrondDataButtons(+this.props.match.params.id); 
-
+    chooseButtons(rightWord, arrButton) {
         let dataButton = [];
         while (dataButton.length < 6) {
             const word = arrButton[Math.floor(Math.random()*arrButton.length)];            
@@ -99,12 +92,12 @@ export default class AppPractice extends Component {
         const Arr = this.state.progress;             
         const ArrFiltered = Arr.filter((item) => item.right < this.props.maxLoops);      
         const idx = Math.floor(Math.random()*ArrFiltered.length);  
-        const data = this.findItemFromId(ArrFiltered[idx]);
+        const data = this.findItemFromId(ArrFiltered[idx]);        
 
         data.indexRightButtons = data.phrase.slice(0,-1).toLowerCase().split('_');
         data.buttons=[];
         for (let i=0; i < data.indexRightButtons.length; i+=1) {
-            data.buttons[i]=this.chooseButtons(data.indexRightButtons[i]);
+            data.buttons[i]=this.chooseButtons(data.indexRightButtons[i], data.words);
         }
         return data; 
     }
@@ -123,23 +116,26 @@ export default class AppPractice extends Component {
              'wrong': isWrong, 
             'count': count
             }; 
-        
          let progress = [
             ...this.state.progress.slice(0, idx),
             item,
             ...this.state.progress.slice(idx + 1)
           ]; 
-
-
        this.setState((state) => ({
         countTest, progress
       }));
     }
 
     render() {  
-        let body;
+        if (this.props.settings.lessonId !== +this.props.match.params.id) this.props.onChange({lessonId:+this.props.match.params.id});
+         let body;
         if (this.isFinish()) body = (<PracticeFinish lessonId = {+this.props.match.params.id}/>); 
-        else body = (<PracticeTest phrase={this.chooseNextTest()} onAnswer={this.handleNext} isTranscR={ this.props.isTranscR }/>);
+        else body = (<PracticeTest phrase={this.chooseNextTest()} 
+                                   onAnswer={this.handleNext} 
+                                   isTranscR={ this.props.settings.transcripR }
+                                   autoGo={ this.props.settings.autoGo }
+                                   soundPractik={ this.props.settings.soundPractik }
+                                   />);
         
         return (
             <div className='divDict'>

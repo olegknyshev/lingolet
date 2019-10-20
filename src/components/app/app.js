@@ -12,34 +12,28 @@ import Auth from '../auth';
 import AppSettings from '../app-settings';
 import AppStatistics from '../app-statistics';
 import './app.css';
-import {Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
-class App extends Component {
+export default class App extends Component {
 
     state = {
         isDark: false,
         isLogin: false,
         isFirstTime: true,
-        lessonId:  0,
-        fontSize: 0,
+        lessonId: 0,
         transcripR: false,
-        autoChek: true,
-        autoGo: true,
-        soundPractik: false,
-        soundTwice: false
+        autoGo: false,
+        soundPractik: true,
     };
 
     componentDidMount() {
         let data = FromLocalStorage();
-
         this.setState((state) => {                       
             return data;
-        });
-        
+        });        
     }
 
-    componentDidUpdate() {
-        
+    componentDidUpdate() {        
         localStorage.setItem('settings', JSON.stringify(this.state));
     }    
     
@@ -47,33 +41,20 @@ class App extends Component {
         this.setState((state) => {         
             return elem;
         });
-    }; 
+    }   
 
-    onToggleFont = (elem) => {
-        
-        this.setState((state) => { 
-            if (elem.fontSize === 0)
-            document.body.style.fontSize = '16px';
-            if (elem.fontSize === -1)
-            document.body.style.fontSize = '13px';
-            if (elem.fontSize === 1)
-            document.body.style.fontSize = '20px';
-            return elem;
-        });
-        
-    };         
-
-    render() {  
-        
+    render() { 
+                   
         let routes = (
             <Switch>
               <Route path="/auth" component={Auth} />
-              <Route path="/exam" component={AppExam} />              
-              <Route path="/lesson/theory/:id" component={AppLessonTheory} /> 
-              <Route path="/lesson/dictionary/:id" component={AppLessonDictionary} />               
-              <Route path="/lesson/practice/:id" component={AppLessonPractice} />              
-              <Route path="/settings" render={() => <AppSettings  settings = {this.state} onChange = {this.onToggleChange} onChangeFont = {this.onToggleFont}/>} />              <Route path="/statistics" component={AppStatistics} />              
-              <Route exact path="/" render={() => <AppMain onChange = {this.onToggleChange}/>} />
+              <Route path="/statistics" component={AppStatistics} />
+              <Route path='/exam' render={(props) => (<AppExam {...props} settings={this.state}/>)}/>
+              <Route path='/lesson/theory/:id' render={(props) => (<AppLessonTheory {...props} settings={this.state} onChange={ this.onToggleChange }/>)}/>             
+              <Route path='/lesson/dictionary/:id' render={(props) => (<AppLessonDictionary {...props} settings={this.state} onChange={ this.onToggleChange }/>)}/>
+              <Route path='/lesson/practice/:id' render={(props) => (<AppLessonPractice {...props} settings={this.state} onChange={ this.onToggleChange }/>)}/>        
+              <Route path="/settings" render={(props) => <AppSettings {...props} settings = {this.state} onChange = {this.onToggleChange} />} />              
+              <Route exact path="/" render={(props) => <AppMain {...props} onChange = {this.onToggleChange} isLogin = {this.state.isLogin}/>} />
               <Redirect to="/" />
             </Switch>
         );
@@ -95,6 +76,4 @@ class App extends Component {
             </div>
         );
     }
-};
-
-export default withRouter(App);
+}

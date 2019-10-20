@@ -1,0 +1,37 @@
+.statDiv {
+  position:relative;
+  background: #fff; 
+  display: block;
+  margin: 0 0 15px;  
+  padding: 10px 20px 15px;
+  transition: all .3s ease-out;
+}
+
+.dark .statDiv {
+  background: #333; 
+}
+
+.dark .statDiv h2, .dark .statDiv p {
+  color: #ddd;
+}
+
+.itog {background: #c4d600;}
+
+.statDiv h2 {
+  font-size: 1.2em;
+  color: #000;
+  margin:10px 0;
+}
+
+.statDiv h2 span{
+  color: #c4d600;
+}
+
+.statDiv p {
+  color: #000;
+  margin:10px 0;
+}
+
+.statDiv p span{
+  color: #4eb2cc;
+}

@@ -50,11 +50,21 @@ export default class DictQwest extends React.Component {
   }
 
   onRightAnswer(item) {
-    
+    const {autoGo, soundPractik} = this.props;
     const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
     let idx = Math.floor(Math.random()*congratulation.length);
-    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
-        
+    
+    if (soundPractik) {
+      setTimeout(window.responsiveVoice.speak(item, "UK English Female"),100);
+    }
+
+    if (autoGo) {
+      setTimeout(() => {this.setState({isAnswer: false, isTrue: true, tipColor: false, wrongAnswer: 0,}); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}, 1000);      
+      return (
+        <div className='congratulation'>
+          <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>        
+        </div>);
+    } else {        
     return (
     <div className='congratulation'>
       <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
@@ -62,7 +72,8 @@ export default class DictQwest extends React.Component {
       className='next'
       onClick={() => {this.setState({isAnswer: false, isTrue: true, tipColor: false, wrongAnswer: 0,}); this.props.onAnswer('QWESTWORD', this.props.wordData.id, this.state.isTrue)}}
       >Дальше</button>
-    </div>)
+    </div>);
+    }
   }
   
   render() {    

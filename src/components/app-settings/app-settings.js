@@ -1,7 +1,7 @@
 import React from 'react';
 import './app-settings.css';
 
-const AppSettings = ({settings, onChange, onChangeFont}) => {  
+const AppSettings = ({settings, onChange}) => {  
     
     return (
         <div className='divMain'>
@@ -24,57 +24,10 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                             />
                         <label htmlFor="checkbox-1"></label>
                     </div>
-                </div>
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Размер шрифта</div>
-                    <div className='right-settings'>
-                        <div>
-                            <input 
-                                className="radio" 
-                                id="radio-1" 
-                                type="radio" 
-                                name="radio"
-                                checked={settings.fontSize === -1 ? true : false} 
-                                onChange={() => onChangeFont({fontSize:-1})}/>
-                            <label htmlFor="radio-1">мелкий</label>
-                        </div>
-                        <div>
-                            <input 
-                                className="radio" 
-                                id="radio-2" 
-                                type="radio" 
-                                name="radio"
-                                checked={settings.fontSize === 0 ? true : false}
-                                onChange={() => onChangeFont({fontSize:0})} />
-    	                    <label htmlFor="radio-2">средний</label>
-                        </div>
-                        <div>
-                            <input 
-                                className="radio" 
-                                id="radio-3" 
-                                type="radio" 
-                                name="radio" 
-                                checked={settings.fontSize === 1 ? true : false}
-                                onChange={() => onChangeFont({fontSize:1})} />
-    	                    <label htmlFor="radio-3">крупный</label>
-                        </div>
-                    </div>
-                </div>
+                </div>                
                 
             </div>
                 <div className='settings-box test'>                    
-                    <div className='settings-box-tab'>                    
-                        <div className='left-settings'>Автопроверка</div>
-                        <div className='right-settings'>
-                            <input 
-                                className="checkbox" 
-                                id="checkbox-2" 
-                                type="checkbox"
-                                checked={settings.autoChek ? true : false}
-                                onChange={() => onChange({autoChek:!settings.autoChek})} />
-                            <label htmlFor="checkbox-2"></label>
-                        </div>
-                    </div>
                     <div className='settings-box-tab'>                    
                         <div className='left-settings'>Автопереход</div>
                         <div className='right-settings'>
@@ -97,8 +50,8 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                                 type="radio" 
                                 name="radio1"
                                 checked={!settings.transcripR ? true : false} 
-                                onChange={() => onChangeFont({transcripR:false})}/>
-                            <label htmlFor="radio-11">[ v'ot tak ]</label>
+                                onChange={() => onChange({transcripR:false})}/>
+                            <label htmlFor="radio-11">[ vɔ:t tʌk ]</label>
                         </div>
                         <div>
                             <input 
@@ -107,7 +60,7 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                                 type="radio" 
                                 name="radio1"
                                 checked={settings.transcripR ? true : false} 
-                                onChange={() => onChangeFont({transcripR:true})} />
+                                onChange={() => onChange({transcripR:true})} />
     	                    <label htmlFor="radio-12">[ или так ]</label>
                         </div>                   
                     </div>
@@ -115,21 +68,12 @@ const AppSettings = ({settings, onChange, onChangeFont}) => {
                 </div>
                 <div className='settings-box prononsiation'>                    
                 <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Озвучивать правильный ответ</div>
+                    <div className='left-settings'>Озвучивать ответ</div>
                     <div className='right-settings'>
                         <input className="checkbox" id="checkbox-4" type="checkbox"
-                         checked={settings.soundPractic ? true : false}
-                         onChange={() => onChange({soundPractic:!settings.soundPractic})}/>
+                         checked={settings.soundPractik ? true : false}
+                         onChange={() => onChange({soundPractik:!settings.soundPractik})}/>
                         <label htmlFor="checkbox-4"></label>
-                    </div>
-                </div>
-                <div className='settings-box-tab'>                    
-                    <div className='left-settings'>Повторять дважды</div>
-                    <div className='right-settings'>
-                        <input className="checkbox" id="checkbox-5" type="checkbox"
-                        checked={settings.soundTwice ? true : false}
-                        onChange={() => onChange({soundTwice:!settings.soundTwice})} />
-                        <label htmlFor="checkbox-5"></label>
                     </div>
                 </div>
                 </div>

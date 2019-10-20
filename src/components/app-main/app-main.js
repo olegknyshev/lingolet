@@ -4,23 +4,39 @@ import {NavLink} from 'react-router-dom';
 import './app-main.css';
 
 export default class AppMain extends Component {
-
+    static defaultProps = { maxLoops: 3};
 
     render() {
 
-        let dataProgress = [];
+        
+        const elements = LessonsTitel.map ((item) => { 
 
-        if (localStorage.getItem('dataProgress')) {
-            dataProgress = JSON.parse(localStorage.getItem('dataProgress'));
-          };  
-
-        const elements = LessonsTitel.map ((item, index) => { 
-                     
-            let progress = 'Этот урок вы еще не пробовали...';
-            if (dataProgress.length!==0) {
-                if (dataProgress[index].progress>0) progress = `Ваш прогресс: ${ dataProgress[index].progress }%`;
-                if (dataProgress[index].progress===100) progress = 'Ура, этот урок вы прошли!';
-            };
+            let dataD = {progress:[]};
+            let progressD = 0
+            if (localStorage.getItem(`lessonDic${item.id}`)) {
+                dataD = JSON.parse(localStorage.getItem(`lessonDic${item.id}`));
+                const  arr = dataD.progress;
+                let total = arr.length*this.props.maxLoops;
+                const sum = arr.reduce((partial_sum, a) => partial_sum + a.right,0); 
+                let totalProgress= sum*100/total;
+                progressD = totalProgress.toFixed();
+            } 
+            let dataP = {progress:[]};
+            let progressP = 0
+            if (localStorage.getItem(`lessonPractice${item.id}`)) {
+                dataP = JSON.parse(localStorage.getItem(`lessonPractice${item.id}`));
+                const  arr = dataP.progress;
+                let total = arr.length*this.props.maxLoops;
+                const sum = arr.reduce((partial_sum, a) => partial_sum + a.right,0); 
+                let totalProgress= sum*100/total;
+                progressP = totalProgress.toFixed();
+            }              
+            let tProgress = (((+progressP) + (+progressD)) / 2).toFixed(1);
+            let progress = 'Урок еще не начат.';
+            if (tProgress !== 0) {
+                if (tProgress > 0) progress = `Ваш прогресс: ${ tProgress }%`;
+                if (tProgress === 100) progress = 'Урок пройден.';
+            }
             
             return (
                 <NavLink
@@ -37,7 +53,7 @@ export default class AppMain extends Component {
                         </div>
                         <h2>{ item.titel }</h2>                        
                         <div className='LessonsBoxProgressB'></div>                  
-                        <div className='LessonsBoxProgress' style={{width: item.progress+'%'}}></div>
+                        <div className='LessonsBoxProgress' style={{width: tProgress+'%'}}></div>
                     </div>
                 </NavLink>
             );

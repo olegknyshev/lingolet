@@ -56,10 +56,16 @@
     border-radius: 50%;
 }
 
+.dark .logo > div {
+    
+    border:2px solid #000;
+    color:#000;
+    
+}
+
 .Layout header .AppHeaderUser button {
     margin-top:5px;
     position: relative;
-    z-index:60;
     background: #c4d600;
     border: 0px;
     border-radius: 20px;
@@ -69,6 +75,8 @@
     font-size: .9em;
     font-weight: bold;
 }
+
+.dark .AppHeaderUser button {color:#000;}
 
 .Layout header .AppHeaderUser button:hover {
     background: #43ac39;

@@ -41,7 +41,7 @@
   padding: 8px;
 }
 
-.dictionary .trName td {background: #666; color:#fff;}
+.dictionary .trName td {background: #4eb2cc; color:#fff;}
 
 .dictionary td {
   width:30%;
@@ -88,6 +88,8 @@ tr:nth-child(even) td { background-color:#fff } /* even*/
 
 td.transcription {color:#000}
 
+.dark td.transcription {color:#2bc4eb}
+
 td.sound {width:10%; text-align: center}
 
 .dictionary button:hover, .dictionary button.yes:hover  {
@@ -103,6 +105,10 @@ td.sound {width:10%; text-align: center}
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dark .dictShow {
+  background: #444;
 }
 
 .buttonQwest {
@@ -121,7 +127,7 @@ td.sound {width:10%; text-align: center}
   align-items: stretch;
 }
 
-.buttonWrite button {
+.buttonWrite button, .buttonWrite button:active {
   width:15vw; 
   max-width: 100px;
   max-height: 100px;
@@ -138,6 +144,13 @@ td.sound {width:10%; text-align: center}
   font-weight: bold;
 }
 
+.dark .buttonWrite button, .dark .buttonWrite button:active {
+  
+  background: #000;
+  color: #bbb;
+
+}
+
 .buttonWrite button:hover {
   background: #c4d600;
   color: #000;
@@ -147,7 +160,7 @@ td.sound {width:10%; text-align: center}
   animation: tip  3s linear;
 }
 
-.buttonQwest button {
+.buttonQwest button, .buttonQwest button:active {
   width:30%;
   margin:0px;
   margin-bottom: 2vh;
@@ -159,6 +172,12 @@ td.sound {width:10%; text-align: center}
   color: #000;
   font-size: 1em;
   font-weight: bold;
+}
+
+.dark .buttonQwest button, .dark .buttonQwest button:active {
+  background: #000;
+  border:0px solid #c4d600;
+  color: #bbb;
 }
 
 .buttonQwest button.tipColor {
@@ -201,7 +220,7 @@ td.sound {width:10%; text-align: center}
   left:0px;
   bottom:0px;
   width: 100%; 
-  background: #999;
+  background: linear-gradient(to right top, #4eb2cc, #005d79);
   height:5px;
 }
 
@@ -223,6 +242,10 @@ td.sound {width:10%; text-align: center}
   color:#666;
   padding:0 .5vh 1vh .5vh;
 }
+
+.dark .showProgressP {  
+  background: #000;
+  }
 
 .wordType {
   font-size: .8em;
@@ -246,35 +269,41 @@ td.sound {width:10%; text-align: center}
   margin-bottom: 2vh;
 }
 
+.dark .word {
+  color: #bbb;
+}
+
 .wordtranscription {
   font-size: 1em;
   font-weight: normal;
-  color: rgb(129, 148, 199);
+  color: #4eb2cc;
   margin-bottom: 2vh;
 }
 
 .wordtranslateQ {
   padding: 2vh;
-  font-size: 4vh;
+  font-size: 1em;
+  line-height: 5vh;
   height:5vh;
   width:70%;
   text-align: center;
-  background: #aaa;
+  background: #4eb2cc;
   border-radius: 10px;
-  font-weight: normal;
+  font-weight: bold;
   color: #fff;
   margin-bottom: 5vh;
 }
 
 .wordtranslateQwrite {
   padding: 2vh;
-  font-size: 4vh;
+  font-size: 1em;
+  line-height: 5vh;
   height:5vh;
   width:70%;
   text-align: center;
-  background: #aaa;
+  background: #4eb2cc;
   border-radius: 10px;
-  font-weight: normal;
+  font-weight: bold;
   color: #fff;
   margin-bottom: .5em;
 }
@@ -417,7 +446,13 @@ button[disabled]:hover {background: #ddd; color:#fff}
 }
 
 @media (min-width: 1201px)  { 
+  .wordtranslateQ {
+    font-size: 2em;
+  }
   
+  .wordtranslateQwrite {
+    font-size: 2em;    
+  }
 }
 
 

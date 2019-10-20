@@ -6,7 +6,7 @@
     justify-content: space-between;
     width: 100%;
     background: #fff;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #fff;
 }
 
 .dark nav {
@@ -14,12 +14,14 @@
 }
 
 .Layout nav a {
+    background: #4eb2cc;
+    min-width:25%;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #666;
+    color: #fff;
     font-weight: bold;
     font-size: .9em;
     padding: 10px 0;
@@ -29,10 +31,11 @@
 
 .dark nav a {
     color: #ddd;
+    background: #364246;
 }
 
 .Layout nav a:hover {
-    background: #ddd;
+    background: #005d79;
 }
 
 .dark nav a:hover {
@@ -40,12 +43,12 @@
 }
 
 .Layout nav a.active {
-    color: #000;
+    color: #fff;
     background: #c4d600;
 }
 
 .dark nav a.active {
-    background: #c4d600;
+    background: #07495a;
 }
 
 .fa-2x {
@@ -60,7 +63,8 @@
 
     .Layout nav a {
         padding: 0px 10px; 
-        border-bottom:1px solid #ccc;      
+        border-bottom:1px solid #fff; 
+        width:6em;     
     }
 
     .Layout nav a:last-child {

@@ -20,6 +20,12 @@
   font-weight: bold;
 }
 
+.dark .buttonPractice button {
+  background: #000;
+  color: #bbb;
+
+}
+
 .buttonPractice button:hover {
   background: #c4d600;
   color: #000;

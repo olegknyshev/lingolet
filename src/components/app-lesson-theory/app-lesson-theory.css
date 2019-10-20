@@ -6,9 +6,17 @@
   overflow-y: scroll;
 }
 
+.dark .theory {
+  height: 100%;
+  background: #000;
+  margin:0vh 1vw;
+  padding: 1vh 1vw;
+  overflow-y: scroll;
+}
+
 .theory h1 {
   font-size: 1.5em;
-  color:#75787b;
+  color:#4eb2cc;
   margin: 0 0 1em;
 }
 
@@ -19,7 +27,7 @@
 
 
 .theory h2 {
-  background: #75787b;
+  background: #4eb2cc;
   font-weight: normal;
   color:#fff;
   padding: .7em 1em;
@@ -29,7 +37,7 @@
 
 .theory h3 {
   font-weight: bold;
-  color:#c4d600;
+  color:#4eb2cc;
   margin: 2em 0 0;
   font-size: 1.1em;
 }
@@ -37,6 +45,10 @@
 .theory p {
   color:#525252;
   font-size: 1em;
+}
+
+.theory p.primer {
+font-style: italic;
 }
 
 .dark .theory p {
@@ -83,7 +95,7 @@ table.sub3 td {
   width:25%;
 }
 
-table.sub td { background-color:#ccc!important; } 
+table.sub td { background-color:#ddd!important; } 
 
 .dark table.sub td { background-color:#333!important; } 
 

@@ -33,19 +33,29 @@ export default class DictWrite extends React.Component {
   }
 
   onRightAnswer(item) {
-    
+    const {autoGo, soundPractik} = this.props;
     const congratulation = ['Супер!', 'Браво!', 'Отлично!', 'Гениально!', 'Прекрасно!', 'Талант!', 'Великолепно!', 'Умница!']
     let idx = Math.floor(Math.random()*congratulation.length);
-    setTimeout(window.responsiveVoice.speak(item, "UK English Female", {}),100);
-        
-    return (
-    <div className='congratulation'>
-      <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
-    <button 
-      className='next'
-      onClick={() => {this.setState({isAnswer: false, isTrue: true, wordInput: '', tipColor: false, indexLetter:0, nextLetter:'', wrongAnswer: 0}); this.props.onAnswer('WRITEWORD', this.props.wordData.id, this.state.isTrue)}}
-      >Дальше</button>
-    </div>)
+    
+    if (soundPractik) {
+      setTimeout(window.responsiveVoice.speak(item, "UK English Female"),100);
+    }
+    if (autoGo) {
+      setTimeout(() => {this.setState({isAnswer: false, isTrue: true, wordInput: '', tipColor: false, indexLetter:0, nextLetter:'', wrongAnswer: 0}); this.props.onAnswer('WRITEWORD', this.props.wordData.id, this.state.isTrue)}, 1000);      
+      return (
+        <div className='congratulation'>
+          <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>        
+        </div>);
+    } else {        
+      return (
+      <div className='congratulation'>
+        <h3>{this.state.isTrue ? congratulation[idx] : null}</h3>
+      <button 
+        className='next'
+        onClick={() => {this.setState({isAnswer: false, isTrue: true, wordInput: '', tipColor: false, indexLetter:0, nextLetter:'', wrongAnswer: 0}); this.props.onAnswer('WRITEWORD', this.props.wordData.id, this.state.isTrue)}}
+        >Дальше</button>
+      </div>);
+    }
   }
 
   render() {
@@ -54,7 +64,7 @@ export default class DictWrite extends React.Component {
     const tr = isTranscR ? wordData.transcription[1] : wordData.transcription[0];
 
     const elements = letters.map ((item, index) => 
-      <button className={this.state.tipColor && item === this.state.nextLetter ? 'tipColor' : null}
+      <button className={this.state.tipColor && item === wordData.word[this.state.indexLetter] ? 'tipColor' : null}
       key={item}
       onClick={() => this.clickAnswer(item)}
       >

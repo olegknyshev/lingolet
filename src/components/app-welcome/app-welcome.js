@@ -15,12 +15,6 @@ const AppWelcome = ({onChange}) => {
                 className='buttonWelcome'>
                     Начнем!
                 </button>
-
-                <div className='arrowBox'>
-                    Авторизация, открывает для вас 
-                    новый функционал: полный доступ к урокам, 
-                    статистику Вашего прогресса, ночной режим.
-                </div>
             </div>
         </div>
         );        

@@ -9,13 +9,12 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding-left: 30px;
+    align-items: center;
 }
 
 .welcomeBox > div {
-    margin-top:80px;
     padding:10px 20px;
+    background: rgba(0,0,0,.3);
     border:2px solid rgba(255, 255, 255,.3);
     border-radius: 20px;
 }
@@ -24,12 +23,13 @@
 
 .welcomeBox h1 {
     color: #c4d600;
-    font-size: 1.8em;
+    font-size: 1.3em;
+    line-height: 1.3em;
 }
 
 .welcomeBox p {
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .welcomeBox button {
@@ -47,99 +47,4 @@
 .welcomeBox button:hover {
     background: #43ac39;
     color: #fff;
-}
-
-.welcomeBox .arrowBox {
-    position: absolute;
-    top: 30px;
-    right:30px;
-    width:250px;
-    color:#fff;
-    font-size: 14px;
-}
-
-.welcomeBox .arrowBox:before {
-    content: url('/images/arrow.png'); 
-    display: block;
-    width: 75px; 
-    height: 60px;   
-    position: relative;
-    left: 100px;
-    top: -10px;
-}
-
-@media screen and (orientation:landscape) {
-
-    .welcomeBox {
-        padding-left: 20%;
-    }
-
-    .welcomeBox > div {
-        margin-top:100px;
-        padding:20px 30px;
-    }
-    
-
-    .welcomeBox h1 {
-        font-size: 2em;
-    }
-    
-    .welcomeBox p {
-        font-size: 1.4em;
-    }
-    
-    .welcomeBox .arrowBox {
-        position: absolute;
-        top: 9vh;
-        right:17vw;
-        width:350px;
-        color:#bbb;
-        font-size: 16px;
-    }
-    
-    .welcomeBox .arrowBox::before {
-        content: url('/images/arrow.png'); 
-        display: block;
-        width: 75px; 
-        height: 60px;   
-        position: relative;
-        left: 50px;
-        top: -10px;
-    }
-}
-
-@media (orientation:landscape) and (min-width: 1500px) and (max-width: 2000px) {
-    .welcomeBox .arrowBox::before {
-        content: url('/images/arrow.png'); 
-        display: block;
-        width: 75px; 
-        height: 60px;   
-        position: relative;
-        left: 20px;
-        top: -10px;
-    }
-}
-
-@media (orientation:landscape) and (min-width: 800px) and (max-width: 1500px) {
-    .welcomeBox .arrowBox::before {
-        content: url('/images/arrow.png'); 
-        display: block;
-        width: 75px; 
-        height: 60px;   
-        position: relative;
-        left: 150px;
-        top: -10px;
-    }
-}
-
-@media (orientation:landscape) and (min-width: 300px) and (max-width: 800px) {
-    .welcomeBox .arrowBox::before {
-        content: url('/images/arrow.png'); 
-        display: block;
-        width: 75px; 
-        height: 60px;   
-        position: relative;
-        left: 50px;
-        top: -10px;
-    }
 }
